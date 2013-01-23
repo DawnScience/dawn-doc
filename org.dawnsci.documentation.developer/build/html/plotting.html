@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Plot server &mdash; org.dawnsci.documentation.user 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user 1.1 documentation" href="index.html" />
+    <link rel="next" title="7. Contributors to the SciSoft project" href="ACKS.html" />
+    <link rel="prev" title="3. Input/Output" href="fileio.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user 1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>4. Plot server</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="fileio.html">3. Input/Output</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="ACKS.html">7. Contributors to the SciSoft project</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="plot-server">
+<h1>4. Plot server<a class="headerlink" href="#plot-server" title="Permalink to this headline">¶</a></h1>
+<p>The plot server sits on the command server and acts an intermediary between
+the command server and the GUI clients. GUI information and plot data can be
+passed back and forth. It also passes NeXus trees.</p>
+<p>There is a <tt class="docutils literal"><span class="pre">PlotServer</span></tt> interface defined and the initial implementation
+was a pure CORBA setup using GDA&#8217;s <tt class="docutils literal"><span class="pre">DeviceBase</span></tt> class. On the GDA server
+side (at the moment this is in the uk.ac.gda.core hierarchy), there&#8217;s a
+<tt class="docutils literal"><span class="pre">PlotServerBase</span></tt> class which implements the <tt class="docutils literal"><span class="pre">PlotServerDevice</span> <span class="pre">interface</span></tt>
+which is a joint interface that combines <tt class="docutils literal"><span class="pre">PlotServer</span></tt> and GDA&#8217;s <tt class="docutils literal"><span class="pre">Device</span></tt>.</p>
+<p>On the client side, a OSGi service ties the client to the server. If such a
+service is unavailable, a <tt class="docutils literal"><span class="pre">SimplePlotServer</span></tt> is created. This class fulfils
+the <tt class="docutils literal"><span class="pre">PlotServer</span></tt> interface and provides a local, simplified server that does
+not communicate with anything else. This class contains two !HashMaps to store
+the GUI information and plot data. It is also a delegate of <tt class="docutils literal"><span class="pre">PlotServerBase</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">PlotServer</span></tt> interface specifies methods to obtain GUI state, and get and
+set plot data. It also notifies clients to update their GUI and plot data.</p>
+<p>GUI state information is held in a <tt class="docutils literal"><span class="pre">GuiBean</span></tt> which is a <tt class="docutils literal"><span class="pre">HashMap</span></tt> of
+serializable objects indexed by key strings. Objects held in a <tt class="docutils literal"><span class="pre">GuiBean</span></tt>
+should be as small as possible as these beans will be sent back to the server
+and then that may send beans on to other clients.</p>
+<p>Plot data is held in a <tt class="docutils literal"><span class="pre">DataBean</span></tt> - see section below. This class allows plot
+data, axes definitions and NeXus trees to be accumulated and aggregated. The
+axis mapping information is held in an <tt class="docutils literal"><span class="pre">AxisMapBean</span></tt> which comprises an array
+of <tt class="docutils literal"><span class="pre">axisID</span></tt> strings and a map mode. The mapping information is combined with
+a dataset to form a <tt class="docutils literal"><span class="pre">DataSetWithAxisInformation</span></tt> class. A <tt class="docutils literal"><span class="pre">DataBean</span></tt>
+comprises a collection of <tt class="docutils literal"><span class="pre">DataSetWithAxisInformation</span></tt> objects together with
+a <tt class="docutils literal"><span class="pre">HashMap</span></tt> of axis datasets and a collection of NeXus trees.</p>
+<p>Before sending any plot data, a <tt class="docutils literal"><span class="pre">GuiBean</span></tt> needs to be send to specify what
+mode of plotting should be executed on the data received! This order is
+mandatory. See below for a list of modes.</p>
+<p>There are (at present) two axis map modes: DIRECT for independent (or separable)
+axes and FULL for dependent (or inseparable) axes. The distinction is that the
+DIRECT mode specifies a single dimension&#8217;s index mapping so each dimension in a
+dataset is independent and separable. For example, the (x,y,z) values directly
+depend on indexes (i,j,k) so when we plot scalarfield(x,y,z) then we need one
+scalarfield array (indexed by [i,j,k]) and three axis datasets (xaxis[i], yaxis[j], zaxis[k]).</p>
+<p>A simple 3D plot example would look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sfield is a 3D dataset</span>
+<span class="c"># xaxis, yaxis, zaxis are 1D datasets</span>
+
+<span class="kn">import</span> <span class="nn">uk.ac.diamond.scisoft.analysis.plotserver.DataBean</span>
+
+<span class="n">plotData</span> <span class="o">=</span> <span class="n">DataBean</span><span class="p">()</span>                         <span class="c"># create new data bean</span>
+<span class="n">plotData</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">XAXIS</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">)</span>    <span class="c"># stuff axis datasets</span>
+<span class="n">plotData</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">YAXIS</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">)</span>
+<span class="n">plotData</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">ZAXIS</span><span class="p">,</span> <span class="n">zaxis</span><span class="p">)</span>
+
+<span class="n">amb</span> <span class="o">=</span> <span class="n">AxisMapBean</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">DIRECT</span><span class="p">)</span>         <span class="c"># create new DIRECT axis mapping bean</span>
+<span class="n">amb</span><span class="o">.</span><span class="n">setAxisID</span><span class="p">([</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">XAXIS</span><span class="p">,</span> <span class="n">AxisMapBean</span><span class="o">.</span><span class="n">YAXIS</span><span class="p">,</span> <span class="n">AxisMapBean</span><span class="o">.</span><span class="n">ZAXIS</span><span class="p">])</span>
+                                              <span class="c"># list the axis datasets&#39; names</span>
+
+<span class="n">scalar</span> <span class="o">=</span> <span class="n">DataSetWithAxisInformation</span><span class="p">()</span>         <span class="c"># create data and axis-mapping container</span>
+<span class="n">scalar</span><span class="o">.</span><span class="n">setAxisMap</span><span class="p">(</span><span class="n">amb</span><span class="p">)</span>                        <span class="c"># set axis-mapping (NB need to set this before setting data)</span>
+<span class="n">scalar</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">sfield</span><span class="p">)</span>                        <span class="c"># set data</span>
+
+<span class="n">plotData</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>                      <span class="c"># add dataset</span>
+
+<span class="n">ps</span> <span class="o">=</span> <span class="n">finder</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;plot_server&quot;</span><span class="p">)</span>               <span class="c"># find plot server</span>
+<span class="n">guiBean</span> <span class="o">=</span> <span class="n">GuiBean</span><span class="p">()</span>                           <span class="c"># create a GUI bean</span>
+<span class="n">guiBean</span><span class="p">[</span><span class="n">GuiParameters</span><span class="o">.</span><span class="n">PLOTMODE</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;3DVolume&quot;</span>
+                                              <span class="c"># specify the plotting mode</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">updateGui</span><span class="p">(</span><span class="s">&quot;Plot View&quot;</span><span class="p">,</span> <span class="n">guiBean</span><span class="p">)</span>            <span class="c"># send the GUI bean</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="s">&quot;Plot View&quot;</span><span class="p">,</span> <span class="n">plotData</span><span class="p">)</span>             <span class="c"># fire plot data to it</span>
+</pre></div>
+</div>
+<p>The FULL mode is used when the indexes are intertwined to create new
+coordinates. For example, (x,y) maps to (r,phi) in an inseparable manner so for
+a 2D example, scalarfield (indexed by [i,j]) needs 2 accompanying axis 2D
+datasets (xaxis[i,j] and yaxis[i,j]):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sfield is a 2D dataset</span>
+<span class="c"># xaxis, yaxis are 2D datasets</span>
+
+<span class="kn">from</span> <span class="nn">uk.ac.diamond.scisoft.analysis.plotserver</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">plotData</span> <span class="o">=</span> <span class="n">DataBean</span><span class="p">()</span>                         <span class="c"># create new data bean</span>
+<span class="n">plotData</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">XAXIS</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">)</span>    <span class="c"># stuff axis 2D datasets</span>
+<span class="n">plotData</span><span class="o">.</span><span class="n">addAxis</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">YAXIS</span><span class="p">,</span> <span class="n">yaxis</span><span class="p">)</span>
+
+<span class="n">amb</span> <span class="o">=</span> <span class="n">AxisMapBean</span><span class="p">(</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">FULL</span><span class="p">)</span>           <span class="c"># create new FULL axis mapping bean</span>
+<span class="n">amb</span><span class="o">.</span><span class="n">setAxisID</span><span class="p">([</span><span class="n">AxisMapBean</span><span class="o">.</span><span class="n">XAXIS</span><span class="p">,</span> <span class="n">AxisMapBean</span><span class="o">.</span><span class="n">YAXIS</span><span class="p">])</span>
+                                              <span class="c"># list the axis datasets&#39; names</span>
+
+<span class="n">scalar</span> <span class="o">=</span> <span class="n">DataSetWithAxisInformation</span><span class="p">()</span>         <span class="c"># create data and axis-mapping container</span>
+<span class="n">scalar</span><span class="o">.</span><span class="n">setAxisMap</span><span class="p">(</span><span class="n">amb</span><span class="p">)</span>                        <span class="c"># set axis-mapping (NB need to set this before setting data)</span>
+<span class="n">scalar</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="n">sfield</span><span class="p">)</span>                        <span class="c"># set data</span>
+
+<span class="n">plotData</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>                      <span class="c"># add dataset</span>
+<span class="n">guiBean</span> <span class="o">=</span> <span class="n">GuiBean</span><span class="p">()</span>                           <span class="c"># create a GUI bean</span>
+<span class="n">guiBean</span><span class="p">[</span><span class="n">GuiParameters</span><span class="o">.</span><span class="n">PLOTMODE</span><span class="p">]</span> <span class="o">=</span> <span class="n">GuiplotMode</span><span class="o">.</span><span class="n">TWOD</span>
+                                              <span class="c"># specify the plotting mode</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">finder</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;plot_server&quot;</span><span class="p">)</span>               <span class="c"># find plot server</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">updateGui</span><span class="p">(</span><span class="s">&quot;Plot View&quot;</span><span class="p">,</span> <span class="n">guiBean</span><span class="p">)</span>            <span class="c"># send the GUI bean to the client</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="s">&quot;Plot View&quot;</span><span class="p">,</span> <span class="n">plotData</span><span class="p">)</span>             <span class="c"># fire plot data to it</span>
+</pre></div>
+</div>
+<p>NB for 1D datasets, the two modes are equivalent.</p>
+<p>The GUI can be sent additional information to change the presentation of the
+plot or the state of any analyses. Here is an example of setting such a parameter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">guiBean</span> <span class="o">=</span> <span class="n">GuiBean</span><span class="p">()</span>
+<span class="n">guiBean</span><span class="p">[</span><span class="n">GuiParameters</span><span class="o">.</span><span class="n">TITLE</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;My graph title&quot;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">updateGui</span><span class="p">(</span><span class="s">&quot;Plot View&quot;</span><span class="p">,</span> <span class="n">guiBean</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="server-side">
+<h2>4.1. Server side<a class="headerlink" href="#server-side" title="Permalink to this headline">¶</a></h2>
+<p>As seen in the above section, the plot server object has methods to set the
+plot and GUI data. The base class extends a !DeviceBase and implements the plot
+server interface that specifies said methods.</p>
+<p>There is a helper class called RCPPlotter to simplify access to the plot server.
+It sends datasets to be plotted to a plot view called &#8220;Plot 1&#8221;.</p>
+</div>
+<div class="section" id="client-side">
+<h2>4.2. Client side<a class="headerlink" href="#client-side" title="Permalink to this headline">¶</a></h2>
+<p>Any plotting GUI needs to find the instance of the plot server then add itself
+to that server&#8217;s list of Observers. In doing so, it needs to implement the
+IObserver interface and contain an update() method to receive update
+notifications from the plot server. The updates that pertain to the GUI (new
+data or GUI beans) are handled and if the GUI wants to publish GUI information,
+it calls the plot server&#8217;s updateGui method.</p>
+<p>Currently, the [wiki:SciRCPPlotView PlotView] class is a RCP !ViewPart that
+implements our plotting GUI.</p>
+</div>
+<div class="section" id="client-server-information">
+<h2>4.3. Client/Server information<a class="headerlink" href="#client-server-information" title="Permalink to this headline">¶</a></h2>
+<p>Apart from the data been passed from server to client, GUI information can be
+sent both ways. As mentioned above, a !GuiBean is used to achieve this by
+encapsulating any client state information.</p>
+<dl class="docutils">
+<dt>The !GuiParameter class holds:</dt>
+<dd><dl class="first last docutils">
+<dt>PLOTMODE::</dt>
+<dd>One of the following constant from !GuiPlotMode class
+* ONED for XY 1D scalar data plot
+* TWOD for Image plot 2D scalar data
+* SURF2D for Surface plotting 2D scalar data
+* ONED_THREED&#8221; for 3D Plotting many 1Ds
+* &#8220;VOLUME3D&#8221; for Volume rendering 3D scalar data, &#8216;&#8217;&#8216;not implemented&#8217;&#8216;&#8217;
+* &#8220;SERIES2D&#8221; for plotting more than one 2D image, &#8216;&#8217;&#8216;not implemented&#8217;&#8216;&#8217;</dd>
+<dt>TITLE::</dt>
+<dd>Title of plot</dd>
+<dt>ROIDATA::</dt>
+<dd>A region of interest object
+* Linear ROI
+* Rectangular ROI
+* Sector ROI</dd>
+<dt>ROILISTDATA::</dt>
+<dd>A homogeneous list of ROI objects</dd>
+<dt>PLOTID::</dt>
+<dd>A universal (or nearly) unique identifier for each plot client. This is
+generated by each client on its initialization and used to filter out
+updates from the plot server that refer to itself.</dd>
+<dt>FILESELECTEDLIST::</dt>
+<dd>A list of names of the files selected by a plot client with the image
+explorer view.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="data-bean">
+<h2>4.4. Data Bean<a class="headerlink" href="#data-bean" title="Permalink to this headline">¶</a></h2>
+<p>A !DataBean holds (bulk) data to be passed from server to client. It holds a
+HashMap of axes defined by names and datasets, a list of
+!DataSetWithAxisInformation and a list of HDF5File. It has the
+following methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li>addAxis(String, !DataSet)</li>
+<li>addData(!DataSetWithAxisInformation)</li>
+<li>addHDF5Tree(HDF5File)</li>
+<li>getAxis(String) returns a !DataSet</li>
+<li>getData() returns a collection of !DataSetWithAxisInformation</li>
+<li>HDF5Trees() returns a list of HDF5File</li>
+<li>setData(List&lt;!DataSetWithAxisInformation&gt;)</li>
+<li>setHDF5Trees(List&lt;HDF5File&gt;)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="jython">
+<h2>4.5. Jython<a class="headerlink" href="#jython" title="Permalink to this headline">¶</a></h2>
+<p>The plot client regularly updates the plot server with GUI information. This
+can be obtained from the server using the RCPPlotter class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">uk.ac.diamond.scisoft.analysis.plotserver</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># grab a GUI bean</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">RCPPlotter</span><span class="o">.</span><span class="n">setGuiBean</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The GuiBean is a dictionary object with a set of possible keys listed in the
+GuiParameters class. <tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt> is returned if there is no dictionary present. You
+can add in new entries or overwrite existing ones. Modified GUI beans can be
+pushed back to the server:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">setGuiBean</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="n">gb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and the client will respond appropriately to the updated GUI information. The
+keys for the dictionary are listed as strings in the GuiParameters class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">dir</span><span class="p">(</span><span class="n">GuiParameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-view">
+<h1>5. Plot View<a class="headerlink" href="#plot-view" title="Permalink to this headline">¶</a></h1>
+<p>The plot view is the main window where all graphical plotting is displayed.
+Plot view is a generic plotting UI, that allows graphical plotting of different
+scalar dataset types. Currently supported scalar type sets are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>multiple 1D scalar</li>
+</ul>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/plot1d.png" src="_images/plot1d.png" />
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>multiple 1D scalar as a series in 3D</li>
+</ul>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/plot1d_3d.png" src="_images/plot1d_3d.png" />
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>2D scalar as image</li>
+</ul>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/plot2d.png" src="_images/plot2d.png" />
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>2D scalar as 3D surface plot</li>
+</ul>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/plot2d_surf.png" src="_images/plot2d_surf.png" />
+</div>
+</div></blockquote>
+</div></blockquote>
+<p>It is possible to have more than one instance of the Plot view open and plot to
+simultaneously and usually they are named Plot 1, Plot 2, ..., Plot n. The name
+is important since it is used to send data to via the Jython terminal.</p>
+<div class="section" id="id1">
+<h2>5.1. Jython<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Plotting any data in any form to one of the Plot Views can be done from
+the server using the RCPPlotter class:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">1D scalar plots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="n">xAxisDataSet</span><span class="p">,</span> <span class="n">yAxisDataSet</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">multiple 1D scalar plots as 3D series:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">stackPlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="n">xAxisDataSet</span><span class="p">,</span> <span class="p">[</span><span class="n">yAxisDataSet1</span><span class="p">,</span> <span class="n">yAxisDataSet2</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">yAxisDataSetn</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>or in case of multiple x-axis:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">stackPlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">xAxisDataSet1</span><span class="p">,</span> <span class="n">xAxisDataSet2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">xAxisDataSetn</span><span class="p">],</span>
+                     <span class="p">[</span><span class="n">yAxisDataSet1</span><span class="p">,</span> <span class="n">yAxisDataSet2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">yAxisDataSetn</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>or if the z axis should be specified as well:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">stackPlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="n">xAxisDataSet</span><span class="p">,</span>
+                     <span class="p">[</span><span class="n">yAxisDataSet1</span><span class="p">,</span> <span class="n">yAxisDataSet2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">yAxisDataSetn</span><span class="p">],</span>
+                     <span class="n">zAxisDataSet</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>combination of the previous two:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">stackPlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">xAxisDataSet1</span><span class="p">,</span> <span class="n">xAxisDataSet2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">xAxisDataSetn</span><span class="p">],</span>
+                     <span class="p">[</span><span class="n">yAxisDataSet1</span><span class="p">,</span> <span class="n">yAxisDataSet2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">yAxisDataSetn</span><span class="p">],</span>
+                     <span class="n">zAxisDataSet</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">2D scalar image plots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">imagePlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span><span class="n">imageDataSet</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">2D scalar 3D surface plots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RCPPlotter</span><span class="o">.</span><span class="n">surfacePlot</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span><span class="n">imageDataSet</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>Both 2D image plots and 2D surface plots will open automatically a histogram
+view panel that is associated to the plot view. Through the histogram view it
+is possible to control the mapping of the data values in the plotted image to
+the different colour channels.</p>
+<div class="figure">
+<img alt="_images/histogram.png" src="_images/histogram.png" />
+</div>
+</div>
+</div>
+<div class="section" id="d-image-plot-profiles">
+<h1>6. 2D Image Plot Profiles<a class="headerlink" href="#d-image-plot-profiles" title="Permalink to this headline">¶</a></h1>
+<p>The plot profile tools inhabit a side plot panel. The tools are activated by
+clicking on the toolbar buttons in the plot view. These buttons become visible
+when an image is plotted.</p>
+<p>The coordinate system used in the image plot is in pixels starting from the
+upper left at (0,0) with x increasing when moving left and y increasing moving
+down. Angles are measured from the horizontal and increases when moving
+clockwise.</p>
+<p>There are three profile tools: line, box and sector tools. Each allows the
+selection of multiple regions of interest (ROIs). The purpose of the ROIs is
+to allow profiles of the image within a ROI to be plotted. These plots reside
+in the top part of the panel.</p>
+<div class="figure">
+<img alt="_images/lprof01.png" src="_images/lprof01.png" />
+<p class="caption">Line profile tool</p>
+</div>
+<p>When a profile tool is active, a region of interest can be specified using the
+mouse to click and drag out a ROI. The ROI is shown as an overlay on the
+image. Once done, the ROI can be further manipulated with use of its handle
+areas. The brightness of the ROI outline can be inverted using the
+&#8220;Invert brightness&#8221; checkbox to improve its contrast with the image.</p>
+<p>The handle areas operate in two ways: a left click on an area enables that
+area, and the part of the ROI to which it is attached, to be moved; a right
+click (or alternatively, simultaneous holding a shift key and left clicking)
+cause some type of rotation to occur. Generally, a central handle area allows
+translation of the ROI  or rotation about that handle area. A handle area at a
+vertex will allow resize of the ROI (leaving the opposing vertex fixed) or
+rotate about the opposite vertex.</p>
+<p>Once a profile is plotted, it can be added to a store using a toolbar button
+above the plotting area. The oldest item in the store also can be removed using
+a toolbar button. There are separate stores for each type of profile.</p>
+<p>Each linear ROI can have an optional cross, linear ROI defined to form a
+cross-hair. This cross ROI is a perpendicular bisector of the same length as its
+partner. The line profile is plotted in the graph and dashed lines are used for
+cross ROIs.</p>
+<div class="figure">
+<img alt="_images/bprof01.png" src="_images/bprof01.png" />
+<p class="caption">Box profile tool</p>
+</div>
+<p>A rectangular ROI defined in the box profile tool is defined by its starting
+point, width (major axis length), height (minor axis length) and orientation
+angle of its major axis. The upper graph shows the integration values over
+the minor axis as the position on the major axis is varied. The lower graph
+shows the converse. There is a &#8220;clipping comp&#8221; checkbox available that attempts
+to compensate for the situation where a ROI lies partially outside the image,
+i.e. the ROI is clipped by the boundaries of the image. In this case, some of
+the integration values are subdued by the lack of pixels (they are represented
+by zeros in the ROI) outside the image and the compensation scheme boosts those
+values by the ratio of the full integration length to the clipped length. Note
+that this compensation can introduce extrapolation errors and is prone to
+erroneous results where the clipped length is short and when the pixel values
+are noisy.</p>
+<p>The sector ROI is distinguished by the necessity of defining a centre point.
+Once defined, the sector ROI operates in a manner dictated by a polar
+coordinate system (radius <em>r</em>, angle <em>phi</em>) so rotation operations on the
+handle areas act like translations in polar coordinates. Also, the angular
+symmetry can be selected for a sector ROI that can alter the ROI or make a
+copy subject selected symmetry:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>None</em></dt>
+<dd>No symmetry</dd>
+<dt><em>Full</em></dt>
+<dd>360 degrees</dd>
+<dt><em>L/R reflect</em></dt>
+<dd>Left/right reflection</dd>
+<dt><em>U/D reflect</em></dt>
+<dd>Up/down reflection</dd>
+<dt><em>+90</em></dt>
+<dd>Rotate 90 degrees clockwise</dd>
+<dt><em>-90</em></dt>
+<dd>Rotate 90 degrees anti-clockwise</dd>
+<dt><em>Invert</em></dt>
+<dd>Invert through centre</dd>
+</dl>
+</div></blockquote>
+<p>The upper graph shows the azimuthal integration as the radius is varied and the
+lower graph shows the radial integration as the azimuth angle is changed.
+Ticking the &#8220;combine symmetry&#8221; checkbox allows any separate symmetry-selected
+ROI to be combined in the profile plots, otherwise the separate ROI is plotted
+as dashed lines.</p>
+<p>The current ROI can also be modified using the spinner widgets that are
+displayed in the centre part of the side plot panel. Each spinner is editable
+and can alter a parameter of the ROI. Once the ROI has been defined, it can be
+saved and then displayed in the table at the bottom of the panel.</p>
+<div class="figure">
+<img alt="_images/sprof01.png" src="_images/sprof01.png" />
+<p class="caption">Sector profile tool</p>
+</div>
+<p>Multiple ROIs can have their profiles plotted by clicking on the checkboxes in
+the table. Any ROI in the table can be selected and replace the current ROI,
+copied in place of the current ROI or deleted using a right mouse click
+anywhere on the row of the ROI.</p>
+<div class="section" id="roi-objects">
+<h2>6.1. ROI objects<a class="headerlink" href="#roi-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>The regions of interest defined are:</dt>
+<dd><dl class="first last docutils">
+<dt><em>LinearROI</em></dt>
+<dd>A line segment defined by its starting point, length and angle</dd>
+<dt><em>RectangularROI</em></dt>
+<dd>A rectangle defined by its starting point, width, height and
+angle</dd>
+<dt><em>SectorROI</em></dt>
+<dd>A sector defined by its centre point, bounds on radius and azimuthal angle</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>6.2. Jython<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The current ROI and any ROIs stored in the table are sent via a GUI bean back
+to the plot server. A GUIBean is a Jython dictionary object and is obtained as
+follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">uk.ac.diamond.scisoft.analysis.dataset.roi</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">gb</span> <span class="o">=</span> <span class="n">RCPPlotter</span><span class="o">.</span><span class="n">getGuiBean</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The current ROI is held in the GUIBean object under the key &#8220;ROIData&#8221; and the
+table of ROIs under the key &#8220;ROIDataList&#8221;. The values of the keys depend on
+which plot profile tool is active.</p>
+<p>When the line profile tool is being used, the ROIData item is a LinearROI object
+and any stored ROIs are held in a Jython list of LinearROIs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cr</span> <span class="o">=</span> <span class="n">gb</span><span class="p">[</span><span class="s">&quot;ROIData&quot;</span><span class="p">]</span> <span class="c"># or gb[GuiParameters.ROIDATA]</span>
+
+<span class="c"># print current ROI&#39;s starting point, length and angle (in radians)</span>
+<span class="k">print</span> <span class="n">cr</span><span class="o">.</span><span class="n">point</span><span class="p">,</span> <span class="n">cr</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">cr</span><span class="o">.</span><span class="n">angle</span>
+
+<span class="n">lr</span> <span class="o">=</span> <span class="n">gb</span><span class="p">[</span><span class="s">&quot;ROIDataList&quot;</span><span class="p">]</span>
+
+<span class="c"># get first item</span>
+<span class="n">ra</span> <span class="o">=</span> <span class="n">lr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="n">ra</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">ra</span><span class="o">.</span><span class="n">angleDegrees</span>
+
+<span class="c"># copy ROI from list</span>
+<span class="n">roi</span> <span class="o">=</span> <span class="n">gb</span><span class="p">[</span><span class="s">&quot;ROIDataList&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c"># modify ROI</span>
+<span class="n">roi</span><span class="o">.</span><span class="n">setPoint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c"># create new bean and add ROI</span>
+<span class="n">gbb</span> <span class="o">=</span> <span class="n">GuiBean</span><span class="p">()</span>
+<span class="nb">list</span> <span class="o">=</span> <span class="n">LinearROIList</span><span class="p">()</span>
+<span class="nb">list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">roi</span><span class="p">)</span>
+<span class="n">gbb</span><span class="p">[</span><span class="s">&quot;ROIDataList&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span>
+
+<span class="c"># push bean back</span>
+<span class="n">RCPPlotter</span><span class="o">.</span><span class="n">setGuiBean</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">,</span> <span class="n">gbb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ROIs obtained from the client can be used with image datasets to calculate
+profile datasets on the server:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># for a linear ROI lroi, image dataset and a step size of 0.5 pixels,</span>
+<span class="c"># lprof is a list of datasets. The first element is the profile along the</span>
+<span class="c"># line and the second element is along the perpendicular bisector (if the</span>
+<span class="c"># crosshair option is set)</span>
+<span class="n">lprof</span> <span class="o">=</span> <span class="n">ROIProfile</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">lroi</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="fileio.html">3. Input/Output</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="ACKS.html">7. Contributors to the SciSoft project</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

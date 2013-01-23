@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Generic dataset &mdash; org.dawnsci.documentation.user 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user 1.1 documentation" href="index.html" />
+    <link rel="next" title="3. Input/Output" href="fileio.html" />
+    <link rel="prev" title="1. Developer Guide to the Diamond Scisoft Data Analysis Plugin" href="scisoftdg.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user 1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>2. Generic dataset</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="scisoftdg.html">1. Developer Guide to the Diamond Scisoft Data Analysis Plugin</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="fileio.html">3. Input/Output</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="generic-dataset">
+<h1>2. Generic dataset<a class="headerlink" href="#generic-dataset" title="Permalink to this headline">¶</a></h1>
+<p><strong>Warning</strong>: This section is aimed at a Java developer.</p>
+<p>A set of dataset classes are provided for the storage of <em>n</em>-dimensional arrays
+of Java primitive types.</p>
+<p>A Scisoft dataset is a homogeneous collection of items where each item is
+accessed via a set of <em>n</em> (integer) indices - i.e. an <em>n</em>-D array. The location
+of an item as specified by <em>n</em> indices is called the position (of that item) in
+a dataset. An item can consist of number of elements - that number is fixed for
+each dataset class. The elements are of a single Java primitive type. The shape
+of a dataset is a set of positive integers which describe the upper bound of
+the indices given by a position. So <em>0 &lt;= p_i &lt; s_i</em> for <em>i = 0 to n-1</em>.</p>
+<p>The class hierarchy begins with the ILazyDataset interface which is a minimal
+interface to allow data access to be deferred. It is used by file loaders
+particularly if the file format can handle very large datasets.</p>
+<div class="section" id="ilazydataset">
+<h2>2.1. ILazyDataset<a class="headerlink" href="#ilazydataset" title="Permalink to this headline">¶</a></h2>
+<p>The following methods are declared:</p>
+<div class="highlight-python"><pre>public Class&lt;?&gt; elementClass();    // Java boxed primitive class
+
+public String getName();           // name of dataset
+
+public void setName(final String name); // set name
+
+public int getRank();              // rank of dataset
+
+public int getSize();              // total number of elements in dataset
+
+public int[] getShape();           // shape of dataset
+
+public void setShape(final int... shape); // set shape
+
+public ILazyDataset squeeze();     // remove dimensions of 1 in shape
+
+public ILazyDataset squeeze(boolean onlyFromEnd);
+                                   // remove dimensions of 1 in shape (from end only if true)
+
+public IDataset getSlice(final int[] start, final int[] stop, final int[] step);
+                                   // slice of dataset
+
+public IDataset getSlice(final IMonitor monitor, final int[] start, final int[] stop, final int[] step);
+                                   // slice of dataset
+
+public IDataset getSlice(final Slice... slice);
+                                   // slice of dataset as specified by an array of slices
+
+public IDataset getSlice(final IMonitor, final Slice... slice);
+                                   // slice of dataset as specified by an array of slices
+
+public void setMetadata(final IMetaData metadata); // set metadata
+
+public ILazyDataset clone();       // copy structure</pre>
+</div>
+<p>Next, the IDataset interface implements ILazyDataset and which allows
+interoperability with dataset classes external to the Scisoft plugin. This
+interface specifies the minimal set of methods that our plotting tools will
+use. An abstract base class is defined which contains dataset-neutral methods,
+common methods and static factory methods. A further abstract class extends the
+base class to allow datasets of compound elements.</p>
+</div>
+<div class="section" id="idataset">
+<h2>2.2. IDataset<a class="headerlink" href="#idataset" title="Permalink to this headline">¶</a></h2>
+<p>The following methods are declared:</p>
+<div class="highlight-python"><pre>public int getElementsperitem();   // number of elements in each item
+
+public int getItemsize();          // number of bytes in an item
+
+public Object getObject(final int... pos); // item as an object in position
+
+public String getString(final int... pos); // item as a string in position
+
+public double getDouble(final int... pos); // item as a double in position
+
+public float getFloat(final int... pos);   // item as a float in position
+
+public long getLong(final int... pos);     // item as a long in position
+
+public int getInt(final int... pos);       // item as an int in position
+
+public short getShort(final int... pos);   // item as a short in position
+
+public byte getByte(final int... pos);     // item as a byte in position
+
+public boolean getBoolean(final int... pos); // item as a boolean in position
+
+public void set(final Object obj, final int... pos); // set item in position
+
+public Number min();               // minimum item in dataset
+
+public Number max();               // maximum item in dataset
+
+public int[] minPos();             // position of first minima
+
+public int[] maxPos();             // position of first maxima
+
+public IDataset clone();           // copy structure without making new copy of data</pre>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>2.3. Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>A dataset is implemented as a 1-D backing array of elements. The items are
+stored so that elements are contiguous and the storage order is row-major.
+Items in a newly-created dataset are contiguous in the backing array.</p>
+<p>An interface is specified for various dataset iterators. These iterators
+provide a means to iterate over the index of the backing data array and/or the
+positions in row-major order.</p>
+<p>A dataset can be expanded by setting a value at a position outside its shape.
+Once expanded, the dataset can become discontiguous as extra space is reserved
+to allow for faster future expansion. A dataset can become contiguous again
+once it has expanded to fill its reserved space. Note that elements within the
+new shape but outside the old shape are set to minimum values or not-a-numbers.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="scisoftdg.html">1. Developer Guide to the Diamond Scisoft Data Analysis Plugin</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="fileio.html">3. Input/Output</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

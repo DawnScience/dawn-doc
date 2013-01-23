@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.isandlatech.plugins.rest.launch.makefile">
+<stringAttribute key="bad_container_name" value="\org.dawnsci.documentation.user-windows"/>
+<booleanAttribute key="org.eclipse.debug.core.custom.rules" value="false"/>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="PATH" value="C:/Python26/Scripts"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.debug.core.make.cmd" value="make"/>
+<setAttribute key="org.eclipse.debug.core.make.rules">
+<setEntry value="html"/>
+</setAttribute>
+<stringAttribute key="org.eclipse.debug.core.project.name" value="${workspace_loc:/org.dawnsci.documentation.user}"/>
+</launchConfiguration>
