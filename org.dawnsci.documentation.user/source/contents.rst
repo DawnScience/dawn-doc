@@ -10,6 +10,7 @@ Contents:
 
    scisoftug
    exploration
+   plotviewactions
    1d_tools
    2d_tools
    pollingview
