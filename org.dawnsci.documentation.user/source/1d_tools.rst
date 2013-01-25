@@ -1,5 +1,5 @@
-Plotting Tools (1D)
-===================
+Trace Plotting Tools (1D)
+=========================
 
 Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.
 
@@ -11,8 +11,8 @@ The View Menu
 
 The view menu contains some of the tool bar actions and:
 
-* Open cheat sheet: Cheat sheets....
-* Open in dedicated view: Dedicated view.....
+* Open cheat sheet: Cheat sheets are in-built help sections in DAWN which guide you through tools and views
+* Open in dedicated view: In a dedicated view a tool operates on all open files. For example, if you opened the derviative tool and made it a dedicated view, all trace plots would be shown as first derivatives.
 
 Closing Tools
 +++++++++++++
