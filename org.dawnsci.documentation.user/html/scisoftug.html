@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. User Guide to the Diamond Scisoft Data Analysis Plugin &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="2. Data Exploration Perspective" href="exploration.html" />
+    <link rel="prev" title="Diamond SciSoft Analysis User Guide" href="contents.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>1. User Guide to the Diamond Scisoft Data Analysis Plugin</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="contents.html">Diamond SciSoft Analysis User Guide</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="exploration.html">2. Data Exploration Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="user-guide-to-the-diamond-scisoft-data-analysis-plugin">
+<h1>1. User Guide to the Diamond Scisoft Data Analysis Plugin<a class="headerlink" href="#user-guide-to-the-diamond-scisoft-data-analysis-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-do-stuff-with-uk-ac-diamond-scisoft-analysis">
+<h2>1.1. How to do stuff with uk.ac.diamond.scisoft.analysis<a class="headerlink" href="#how-to-do-stuff-with-uk-ac-diamond-scisoft-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>1.1.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Diamond Light Source Ltd (DLS) <a class="footnote-reference" href="#dls" id="id1">[1]</a> is a not-for-profit company jointly
+owned by the UK government&#8217;s STFC and Wellcome Trust. Its purpose is to handle
+all aspects of planning, building and running of a major scientific research
+facility: a synchrotron light source.</p>
+<p>The u.a.d.s.a plugin holds the DLS Scientific Software team&#8217;s data
+analysis and visualization package. It is implemented in Java using the
+Eclipse framework, Jython, jReality and other libraries. The analysis package
+originally was part of the Generic Data Acquisition (GDA) suite <a class="footnote-reference" href="#gda" id="id2">[2]</a>. With
+their move to a plugin architecture, the code was split into relatively
+independent parts.</p>
+<p>The basic data analysis was conceived to be driven by Jython, the Java
+implementation of the Python programming language. The package has been
+designed as a client/server model with multiple graphical clients which can
+replicate each other&#8217;s actions.</p>
+<p>The command server can be controlled by Jython commands sent by clients. It,
+in turn, can direct certain actions of the clients.</p>
+</div>
+<div class="section" id="jython">
+<h3>1.1.2. Jython<a class="headerlink" href="#jython" title="Permalink to this headline">¶</a></h3>
+<p>The Jython aspect of the plugin comprises a Jython console and a command
+line with an editor (taken from PyDev).</p>
+<p>Everything from Jython is available on the console.  In addition, there is a
+Python/Jython package called ScisoftPy that allows some functions to be
+scripted. This package is described in the Python plugin documentation. See the
+Jython documentation at its website <a class="footnote-reference" href="#id4" id="id3">[3]</a>.</p>
+</div>
+<div class="section" id="graphical-user-interface">
+<h3>1.1.3. Graphical User Interface<a class="headerlink" href="#graphical-user-interface" title="Permalink to this headline">¶</a></h3>
+<p>This user guide primarily documents some aspects of the graphical interface.
+The Eclipse framework provides an overall workbench comprising editors and
+views set out in a number of perspectives. These perspectives are either
+pre-configured or user customized arrangements of the editor and view panes.</p>
+<p>Following sections of this user guide explain the use and capability of the
+perspectives, editors and views developed by the Scientific Software team.</p>
+</div>
+<div class="section" id="references">
+<h3>1.1.4. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<table class="docutils footnote" frame="void" id="dls" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>DLS: <a class="reference external" href="http://www.diamond.ac.uk">http://www.diamond.ac.uk</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="gda" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>GDA: <a class="reference external" href="http://www.gda.ac.uk">http://www.gda.ac.uk</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Jython: <a class="reference external" href="http://www.jython.org">http://www.jython.org</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="contents.html">Diamond SciSoft Analysis User Guide</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="exploration.html">2. Data Exploration Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

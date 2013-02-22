@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Data Exploration Perspective &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="3. Introduction to DAWN, Perspectives and Views" href="perspectivesintro.html" />
+    <link rel="prev" title="1. User Guide to the Diamond Scisoft Data Analysis Plugin" href="scisoftug.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>2. Data Exploration Perspective</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="scisoftug.html">1. User Guide to the Diamond Scisoft Data Analysis Plugin</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="perspectivesintro.html">3. Introduction to DAWN, Perspectives and Views</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="data-exploration-perspective">
+<h1>2. Data Exploration Perspective<a class="headerlink" href="#data-exploration-perspective" title="Permalink to this headline">¶</a></h1>
+<p>This perspective provides the primary way to explore data held in a set of
+files. The default layout is divided horizontally into four parts: a project
+explorer pane on the left; a central section split vertically into a
+editor-holding area where opened files are displayed at the top and a dataset
+inspector view below; a plot view; and its accompanying side plot view.</p>
+<p>Files can be opened using the File &gt; Open File... menu item. The following file
+formats are supported:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">png</span></tt>, <tt class="docutils literal"><span class="pre">gif</span></tt>, <tt class="docutils literal"><span class="pre">jpeg</span></tt>, <tt class="docutils literal"><span class="pre">tiff</span></tt> - standard image formats</li>
+<li><tt class="docutils literal"><span class="pre">adsc</span></tt> - ADSC Quantum area series detector format</li>
+<li><tt class="docutils literal"><span class="pre">crysalis</span></tt> - Oxford Diffraction CrysAlis processing software format</li>
+<li><tt class="docutils literal"><span class="pre">mar</span></tt> - Rayonix&#8217;s MarCCD detector</li>
+<li><tt class="docutils literal"><span class="pre">pilatus</span></tt> - Dectris Pilatus detector version of TIFF</li>
+<li><tt class="docutils literal"><span class="pre">cbf</span></tt> - Crystallographic Binary Format (IUCR)</li>
+<li><tt class="docutils literal"><span class="pre">xmap</span></tt> - XIA&#8217;s DXP-xMAP format for x-ray spectra</li>
+<li><tt class="docutils literal"><span class="pre">srs</span></tt> - Daresbury Laboratory&#8217;s Synchrotron Radiation Source format</li>
+<li><tt class="docutils literal"><span class="pre">edf</span></tt> - European Synchrotron Radiation Source data format for Pilatus images</li>
+<li><tt class="docutils literal"><span class="pre">binary</span></tt> - raw single dataset format</li>
+<li><tt class="docutils literal"><span class="pre">npy</span></tt> - NumPy binary format</li>
+<li><tt class="docutils literal"><span class="pre">hdf5</span></tt> - HDF5 <a class="footnote-reference" href="#hdf5" id="id1">[1]</a> tree format</li>
+<li><tt class="docutils literal"><span class="pre">nx</span></tt> - NeXus <a class="footnote-reference" href="#nexus" id="id2">[2]</a> tree format</li>
+</ul>
+</blockquote>
+<div class="section" id="project-explorer">
+<h2>2.1. Project Explorer<a class="headerlink" href="#project-explorer" title="Permalink to this headline">¶</a></h2>
+<p>This GUI element provides a way to organise and access sets of data files. A
+set of files can be imported to the explorer in a project. To create such a
+project, select from the File menu &#8220;New &gt; Project... &gt; Data &gt; Data Project&#8221;
+(or bring up the context menu with a third mouse button click in the Project
+Explorer area). Specify a project name, folder and the directory containing
+the files. A project will be created with all the files linked in (not copied).</p>
+<p>A file listed in the project can be opened in an editor by double clicking on
+its row. When many files are opened, the tabs at the top of the editor area can
+be used to switch between files - single clicks in the project explorer will
+also do the same.</p>
+<p>Once a file has been opened, its content can be explored with the dataset
+inspector view.</p>
+<div class="section" id="nexus-hdf5-editor-view">
+<h3>2.1.1. NeXus/HDF5 Editor/View<a class="headerlink" href="#nexus-hdf5-editor-view" title="Permalink to this headline">¶</a></h3>
+<p>The NeXus <a class="footnote-reference" href="#nexus" id="id3">[2]</a> file format is a common data storage format for neutron,
+x-ray and muon science. HDF5 <a class="footnote-reference" href="#hdf5" id="id4">[1]</a> is one of the underlying file formats
+supported and used by the NeXus format as well as being a format in its own
+right.</p>
+<p>This editor or view allows the data held in a Nexus file to be explored with a
+graphical user interface. NeXus files can be loaded into the viewer by clicking
+on the toolbar button at the top right of the viewer.</p>
+<p>The table-tree representing the Nexus structure can be expanded node by
+node using a left mouse click on the node. The columns of the table-tree
+display the node name, class, value type, dimensions, value. Right clicking
+on the table header will bring up a context menu that allows columns to be
+hidden or made visible.</p>
+<p>To select an item to plot, double click on a node that belongs to the NXdata.
+This will send the data item to the dataset inspector view if it has a signal
+attribute. Otherwise, double click on any item of class SDS (scientific data
+set) to send that item alone.</p>
+<div class="figure">
+<img alt="_images/ntvstack01.png" src="_images/ntvstack01.png" />
+<p class="caption">NeXus tree viewer</p>
+</div>
+</div>
+</div>
+<div class="section" id="dataset-inspector">
+<h2>2.2. Dataset Inspector<a class="headerlink" href="#dataset-inspector" title="Permalink to this headline">¶</a></h2>
+<p>The dataset inspector provides a means to examine a dataset selected in the
+current editor. This view contains an axes selection table, a multi-dimensional
+slicer and an inspection type selector. A dataset is considered to be an
+N-dimensional array of items where each item is an element or a compound of
+elements. The axes selection table allows a choice of datasets to be associated
+with dimensions of the dataset and are used as abscissa values for plotting and
+displaying values against. By default, at least one integer dataset called
+&#8220;dim:n&#8221; is included per dimension that ranges from 1 to L inclusive where L
+is the length of the dimension.</p>
+<p>The slicer allows (hyper-)rectangular subset (or slice) of the dataset to use
+selected. Each dimension has an axis name, a slider, a start value display, a
+slice length adjuster, a slice step adjuster, and a reset button. The start
+position is chosen by moving the slider left or right. The number of items
+used and the step between items is adjusted by clicking the arrow buttons or by
+entering the desired values.</p>
+<p>The final element is the inspection type selector. This allows various
+visualisations and examinations to be performed on the sliced dataset. These
+are displayed in the plot view, dataset table view or image explorer view.
+These displays can be configured to show dimensions by selecting their
+corresponding axis from the drop-down combination boxes.</p>
+</div>
+<div class="section" id="plot-view">
+<h2>2.3. Plot view<a class="headerlink" href="#plot-view" title="Permalink to this headline">¶</a></h2>
+<p>The plot view is the main window where all graphical plotting is displayed.
+A plot view is a generic plotting UI, that allows graphical plotting of different
+scalar dataset types. Currently supported scalar plots are:</p>
+<blockquote>
+<ul class="simple">
+<li>multiple 1D scalar as lines</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/plot1d.png" src="_images/plot1d.png" />
+</div>
+</blockquote>
+<ul class="simple">
+<li>multiple 1D scalar as a series of lines in 3D</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/plot1d_3d.png" src="_images/plot1d_3d.png" />
+</div>
+</blockquote>
+<ul class="simple">
+<li>multiple 1D scalar as points in 2D</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/pplot2d.png" src="_images/pplot2d.png" />
+</div>
+</blockquote>
+<ul class="simple">
+<li>multiple 1D scalar as points in 3D</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/pplot3d.png" src="_images/pplot3d.png" />
+</div>
+</blockquote>
+<ul class="simple">
+<li>2D scalar as image</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/plot2d.png" src="_images/plot2d.png" />
+</div>
+</blockquote>
+<ul class="simple">
+<li>2D scalar as 3D surface plot</li>
+</ul>
+<blockquote>
+<div class="figure">
+<img alt="_images/plot2d_surf.png" src="_images/plot2d_surf.png" />
+</div>
+</blockquote>
+</blockquote>
+<p>It is possible to have more than one plot view open and plot to them
+simultaneously and usually they are named Plot 1, Plot 2, ..., Plot n. The name
+is important since it is used to send data to via the Jython terminal.</p>
+<p>Both 2D image plots, 2D surface plots and 3D points plots will open
+automatically a histogram view panel that is associated to the plot view.
+Through the histogram view it is possible to control the mapping of the data
+values in the plotted image or surface to the different colours.</p>
+<div class="figure">
+<img alt="_images/histogram.png" src="_images/histogram.png" />
+</div>
+<div class="section" id="d-image-plot-profiles">
+<h3>2.3.1. 2D Image Plot Profiles<a class="headerlink" href="#d-image-plot-profiles" title="Permalink to this headline">¶</a></h3>
+<p>The plot profile tools inhabit a side plot panel. The tools are activated by
+clicking on the toolbar buttons in the plot view. These buttons become visible
+when an image is plotted.</p>
+<p>The coordinate system used in the image plot is in pixels starting from the
+upper left at (0,0) with <em>x</em> increasing when moving left and <em>y</em> increasing
+moving down. Angles are measured from the horizontal and increases when moving
+clockwise.</p>
+<p>There are three profile tools: line, box and sector tools. Each allows the
+selection of multiple regions of interest (ROIs). The purpose of the ROIs is
+to allow profiles of the image within a ROI to be plotted. These plots reside
+in the top part of the panel. Note, for compound datasets, only the first
+element of each item is analysed by the profile tools. In the case of coloured
+images, the red channel is profiled.</p>
+<div class="figure">
+<img alt="_images/lprof01.png" src="_images/lprof01.png" />
+<p class="caption">Line profile tool</p>
+</div>
+<p>When a profile tool is active, a region of interest can be specified using the
+mouse to click and drag out a ROI. The ROI is shown as an overlay on the
+image. Once done, the ROI can be further manipulated with use of its handle
+areas. The brightness of the ROI outline can be inverted using the
+&#8220;Invert brightness&#8221; checkbox to improve its contrast with the image.</p>
+<p>The handle areas operate in two ways: a left click on an area enables that
+area, and the part of the ROI to which it is attached, to be moved; a right
+click (or alternatively, simultaneous holding a shift key and left clicking)
+cause some type of rotation to occur. Generally, a central handle area allows
+translation of the ROI  or rotation about that handle area. A handle area at a
+vertex will allow resize of the ROI (leaving the opposing vertex fixed) or
+rotate about the opposite vertex.</p>
+<p>Once a profile is plotted, it can be added to a store using a toolbar button
+above the plotting area. The oldest item in the store also can be removed using
+a toolbar button. There are separate stores for each type of profile.</p>
+<p>Each linear ROI can have an optional cross, linear ROI defined to form a
+cross-hair. This cross ROI is a perpendicular bisector of the same length as its
+partner. The line profile is plotted in the graph and dashed lines are used for
+cross ROIs.</p>
+<div class="figure">
+<img alt="_images/bprof01.png" src="_images/bprof01.png" />
+<p class="caption">Box profile tool</p>
+</div>
+<p>A rectangular ROI defined in the box profile tool is defined by its starting
+point, width (major axis length), height (minor axis length) and orientation
+angle of its major axis. The upper graph shows the integration values over
+the minor axis as the position on the major axis is varied. The lower graph
+shows the converse. There is a &#8220;clipping comp&#8221; checkbox available that attempts
+to compensate for the situation where a ROI lies partially outside the image,
+i.e. the ROI is clipped by the boundaries of the image. In this case, some of
+the integration values are subdued by the lack of pixels (they are represented
+by zeros in the ROI) outside the image and the compensation scheme boosts those
+values by the ratio of the full integration length to the clipped length. Note
+that this compensation can introduce extrapolation errors and is prone to
+erroneous results where the clipped length is short and when the pixel values
+are noisy.</p>
+<p>The sector ROI is distinguished by the necessity of defining a centre point.
+Once defined, the sector ROI operates in a manner dictated by a polar
+coordinate system (radius <em>r</em>, angle <em>phi</em>) so rotation operations on the
+handle areas act like translations in polar coordinates. Also, the angular
+symmetry can be selected for a sector ROI that can alter the ROI or make a
+copy subject selected symmetry:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>None</em></dt>
+<dd>No symmetry</dd>
+<dt><em>Full</em></dt>
+<dd>360 degrees</dd>
+<dt><em>L/R reflect</em></dt>
+<dd>Left/right reflection</dd>
+<dt><em>U/D reflect</em></dt>
+<dd>Up/down reflection</dd>
+<dt><em>+90</em></dt>
+<dd>Rotate 90 degrees clockwise</dd>
+<dt><em>-90</em></dt>
+<dd>Rotate 90 degrees anti-clockwise</dd>
+<dt><em>Invert</em></dt>
+<dd>Invert through centre</dd>
+</dl>
+</blockquote>
+<p>The upper graph shows the azimuthal integration as the radius is varied and the
+lower graph shows the radial integration as the azimuth angle is changed.
+Ticking the &#8220;combine symmetry&#8221; checkbox allows any separate symmetry-selected
+ROI to be combined in the profile plots, otherwise the separate ROI is plotted
+as dashed lines.</p>
+<p>The current ROI can also be modified using the spinner widgets that are
+displayed in the centre part of the side plot panel. Each spinner is editable
+and can alter a parameter of the ROI. Once the ROI has been defined, it can be
+saved and then displayed in the table at the bottom of the panel.</p>
+<div class="figure">
+<img alt="_images/sprof01.png" src="_images/sprof01.png" />
+<p class="caption">Sector profile tool</p>
+</div>
+<p>Multiple ROIs can have their profiles plotted by clicking on the checkboxes in
+the table. Any ROI in the table can be selected and replace the current ROI,
+copied in place of the current ROI or deleted using a right mouse click
+anywhere on the row of the ROI.</p>
+<p>All profile plots allow zooming using the left-hand mouse button to drag out
+a rectangular area to magnify. A right-hand mouse button click brings up a
+dialogue box where there are buttons for switching between linear and
+logarithmic scales on the <tt class="docutils literal"><span class="pre">y</span></tt> axis, undoing previous zooms and resetting the
+plot. The initial choice of y axis scale used in all the profile plots is
+controlled by the setting found within Windows &gt; Preferences &gt; Scisoft Settings
+&gt; Side Plotter.</p>
+</div>
+<div class="section" id="references">
+<h3>2.3.2. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<table class="docutils footnote" frame="void" id="hdf5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> HDF5: <a class="reference external" href="http://www.hdfgroup.org/HDF5">http://www.hdfgroup.org/HDF5</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="nexus" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> NeXus: <a class="reference external" href="http://www.nexusformat.org">http://www.nexusformat.org</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="scisoftug.html">1. User Guide to the Diamond Scisoft Data Analysis Plugin</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="perspectivesintro.html">3. Introduction to DAWN, Perspectives and Views</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

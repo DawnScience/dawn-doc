@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Poll View and MX Live Perspective &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="8. Contributors to the SciSoft project" href="ACKS.html" />
+    <link rel="prev" title="6. Image Plotting Tools (2D)" href="2d_tools.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>7. Poll View and MX Live Perspective</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="2d_tools.html">6. Image Plotting Tools (2D)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="ACKS.html">8. Contributors to the SciSoft project</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="poll-view-and-mx-live-perspective">
+<h1>7. Poll View and MX Live Perspective<a class="headerlink" href="#poll-view-and-mx-live-perspective" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>7.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Poll view and associated items have been created to allow the user to
+monitor files which are changing and to display the contents.</p>
+</div>
+<div class="section" id="concept">
+<h2>7.2. Concept<a class="headerlink" href="#concept" title="Permalink to this headline">¶</a></h2>
+<p>Each Polling Job is described by a simple text file which can be opened using
+the SDA.  These files are persistent and will be available every time the SDA
+starts.</p>
+</div>
+<div class="section" id="available-polling-jobs">
+<h2>7.3. Available Polling Jobs<a class="headerlink" href="#available-polling-jobs" title="Permalink to this headline">¶</a></h2>
+<p>To see the available polling jobs, in the Poll View, use the drop down menu and
+select Add New Job.  this should provide you with the following items:</p>
+<blockquote>
+<ul class="simple">
+<li>SRSScatterPlotJob</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>This job loads in a file and then tries to plot the data as a scatter plot.</li>
+<li><strong>Class</strong> The type of the job, generally don&#8217;t change this</li>
+<li><strong>PollTime</strong> The frequency with which the plot is updated</li>
+<li><strong>FileName</strong> The filename of a file which will contain the filename of the actual file to load.</li>
+<li><strong>PlotViewName</strong> The name of the Plot into which you want the result to be shown</li>
+<li><strong>XAxis</strong> The name of the X Axis which is to be used in the plot</li>
+<li><strong>YAxis</strong> The name of the Y Axis which is to be used in the plot</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>SRSLinePlotJob</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>This job loads in a file and then tries to plot some lines of data</li>
+<li><strong>Class</strong> The type of the job, generally don&#8217;t change this</li>
+<li><strong>PollTime</strong> The frequency with which the plot is updated</li>
+<li><strong>FileName</strong> The filename of a file which will contain the filename of the actual file to load.</li>
+<li><strong>PlotViewName</strong> The name of the Plot into which you want the result to be shown</li>
+<li><strong>XAxis</strong> The name of the X Axis which is to be used in the plot</li>
+<li><strong>YAxis</strong> The name of the Y Axis (comma separated with no spaces) which is to be plotted</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Image Update Job</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>This job loads in a file(only when the name of the file changes) and then tries to plot the image which is returned</li>
+<li><strong>Class</strong> The type of the job, generally don&#8217;t change this</li>
+<li><strong>PollTime</strong> The frequency with which the plot is updated</li>
+<li><strong>FileName</strong> The filename of a file which will contain the filename of the actual file to load.</li>
+<li><strong>PlotViewName</strong> The name of the Plot into which you want the result to be shown</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>File Print Job</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>This job simply prints a filename, its a test job and only included for debugging purposes</li>
+<li><strong>Class</strong> The type of the job, generally don&#8217;t change this</li>
+<li><strong>PollTime</strong> The frequency with which the plot is updated</li>
+<li><strong>FileName</strong> The filename of a file which will contain the filename of the actual file to load.</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Browser Update</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>This job takes a URL and displayed it in a special URL viewing window</li>
+<li><strong>Class</strong> The type of the job, generally don&#8217;t change this</li>
+<li><strong>PollTime</strong> The frequency with which the plot is updated</li>
+<li><strong>FileName</strong> The filename of a file which will contain the URL which is to be displayed.</li>
+<li><strong>URLViewName</strong> The name of the URL viewing window into which you want the result to be shown</li>
+</ul>
+</blockquote>
+</blockquote>
+</div>
+<div class="section" id="interaction">
+<h2>7.4. Interaction<a class="headerlink" href="#interaction" title="Permalink to this headline">¶</a></h2>
+<p>All the interactions with the polling should be done through the poll view.  All of the functions available
+are replicated as easy to use buttons on the top of the view, or with more information buttons in the drop
+down menu.  These functions are:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>Pause All Jobs</strong> Pauses all the jobs so they are no longer updated</li>
+<li><strong>Restart All Jobs</strong> restarts all the jobs so they will poll again</li>
+<li><strong>Delete Job</strong> Deletes the selected job from the list, and removes the associated file.</li>
+<li><strong>Delete All Jobs</strong> Clears out all the jobs in the list.</li>
+<li><strong>Refresh All Jobs</strong> Reparses all the job information, this can be useful when changing the polling time to force an update</li>
+</ul>
+</blockquote>
+<p>The final thing which is useful to know is where the polling job files are sent, and this is specified in the preferences.
+In the top menu click Window-&gt;Preferences and then select Polling Preferences.  In this you can see which directory you wish to use
+and how to change them.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="2d_tools.html">6. Image Plotting Tools (2D)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="ACKS.html">8. Contributors to the SciSoft project</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

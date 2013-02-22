@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Plot View Actions &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="5. Trace Plotting Tools (1D)" href="1d_tools.html" />
+    <link rel="prev" title="3. Introduction to DAWN, Perspectives and Views" href="perspectivesintro.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>4. Plot View Actions</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="perspectivesintro.html">3. Introduction to DAWN, Perspectives and Views</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="1d_tools.html">5. Trace Plotting Tools (1D)</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="plot-view-actions">
+<h1>4. Plot View Actions<a class="headerlink" href="#plot-view-actions" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/plotviewactions.png" src="_images/plotviewactions.png" />
+<p>The plot views in DAWN have a specific set of toolbar actions to assist in the data viewing process. These actions are include standard plotted data manipulations such as zooming, panning and the placing of annotations on the plot. A full description of these actions is given below.</p>
+<div class="section" id="conigicon-configure-settings">
+<h2>4.1. <img alt="conigicon" src="_images/configsettings.png" /> Configure Settings...<a class="headerlink" href="#conigicon-configure-settings" title="Permalink to this headline">¶</a></h2>
+<p>The configure settings... actions brings up the configure graph settings dialog.  This dialog allows parameters related to the graph, axis, traces, annotations and regions of interest (ROI) to be edited, customising the appearance of the graph. A tab will only be shown if at least one of the objects is shown on the graph (i.e. there will be no ROI tab if there are no ROIs on the graph).</p>
+<p><em>The Graph Tab</em></p>
+<p>The graph tab allows the graphs title (and its font and colour) to be changed or removed.</p>
+<p><em>The Axes Tab</em></p>
+<p>Allows the following to be changed for each axis:</p>
+<ul class="simple">
+<li>The axis appearance (title, font, colour)</li>
+<li>Whether it has a log scale</li>
+<li>Manually set the axis ranges</li>
+<li>Turn grid lines on and off</li>
+</ul>
+<p><em>The Traces Tab</em></p>
+<p>For each 1D trace the following can be customised:</p>
+<ul class="simple">
+<li>Trace Name</li>
+<li>Trace Style (Line/Points/Colour/Thickness...)</li>
+<li>Whether error bars are shown</li>
+<li>Turn grid lines on and off</li>
+<li>And the option to export the data to text</li>
+</ul>
+<p>For each 2D image trace the following can be customised:</p>
+<ul class="simple">
+<li>Trace Name</li>
+<li>Histogram levels</li>
+<li>Invalid data bounds</li>
+</ul>
+<p><em>The Annotation Tab</em></p>
+<p>For each annotation:</p>
+<ul class="simple">
+<li>Name</li>
+<li>Font and Colour</li>
+<li>Whether the name, sample information and position are shown on the plot</li>
+</ul>
+<p><em>The Region Tab</em></p>
+<p>For each ROI:</p>
+<ul class="simple">
+<li>Name</li>
+<li>Colour and transparency</li>
+<li>Whether its mobile</li>
+<li>Whether its name, region and vertex values are displayed</li>
+<li>Its location can also be edited</li>
+</ul>
+</div>
+<div class="section" id="legicon-show-legend">
+<h2>4.2. <img alt="legicon" src="_images/legendtoggle.png" /> Show Legend<a class="headerlink" href="#legicon-show-legend" title="Permalink to this headline">¶</a></h2>
+<p>Shortcut action to show or remove the legend from the plot. Particularly useful when plotting a large number of 1D traces.</p>
+</div>
+<div class="section" id="annicon-add-remove-annotations">
+<h2>4.3. <img alt="annicon" src="_images/addremoveannotations.png" /> Add/Remove Annotations<a class="headerlink" href="#annicon-add-remove-annotations" title="Permalink to this headline">¶</a></h2>
+<p>Annotations are a way of adding labels to the plot.</p>
+<p>Clicking the Add Annotation... action brings up a dialogue box which allows the label parameters to be set. These parameters include:
+* the label text
+* the colour and font
+* whether the text, position and sample information are shown in the annotation</p>
+<p>Once an annotation has been placed it can be re-positioned by clicking and dragging (both the text label and the region pointed to in the data). The parameters of the annotation can be edited by using the Configure Settings... action.</p>
+<p>Remove Annotation... opens a dialogue box which allows the selection of the annotation to be removed.</p>
+</div>
+<div class="section" id="ploticon-plotting-tools">
+<h2>4.4. <img alt="ploticon" src="_images/plot-tool-any.png" /> Plotting Tools<a class="headerlink" href="#ploticon-plotting-tools" title="Permalink to this headline">¶</a></h2>
+<p>The contents of this dropdown action change depending on whether the data plotted is 1D (traces) or 2D (images). A full description of these tools can be found in the 1D/2D tools section of this document.</p>
+</div>
+<div class="section" id="regionicon-remove-all-regions">
+<h2>4.5. <img alt="regionicon" src="_images/removeregions.png" /> Remove (All) Regions<a class="headerlink" href="#regionicon-remove-all-regions" title="Permalink to this headline">¶</a></h2>
+<p>These actions are used remove regions of interest (ROI) from the plot view. Remove Region... opens a dialogue which allows a specific ROI to be selected. Remove All Regions... removes all ROIs from the plot view.</p>
+</div>
+<div class="section" id="zoom-panning-actions">
+<h2>4.6. Zoom/Panning Actions<a class="headerlink" href="#zoom-panning-actions" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/zoomtools.png" src="_images/zoomtools.png" />
+<p>DAWN contains a large selection of actions to make viewing specific regions of data traces/images as simple as possible:</p>
+<ul class="simple">
+<li>Perform Auto Scale: Resets the x and y ranges to display all plotted data</li>
+<li>Rubberband Zoom: Zooms to the area specified by a dragged rectangular area</li>
+<li>Horizontal Zoom: Leaves the y axis range unchanged, only zooms on the x axis</li>
+<li>Vertical Zoom: Leaves the x axis range unchanged, only zooms on the y axis</li>
+<li>Zoom In: Zooms in centred around the position of the mouse pointer</li>
+<li>Zoom Out: Zooms out centred around the position of the mouse pointer</li>
+<li>Panning: Clicking in the plot area allows the data to be dragged around. Very useful when zoomed in.</li>
+<li>None: Returns the mouse pointer to its normal state, removing any special action (zoom, pan, draw ROI, etc...)</li>
+<li>Rescale axis when plotted data changes: Toggles between automatic rescaling being on and off.  Auto rescale is very useful when plotting data of different types, but turning it off can help when focussing on specific features of the data (e.g. slicing through a data set while zoomed in).</li>
+</ul>
+</div>
+<div class="section" id="undoicon-undo-redo-actions">
+<h2>4.7. <img alt="undoicon" src="_images/undoaction.png" /> Undo/Redo Actions<a class="headerlink" href="#undoicon-undo-redo-actions" title="Permalink to this headline">¶</a></h2>
+<p>These actions allow the last performed action (zoom, pan, annotation addition...) to be undone and redone.</p>
+</div>
+<div class="section" id="printicon-print-actions">
+<h2>4.8. <img alt="printicon" src="_images/printaction.png" /> Print Actions<a class="headerlink" href="#printicon-print-actions" title="Permalink to this headline">¶</a></h2>
+<p>The print action dropdown contains several actions to do with printing and saving a plot:
+* Save Plot Screenshot As...: Allows the plot to be saved as an image file
+* Copy to Clipboard: Copies an image of the current plot to the clipboard
+* Print Plot: Opens the printing dialogue
+* Print Scaled Plot: Allows the size of the image to be set before printing</p>
+</div>
+<div class="section" id="d-trace-specific-actions">
+<h2>4.9. 1D/Trace Specific Actions<a class="headerlink" href="#d-trace-specific-actions" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/actions1dspecific.png" src="_images/actions1dspecific.png" />
+<ul class="simple">
+<li>Plot data a separate plots: Adds all selected data sets as individual traces</li>
+<li>Plot using first data set as x axis: First data set will be x axis. All other data sets will be plotted against this data set. All data sets plotted in this mode must have the same number of data points.</li>
+</ul>
+</div>
+<div class="section" id="d-image-specific-actions">
+<h2>4.10. 2D/Image Specific Actions<a class="headerlink" href="#d-image-specific-actions" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/imageactions.png" src="_images/imageactions.png" />
+<ul class="simple">
+<li>Rehistogram on zoom in or zoom out: Adjusts the contrast of the image</li>
+<li>Keep aspect ration: Shows image with correct aspect ratio. When turned off the image fills the entire available area</li>
+</ul>
+</div>
+<div class="section" id="viewicon-view-menu-actions">
+<h2>4.11. <img alt="viewicon" src="_images/viewaction.png" /> View Menu Actions<a class="headerlink" href="#viewicon-view-menu-actions" title="Permalink to this headline">¶</a></h2>
+<p>The view menu is another way to access the plot tools and actions specific to 1D or 2D plots. Additional actions in this menu include:</p>
+<ul class="simple">
+<li>Color: Allows the colour map to be chosen for image data</li>
+<li>Image Origin: Sets which corner is used as the origin for the image co-ordinate system (default is top left)</li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="perspectivesintro.html">3. Introduction to DAWN, Perspectives and Views</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="1d_tools.html">5. Trace Plotting Tools (1D)</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>
