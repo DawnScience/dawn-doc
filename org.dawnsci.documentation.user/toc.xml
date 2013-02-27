@@ -2,9 +2,6 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="DAWN Table of Contents">
-	<topic label="User Guide to the Diamond Scisoft Data Analysis Plugin"  href="html/scisoftug.html"> 
-	</topic>
-	<topic href="html/exploration.html" label="Data Exploration Perspective"/>
  <topic href="html/perspectivesintro.html" label="Introduction to DAWN, Perspectives and Views">
  </topic>
  <topic href="html/plotviewactions.html" label="Plot View Actions">
@@ -15,6 +12,11 @@
  </topic>
  <topic href="html/pollingview.html" label="Poll View and MX Live Perspective">
  </topic>
+ <topic href="html/pythonperspective.html" label="Python Perspective">
+ </topic>
+	<topic href="html/exploration.html" label="Data Exploration Perspective"/>
+	<topic label="User Guide to the Diamond Scisoft Data Analysis Plugin"  href="html/scisoftug.html"> 
+	</topic>
  <topic href="html/ACKS.html" label="Contributors to the SciSoft project">
  </topic>
 </toc>

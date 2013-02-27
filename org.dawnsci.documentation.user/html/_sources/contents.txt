@@ -8,13 +8,14 @@ Contents:
    :maxdepth: 2
    :numbered:
 
-   scisoftug
-   exploration
    perspectivesintro
    plotviewactions
    1d_tools
    2d_tools
+   pythonperspective
    pollingview
+   exploration
+   scisoftug
    ACKS
 
 Indices and tables
