@@ -13,6 +13,7 @@ Contents:
    1d_tools
    2d_tools
    pythonperspective
+   workflowperspective
    pollingview
    exploration
    scisoftug
