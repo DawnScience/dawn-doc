@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.dawnsci.documentation.feature"
-      label="Feature"
-      version="1.0.0.qualifier">
+      label="Dawn documentation feature"
+      version="1.0.0.qualifier"
+      provider-name="Diamond Light Source">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
