@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. Other Tools &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="6. Python Perspective" href="pythonperspective.html" />
+    <link rel="prev" title="4. Image Plotting Tools (2D)" href="2d_tools.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>5. Other Tools</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="2d_tools.html">4. Image Plotting Tools (2D)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pythonperspective.html">6. Python Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="other-tools">
+<h1>5. Other Tools<a class="headerlink" href="#other-tools" title="Permalink to this headline">¶</a></h1>
+<p>There are more common features found in many tools in Dawn, these include things such as importing/exporting data, and expressions.</p>
+<div class="section" id="import-export-data-wizard">
+<h2>5.1. Import/Export Data Wizard<a class="headerlink" href="#import-export-data-wizard" title="Permalink to this headline">¶</a></h2>
+<p>The data import/export wizard is used to save images, traces, masks, etc to a Nexus/HDF5 file and reload them for use at a later date.  Exporting and importing data actions are represented by these two buttons:</p>
+<img alt="_images/ImportExport.png" src="_images/ImportExport.png" />
+<p>To export the data, click the export button, and the export wizard should appear:</p>
+<img alt="_images/Screenshot-Export.png" src="_images/Screenshot-Export.png" />
+<p>The first page of the export wizard is used to specify the location where the data should be saved. After a location and file name are entered clicking next brings up the second page of the wizard.</p>
+<img alt="_images/Screenshot-Export-1.png" src="_images/Screenshot-Export-1.png" />
+<p>The second page can be used to specified what is saved in the nexus/hdf5 file (data, mask....). Saving masks requires a name to be added for the mask.</p>
+<p>The import data wizard is identical to the export except the first page is used to locate the file, and the second page is used to specify what data should be loaded from the file.</p>
+</div>
+<div class="section" id="expressions">
+<h2>5.2. Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>Expressions are used to perform simple mathematical operations on data. Expressions can be added on any tools or views which show the add and remove expressions buttons (Data Browsing perspective data tab, the history tools...):</p>
+<img alt="_images/Expression.png" src="_images/Expression.png" />
+<p>The image below shows the use of expression in the data browsing perspective.  The blue text in the Name column of the data tab are all expressions. The Variable column allows the name of the dataset to be changed (which saves entering long names in the expressions). The red text in the Name column shows that the expression entred is incorrect (in this case mis-typed variable name).</p>
+<p>The expressions in this image do the following:</p>
+<ul class="simple">
+<li>dat:mean(yfold,2) :takes the mean of the data cube along the third axis (zero based indexing) to produce an image</li>
+<li>dat:mean(y,0) :takes the mean of the stack of traces to produce a single trace</li>
+<li>dat:stdDev(y,0) :calculated the standard deviation of the stack of traces to produce a single trace</li>
+<li>sMean-sStd :subtracts sStd (standard deviation of stack y) from sMean (mean of stack y)</li>
+<li>sMean+sStd :adds sStd to sMean</li>
+<li>Incorrect expression : sStd is mis-typed as SsStd</li>
+</ul>
+<img alt="_images/ExpressionsAdded.png" src="_images/ExpressionsAdded.png" />
+<p>The mean of y and the mean +/- the standard deviation are shown in the plot (plotted against Ratio/Absorbance/x).</p>
+<div class="section" id="expression-functions">
+<h3>5.2.1. Expression Functions<a class="headerlink" href="#expression-functions" title="Permalink to this headline">¶</a></h3>
+<p>Below is a list of all the expression functions avaliable. Expressions are a new addition to DAWN so the following may be subject to change.</p>
+<p>Operations: + add, - subtract, * multipy, / divide, ^ power</p>
+<p>Functions:</p>
+<ul class="simple">
+<li>dnp:abs(dataset)</li>
+<li>dnp:arccos(dataset)</li>
+<li>dnp:cos(dataset) - and sin/tan as well as corresponding inverse (arccos...) and hyperbolic (cosh...)</li>
+<li>dnp:cbrt(dataset) - cube root</li>
+<li>dnp:log(dataset)</li>
+<li>dnp:log10(dataset)</li>
+<li>dnp:derivative(xdataset,ydataset,smoothing) - where smoothing is an interger</li>
+<li>dnp:exp(dataset)</li>
+<li>dat:mean(dataset,axis) - where axis is an integer describing which (zero-based) axis to take the mean of</li>
+<li>dat:sum(dataset,axis)</li>
+<li>dat:stdDev(dataset,axis)</li>
+<li>dat:max(dataset,axis)</li>
+<li>dat:min(dataset,axis)</li>
+<li>dat:peakToPeak(dataset,axis)</li>
+<li>dat:product(dataset,axis)</li>
+<li>dat:rootMeanSquare(dataset,axis)</li>
+<li>dat:median(dataset,axis)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="2d_tools.html">4. Image Plotting Tools (2D)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pythonperspective.html">6. Python Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

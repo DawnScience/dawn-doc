@@ -67,7 +67,7 @@
 <p><em>The Traces Tab</em></p>
 <p>For each 1D trace the following can be customised:</p>
 <ul class="simple">
-<li>Trace Name</li>
+<li>Trace Name (As shown on the legend)</li>
 <li>Trace Style (Line/Points/Colour/Thickness...)</li>
 <li>Whether error bars are shown</li>
 <li>Turn grid lines on and off</li>
@@ -100,26 +100,16 @@
 <h2>2.2. <img alt="legicon" src="_images/legendtoggle.png" /> Show Legend<a class="headerlink" href="#legicon-show-legend" title="Permalink to this headline">¶</a></h2>
 <p>Shortcut action to show or remove the legend from the plot. Particularly useful when plotting a large number of 1D traces.</p>
 </div>
-<div class="section" id="annicon-add-remove-annotations">
-<h2>2.3. <img alt="annicon" src="_images/addremoveannotations.png" /> Add/Remove Annotations<a class="headerlink" href="#annicon-add-remove-annotations" title="Permalink to this headline">¶</a></h2>
-<p>Annotations are a way of adding labels to the plot.</p>
-<p>Clicking the Add Annotation... action brings up a dialogue box which allows the label parameters to be set. These parameters include:
-* the label text
-* the colour and font
-* whether the text, position and sample information are shown in the annotation</p>
-<p>Once an annotation has been placed it can be re-positioned by clicking and dragging (both the text label and the region pointed to in the data). The parameters of the annotation can be edited by using the Configure Settings... action.</p>
-<p>Remove Annotation... opens a dialogue box which allows the selection of the annotation to be removed.</p>
-</div>
 <div class="section" id="ploticon-plotting-tools">
-<h2>2.4. <img alt="ploticon" src="_images/plot-tool-any.png" /> Plotting Tools<a class="headerlink" href="#ploticon-plotting-tools" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. <img alt="ploticon" src="_images/plot-tool-any.png" /> Plotting Tools<a class="headerlink" href="#ploticon-plotting-tools" title="Permalink to this headline">¶</a></h2>
 <p>The contents of this dropdown action change depending on whether the data plotted is 1D (traces) or 2D (images). A full description of these tools can be found in the 1D/2D tools section of this document.</p>
 </div>
 <div class="section" id="regionicon-remove-all-regions">
-<h2>2.5. <img alt="regionicon" src="_images/removeregions.png" /> Remove (All) Regions<a class="headerlink" href="#regionicon-remove-all-regions" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. <img alt="regionicon" src="_images/removeregions.png" /> Remove (All) Regions<a class="headerlink" href="#regionicon-remove-all-regions" title="Permalink to this headline">¶</a></h2>
 <p>These actions are used remove regions of interest (ROI) from the plot view. Remove Region... opens a dialogue which allows a specific ROI to be selected. Remove All Regions... removes all ROIs from the plot view.</p>
 </div>
 <div class="section" id="zoom-panning-actions">
-<h2>2.6. Zoom/Panning Actions<a class="headerlink" href="#zoom-panning-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.5. Zoom/Panning Actions<a class="headerlink" href="#zoom-panning-actions" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/zoomtools.png" src="_images/zoomtools.png" />
 <p>DAWN contains a large selection of actions to make viewing specific regions of data traces/images as simple as possible:</p>
 <ul class="simple">
@@ -135,11 +125,11 @@
 </ul>
 </div>
 <div class="section" id="undoicon-undo-redo-actions">
-<h2>2.7. <img alt="undoicon" src="_images/undoaction.png" /> Undo/Redo Actions<a class="headerlink" href="#undoicon-undo-redo-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.6. <img alt="undoicon" src="_images/undoaction.png" /> Undo/Redo Actions<a class="headerlink" href="#undoicon-undo-redo-actions" title="Permalink to this headline">¶</a></h2>
 <p>These actions allow the last performed action (zoom, pan, annotation addition...) to be undone and redone.</p>
 </div>
 <div class="section" id="printicon-print-actions">
-<h2>2.8. <img alt="printicon" src="_images/printaction.png" /> Print Actions<a class="headerlink" href="#printicon-print-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.7. <img alt="printicon" src="_images/printaction.png" /> Print Actions<a class="headerlink" href="#printicon-print-actions" title="Permalink to this headline">¶</a></h2>
 <p>The print action dropdown contains several actions to do with printing and saving a plot:
 * Save Plot Screenshot As...: Allows the plot to be saved as an image file
 * Copy to Clipboard: Copies an image of the current plot to the clipboard
@@ -147,7 +137,7 @@
 * Print Scaled Plot: Allows the size of the image to be set before printing</p>
 </div>
 <div class="section" id="d-trace-specific-actions">
-<h2>2.9. 1D/Trace Specific Actions<a class="headerlink" href="#d-trace-specific-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.8. 1D/Trace Specific Actions<a class="headerlink" href="#d-trace-specific-actions" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/actions1dspecific.png" src="_images/actions1dspecific.png" />
 <ul class="simple">
 <li>Plot data a separate plots: Adds all selected data sets as individual traces</li>
@@ -155,7 +145,7 @@
 </ul>
 </div>
 <div class="section" id="d-image-specific-actions">
-<h2>2.10. 2D/Image Specific Actions<a class="headerlink" href="#d-image-specific-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.9. 2D/Image Specific Actions<a class="headerlink" href="#d-image-specific-actions" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/imageactions.png" src="_images/imageactions.png" />
 <ul class="simple">
 <li>Rehistogram on zoom in or zoom out: Adjusts the contrast of the image</li>
@@ -163,12 +153,22 @@
 </ul>
 </div>
 <div class="section" id="viewicon-view-menu-actions">
-<h2>2.11. <img alt="viewicon" src="_images/viewaction.png" /> View Menu Actions<a class="headerlink" href="#viewicon-view-menu-actions" title="Permalink to this headline">¶</a></h2>
+<h2>2.10. <img alt="viewicon" src="_images/viewaction.png" /> View Menu Actions<a class="headerlink" href="#viewicon-view-menu-actions" title="Permalink to this headline">¶</a></h2>
 <p>The view menu is another way to access the plot tools and actions specific to 1D or 2D plots. Additional actions in this menu include:</p>
 <ul class="simple">
 <li>Color: Allows the colour map to be chosen for image data</li>
 <li>Image Origin: Sets which corner is used as the origin for the image co-ordinate system (default is top left)</li>
 </ul>
+<div class="section" id="annicon-add-remove-annotations">
+<h3>2.10.1. <img alt="annicon" src="_images/addremoveannotations.png" /> Add/Remove Annotations<a class="headerlink" href="#annicon-add-remove-annotations" title="Permalink to this headline">¶</a></h3>
+<p>Annotations are a way of adding labels to the plot.</p>
+<p>Clicking the Add Annotation... action brings up a dialogue box which allows the label parameters to be set. These parameters include:
+* the label text
+* the colour and font
+* whether the text, position and sample information are shown in the annotation</p>
+<p>Once an annotation has been placed it can be re-positioned by clicking and dragging (both the text label and the region pointed to in the data). The parameters of the annotation can be edited by using the Configure Settings... action.</p>
+<p>Remove Annotation... opens a dialogue box which allows the selection of the annotation to be removed.</p>
+</div>
 </div>
 </div>
 

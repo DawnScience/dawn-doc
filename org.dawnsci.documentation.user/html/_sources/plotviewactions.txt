@@ -29,7 +29,7 @@ Allows the following to be changed for each axis:
 
 For each 1D trace the following can be customised:
 
-* Trace Name
+* Trace Name (As shown on the legend)
 * Trace Style (Line/Points/Colour/Thickness...)
 * Whether error bars are shown
 * Turn grid lines on and off
@@ -66,21 +66,6 @@ For each ROI:
 
 Shortcut action to show or remove the legend from the plot. Particularly useful when plotting a large number of 1D traces.
 
-|annicon| Add/Remove Annotations
---------------------------------
-
-.. |annicon| image:: images/addremoveannotations.png
-
-Annotations are a way of adding labels to the plot.
-
-Clicking the Add Annotation... action brings up a dialogue box which allows the label parameters to be set. These parameters include:
-* the label text
-* the colour and font
-* whether the text, position and sample information are shown in the annotation 
-
-Once an annotation has been placed it can be re-positioned by clicking and dragging (both the text label and the region pointed to in the data). The parameters of the annotation can be edited by using the Configure Settings... action.
-
-Remove Annotation... opens a dialogue box which allows the selection of the annotation to be removed.
 
 |ploticon| Plotting Tools
 -------------------------
@@ -158,3 +143,19 @@ The view menu is another way to access the plot tools and actions specific to 1D
 
 * Color: Allows the colour map to be chosen for image data
 * Image Origin: Sets which corner is used as the origin for the image co-ordinate system (default is top left)
+
+|annicon| Add/Remove Annotations
+++++++++++++++++++++++++++++++++
+
+.. |annicon| image:: images/addremoveannotations.png
+
+Annotations are a way of adding labels to the plot.
+
+Clicking the Add Annotation... action brings up a dialogue box which allows the label parameters to be set. These parameters include:
+* the label text
+* the colour and font
+* whether the text, position and sample information are shown in the annotation 
+
+Once an annotation has been placed it can be re-positioned by clicking and dragging (both the text label and the region pointed to in the data). The parameters of the annotation can be edited by using the Configure Settings... action.
+
+Remove Annotation... opens a dialogue box which allows the selection of the annotation to be removed.

@@ -9,7 +9,7 @@ monitor files which are changing and to display the contents.
 Concept
 -------
 Each Polling Job is described by a simple text file which can be opened using
-the SDA.  These files are persistent and will be available every time the SDA
+DAWN.  These files are persistent and will be available every time DAWN
 starts.
 
 Available Polling Jobs

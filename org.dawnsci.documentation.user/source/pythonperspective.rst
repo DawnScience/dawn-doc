@@ -18,8 +18,8 @@ The views found in this perspective are:
 * *Console*. Displays the output from scripts or can be used as an interactive python/jython interpreter
 * *Plot 1*. The default plot to which data is sent by the scisoftpy module
 
-Using the interactive console
------------------------------
+Using the interactive console - setting up the interpreter
+----------------------------------------------------------
 
 In the console view ( Should be bottom centre in a clean perspective), click on the *Open Console* icon (The button at the top right of the Console View) and select *PyDev Console* from the available options. Finally choose either *Python Console* or *Jython Console* and then click OK.
 
@@ -95,7 +95,7 @@ This will open a new editor window called plottest, which is where the script wi
 | *dnp.plot.line(x,y)*
 | *y = dnp.sin(x+1.0)*
 | *dnp.plot.line(x,y)*
-| *print("done")*
+| *print('done')*
 
 Then save this work by clicking:
 | *File -> Save* 

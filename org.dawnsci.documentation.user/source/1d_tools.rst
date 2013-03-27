@@ -1,7 +1,9 @@
 Trace Plotting Tools (1D)
 =========================
 
-Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.
+Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon (shown below) in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.
+
+.. image:: images/plot-tool-any.png
 
 Items Common to All Tools
 -------------------------
@@ -9,7 +11,7 @@ Items Common to All Tools
 The View Menu
 +++++++++++++
 
-The view menu contains some of the tool bar actions and:
+The view menu (on each tool tab view) contains some of the tool bar actions and:
 
 * Open cheat sheet: Cheat sheets are in-built help sections in DAWN which guide you through tools and views
 * Open in dedicated view: In a dedicated view a tool operates on all open files. For example, if you opened the derviative tool and made it a dedicated view, all trace plots would be shown as first derivatives.
@@ -78,6 +80,37 @@ Line Fitting Tool Actions
 * Polynomial order to fit: Select polynomial order (1st, 2nd, 3rd...)
 * Clear all regions found in the fitting: Removes ROI from plot, all associated peaks, and parameter data from the table
 * Delete line selected, if any: removes line from table and plot view
+
+
+|lineicon| Function Fitting Tool
+--------------------------------
+
+.. |lineicon| image:: images/plot-tool-line-fit.png
+
+
+
+The function fitting tool is similar to the other fitting tools but much more flexible, allowing multiple functions to be fitted to a trace.
+
+On selecting the function fitting tool, the function fitting tab will be displayed and a region of interest will be displayed on the plot showing the fitted region (initially the full x range of the data).
+
+.. image:: images/functionTool.png
+
+The main use of the function fitting tool is to determine parameters specific to the data trace (i.e. the width of a peak, the gradient of a line...). To use the tool, add a selection of functions which best describe the data, set sensible initial parameters, then let the tool optimise the parameters for the best possible fit.
+
+If the fitting process does not produce a sensible representation of the data, try tweaking the initial fit parameters, making the Accuracy of the Fitting Routine value smaller or using a different fitting routine.
+
+It is also possible to fix a value in a function so it is not changed during the optimisation or to limit the range of acceptable values by adjusting the, fixed, min and max values for each parameter.
+
+Function Fitting Tool Actions
++++++++++++++++++++++++++++++
+
+* Export/Import functions to file: Allows functions to be saved and reloaded, saving time if the same function needs to be fitted to multiple data sets.
+* Add a new function to be fitted
+* Delete selected function from the fit
+* Duplicate the current function: Creates another function with the same equation and parameters
+* Update the initial parameters to the fitted parameters for this/all functions
+
+
 
 |dericon| Derivative Tool
 -------------------------
@@ -172,8 +205,8 @@ As well as all the usual actions associated with a plot view the XAFS tool also 
 
 * Show derivative of first set plotted (default view): This is used to show energy profile for placing the a and k start values
 * Polynomial filtered noise calculation: shows the noise on the spectrum (i.e. the difference between the data set and one which has been smoothed with polynomial filter), the tool also displays the RMS error of this noise spectrum.  
-* Show  normalised data: Performs an XAFS specific normalisation. The a and k values must be set for this calculation to produce acceptable results. The green line shows the pre-edge energy, the red line shows the post edge energy
-* Show  normalised data with spline used for background subtraction. Again, a and k must be set.
+* Show  normalised data: Performs an XAFS specific normalisation. The pre-edge and post-edge values must be set for this calculation to produce acceptable results. The green line shows the pre-edge energy, the red line shows the post edge energy
+* Show  normalised data with spline used for background subtraction. Again, pre-edge and post-edge energies must be set.
 * Show function after background subtraction
 * Show function after Fourier transform
 * Guess a and k start values

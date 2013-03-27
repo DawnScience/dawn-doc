@@ -1,8 +1,6 @@
 Image Plotting Tools (2D)
 =========================
 
-Images have a range of tools such as zooming and 
-
 The image plotting tools appear automatically when an image (two-dimensional data array) is plotted. 
 You can choose an image tool by going to the tool action menu: 
 

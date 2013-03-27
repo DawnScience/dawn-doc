@@ -25,9 +25,9 @@ A simple yet powerful group of features for data viewing.  Generally a sensible 
 
 The main Views in the Data Browsing Perspective are:
 
-* The Project Explorer
-* The File Editor (which in the above screen shot contains the file i22-4996.nxs and shows the Plot View infront of the Nexus Tree tab)
-* The Data View (which shows all the data a file contains and allows it to be selected for plotting
+* The Project Explorer (highlighted in red)
+* The File Editor (which in the above screen shot contains the file i22-4996.nxs and shows the Plot View infront of the Nexus Tree tab)(highlighted in green)
+* The Data View (which shows all the data a file contains and allows it to be selected for plotting (highlighted in blue)
 
 The Project Explorer
 ++++++++++++++++++++
@@ -57,9 +57,9 @@ For true flexibility in data viewing DExplore is the perspective of choice. The 
 
 The main Views in the Dexplore perspective are:
 
-* The Project Explorer (as in the Data Browsing Perspective)
-* The Dataset Inspector (which contains a File Editor combined with Data viewing and slicing options
-* The Dataset plot
+* The Project Explorer (as in the Data Browsing Perspective) (highlighted in red)
+* The Dataset Inspector (which contains a File Editor combined with Data viewing and slicing options (highlighted in green)
+* The Dataset plot (highlighted in blue)
 
 The Dataset Inspector
 +++++++++++++++++++++
@@ -94,7 +94,7 @@ Troubleshooting Perspectives
 ----------------------------
 Perspectives are very powerful and flexible but they can be daunting to someone unfamiliar with the concept  so what should you do if the perspective doesn't look right, or you cant find the plot/data tab/header view...
 
-Part of the power of DAWN is the perspectives can be tailored to what you us most.  This can be problematic to a new users since it is possible to close useful tabs and not be able to find them again.
+Part of the power of DAWN is that perspectives can be tailored to what is used most.  This can be problematic to a new user since it is possible to close useful tabs and not be able to find them again.
 
 If you can not find a tab that you used to have there are various steps you can take:
 

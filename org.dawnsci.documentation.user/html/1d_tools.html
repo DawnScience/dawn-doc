@@ -49,12 +49,13 @@
         
   <div class="section" id="trace-plotting-tools-1d">
 <h1>3. Trace Plotting Tools (1D)<a class="headerlink" href="#trace-plotting-tools-1d" title="Permalink to this headline">¶</a></h1>
-<p>Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.</p>
+<p>Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon (shown below) in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.</p>
+<img alt="_images/plot-tool-any.png" src="_images/plot-tool-any.png" />
 <div class="section" id="items-common-to-all-tools">
 <h2>3.1. Items Common to All Tools<a class="headerlink" href="#items-common-to-all-tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-view-menu">
 <h3>3.1.1. The View Menu<a class="headerlink" href="#the-view-menu" title="Permalink to this headline">¶</a></h3>
-<p>The view menu contains some of the tool bar actions and:</p>
+<p>The view menu (on each tool tab view) contains some of the tool bar actions and:</p>
 <ul class="simple">
 <li>Open cheat sheet: Cheat sheets are in-built help sections in DAWN which guide you through tools and views</li>
 <li>Open in dedicated view: In a dedicated view a tool operates on all open files. For example, if you opened the derviative tool and made it a dedicated view, all trace plots would be shown as first derivatives.</li>
@@ -140,21 +141,40 @@
 </ul>
 </div>
 </div>
+<div class="section" id="lineicon-function-fitting-tool">
+<h2>3.4. <img alt="lineicon" src="_images/plot-tool-line-fit.png" /> Function Fitting Tool<a class="headerlink" href="#lineicon-function-fitting-tool" title="Permalink to this headline">¶</a></h2>
+<p>The function fitting tool is similar to the other fitting tools but much more flexible, allowing multiple functions to be fitted to a trace.</p>
+<p>On selecting the function fitting tool, the function fitting tab will be displayed and a region of interest will be displayed on the plot showing the fitted region (initially the full x range of the data).</p>
+<img alt="_images/functionTool.png" src="_images/functionTool.png" />
+<p>The main use of the function fitting tool is to determine parameters specific to the data trace (i.e. the width of a peak, the gradient of a line...). To use the tool, add a selection of functions which best describe the data, set sensible initial parameters, then let the tool optimise the parameters for the best possible fit.</p>
+<p>If the fitting process does not produce a sensible representation of the data, try tweaking the initial fit parameters, making the Accuracy of the Fitting Routine value smaller or using a different fitting routine.</p>
+<p>It is also possible to fix a value in a function so it is not changed during the optimisation or to limit the range of acceptable values by adjusting the, fixed, min and max values for each parameter.</p>
+<div class="section" id="function-fitting-tool-actions">
+<h3>3.4.1. Function Fitting Tool Actions<a class="headerlink" href="#function-fitting-tool-actions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Export/Import functions to file: Allows functions to be saved and reloaded, saving time if the same function needs to be fitted to multiple data sets.</li>
+<li>Add a new function to be fitted</li>
+<li>Delete selected function from the fit</li>
+<li>Duplicate the current function: Creates another function with the same equation and parameters</li>
+<li>Update the initial parameters to the fitted parameters for this/all functions</li>
+</ul>
+</div>
+</div>
 <div class="section" id="dericon-derivative-tool">
-<h2>3.4. <img alt="dericon" src="_images/plot-tool-derivative.png" /> Derivative Tool<a class="headerlink" href="#dericon-derivative-tool" title="Permalink to this headline">¶</a></h2>
+<h2>3.5. <img alt="dericon" src="_images/plot-tool-derivative.png" /> Derivative Tool<a class="headerlink" href="#dericon-derivative-tool" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/derivative_actions.png" src="_images/derivative_actions.png" />
 <p>The derivative tool allows the first and second derivatives of the data trace to be displayed with or without the original trace.
 On selecting the derivative tool, the derivative tab will be displayed and the trace will automatically be shown as first derivative.</p>
 <p>The three check boxes on the derivative tab view allow any combination of the data, first derivative and second derivative to be displayed.</p>
 </div>
 <div class="section" id="infoicon-xy-information-tool">
-<h2>3.5. <img alt="infoicon" src="_images/info.png" /> XY Information Tool<a class="headerlink" href="#infoicon-xy-information-tool" title="Permalink to this headline">¶</a></h2>
+<h2>3.6. <img alt="infoicon" src="_images/info.png" /> XY Information Tool<a class="headerlink" href="#infoicon-xy-information-tool" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/xyinfo_actions.png" src="_images/xyinfo_actions.png" />
 <p>The XY information tool shows the position of the mouse cursor in the plot view and can be used to place point ROIs as markers.</p>
 <p>On selecting the XY information tool, the XY information tab will be displayed, showing the current mouse pointer co-ordinates and the mouse pointer will change to crosshairs.</p>
 <p>Clicking the mouse button places a point ROI whose position is displayed in the XY information tool tab table.</p>
 <div class="section" id="xy-information-tool-actions">
-<h3>3.5.1. XY Information Tool Actions<a class="headerlink" href="#xy-information-tool-actions" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.1. XY Information Tool Actions<a class="headerlink" href="#xy-information-tool-actions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Copy Values to Clipboard: Copies the  parameters to the clipboard as text</li>
 <li>Delete Selected Region: Deletes the XY parameters from the table and the point ROI from the plot view</li>
@@ -164,14 +184,14 @@ On selecting the derivative tool, the derivative tab will be displayed and the t
 </div>
 </div>
 <div class="section" id="meaicon-measurement-tool">
-<h2>3.6. <img alt="meaicon" src="_images/plot-tool-measure.png" /> Measurement Tool<a class="headerlink" href="#meaicon-measurement-tool" title="Permalink to this headline">¶</a></h2>
+<h2>3.7. <img alt="meaicon" src="_images/plot-tool-measure.png" /> Measurement Tool<a class="headerlink" href="#meaicon-measurement-tool" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/measurement_actions.png" src="_images/measurement_actions.png" />
 <p>The measurement tool allows precise distances to be measured on the plot view.</p>
 <p>On selecting the measurement tool, the measurement tab will be displayed and the mouse pointer will change to draw a line ROI.</p>
 <p>Clicking and dragging the mouse pointer defines the measurement line region. The line measurement parameters (distance in x and y, line length and angle) for each line draw are shown in the measurement tool tab table.</p>
 <p>After the measurement line is drawn it can be moved or changed by clicking on the line ROI in the plot.</p>
 <div class="section" id="measurement-tool-actions">
-<h3>3.6.1. Measurement Tool Actions<a class="headerlink" href="#measurement-tool-actions" title="Permalink to this headline">¶</a></h3>
+<h3>3.7.1. Measurement Tool Actions<a class="headerlink" href="#measurement-tool-actions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Create New Measurement: Switches the mouse to line ROI mode, allowing a new measurement line to be draw</li>
 <li>Copy Values to Clipboard: Copies the measurement parameters to the clipboard as text</li>
@@ -182,12 +202,12 @@ On selecting the derivative tool, the derivative tab will be displayed and the t
 </div>
 </div>
 <div class="section" id="hisicon-history-tool">
-<h2>3.7. <img alt="hisicon" src="_images/plot-tool-history.png" /> History Tool<a class="headerlink" href="#hisicon-history-tool" title="Permalink to this headline">¶</a></h2>
+<h2>3.8. <img alt="hisicon" src="_images/plot-tool-history.png" /> History Tool<a class="headerlink" href="#hisicon-history-tool" title="Permalink to this headline">¶</a></h2>
 <img alt="_images/history_actions.png" src="_images/history_actions.png" />
 <p>The History tool allows data from different files to be shown in the same plot.  It always opens in a dedicated window, since this is required to allow interaction with different plot views showing different data sets.</p>
 <p>Selecting the history tool opens the history tab which contains the history actions and a table where traces added to the history are displayed.</p>
 <div class="section" id="history-tool-actions">
-<h3>3.7.1. History Tool Actions<a class="headerlink" href="#history-tool-actions" title="Permalink to this headline">¶</a></h3>
+<h3>3.8.1. History Tool Actions<a class="headerlink" href="#history-tool-actions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Automatically add any new plots to the history:</li>
 <li>Add current plots to history</li>
@@ -198,25 +218,25 @@ On selecting the derivative tool, the derivative tab will be displayed and the t
 </div>
 </div>
 <div class="section" id="xafs-analysis-tool">
-<h2>3.8. XAFS Analysis Tool<a class="headerlink" href="#xafs-analysis-tool" title="Permalink to this headline">¶</a></h2>
+<h2>3.9. XAFS Analysis Tool<a class="headerlink" href="#xafs-analysis-tool" title="Permalink to this headline">¶</a></h2>
 <p>The XAFS tool contains data processing options specific to the analysis of X-ray absorption fine structure spectra, so is generally only useful for this type of data (although the tool is present for all 1D data types and some calculations will be valid for any data type).</p>
 <p>Clicking on the XAFS tool opens the XAFS Analysis tab which contains a plot view and a variety of actions and editable parameters.</p>
 <p>The plot view initially displays the first derivative of the data shown in the main plot, but what is shown in the plot view is controlled by the tool actions</p>
 <div class="section" id="xafs-analysis-tool-actions">
-<h3>3.8.1. XAFS Analysis Tool Actions<a class="headerlink" href="#xafs-analysis-tool-actions" title="Permalink to this headline">¶</a></h3>
+<h3>3.9.1. XAFS Analysis Tool Actions<a class="headerlink" href="#xafs-analysis-tool-actions" title="Permalink to this headline">¶</a></h3>
 <p>As well as all the usual actions associated with a plot view the XAFS tool also provides the following actions:</p>
 <ul class="simple">
 <li>Show derivative of first set plotted (default view): This is used to show energy profile for placing the a and k start values</li>
 <li>Polynomial filtered noise calculation: shows the noise on the spectrum (i.e. the difference between the data set and one which has been smoothed with polynomial filter), the tool also displays the RMS error of this noise spectrum.</li>
-<li>Show  normalised data: Performs an XAFS specific normalisation. The a and k values must be set for this calculation to produce acceptable results. The green line shows the pre-edge energy, the red line shows the post edge energy</li>
-<li>Show  normalised data with spline used for background subtraction. Again, a and k must be set.</li>
+<li>Show  normalised data: Performs an XAFS specific normalisation. The pre-edge and post-edge values must be set for this calculation to produce acceptable results. The green line shows the pre-edge energy, the red line shows the post edge energy</li>
+<li>Show  normalised data with spline used for background subtraction. Again, pre-edge and post-edge energies must be set.</li>
 <li>Show function after background subtraction</li>
 <li>Show function after Fourier transform</li>
 <li>Guess a and k start values</li>
 </ul>
 </div>
 <div class="section" id="xafs-analysis-tool-options-and-parameters">
-<h3>3.8.2. XAFS Analysis Tool Options and Parameters<a class="headerlink" href="#xafs-analysis-tool-options-and-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>3.9.2. XAFS Analysis Tool Options and Parameters<a class="headerlink" href="#xafs-analysis-tool-options-and-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The following options and parameters can either be changed to alter the output of the XAFS analysis algorithms, or show some a value calculated by the tool.</p>
 <ul class="simple">
 <li>Pre-edge: Used to set the pre-edge energy value (eV)</li>

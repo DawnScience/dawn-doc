@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Workflow Perspective &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
+    <link rel="next" title="8. Poll View and MX Live Perspective" href="pollingview.html" />
+    <link rel="prev" title="6. Python Perspective" href="pythonperspective.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
+        <h2 class="heading"><span>7. Workflow Perspective</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="pythonperspective.html">6. Python Perspective</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pollingview.html">8. Poll View and MX Live Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="workflow-perspective">
+<h1>7. Workflow Perspective<a class="headerlink" href="#workflow-perspective" title="Permalink to this headline">¶</a></h1>
+<p>The Workflow perspective....</p>
+<img alt="_images/workflowperspective.png" src="_images/workflowperspective.png" />
+<div class="section" id="maths-actors">
+<h2>7.1. Maths Actors<a class="headerlink" href="#maths-actors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add">
+<h3>7.1.1. Add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
+<p>An actor to add any data, for instance images, together. The actor has two inputs &#8216;a&#8217; and &#8216;b&#8217;. Multiple inputs may be connected to both a and b. In this case use the Expression Mode parameter to define the behavior of the actor with the multiple input data. The output is a data set named either with the object name or derived from the input variable &#8216;file_name&#8217; depending on the value of the &#8216;Name Mode&#8217; attribute.</p>
+<img alt="_images/add.png" src="_images/add.png" />
+</div>
+<div class="section" id="subtract">
+<h3>7.1.2. Subtract<a class="headerlink" href="#subtract" title="Permalink to this headline">¶</a></h3>
+<p>An actor to subtract one array from another, for instance images. The actor has two inputs &#8216;a&#8217; and &#8216;b&#8217;. Multiple inputs may be connected to both a and b. In this case use the Expression Mode parameter to define the behavior of the actor with the multiple input data. Note you can repeatedly subtract one image from a pipeline of images by using &#8216;a&#8217; for the pipeline and &#8216;b&#8217; for the static image. The output is a data set named either with the object name or derived from the input variable &#8216;file_name&#8217; depending on the value of the &#8216;Name Mode&#8217; attribute.</p>
+<img alt="_images/subtract.png" src="_images/subtract.png" />
+</div>
+<div class="section" id="multiply">
+<h3>7.1.3. Multiply<a class="headerlink" href="#multiply" title="Permalink to this headline">¶</a></h3>
+<p>An actor to multiply arrays, for instance images, together. The actor has two inputs &#8216;a&#8217; and &#8216;b&#8217;. Multiple inputs may be connected to both a and b. In this case use the Expression Mode parameter to define the behavior of the actor with the multiple input data. The output is a data set named either with the object name or derived from the input variable &#8216;file_name&#8217; depending on the value of the &#8216;Name Mode&#8217; attribute.</p>
+<img alt="_images/multiply.png" src="_images/multiply.png" />
+</div>
+<div class="section" id="divide">
+<h3>7.1.4. Divide<a class="headerlink" href="#divide" title="Permalink to this headline">¶</a></h3>
+<p>An actor to divide arrays, for instance images, together. The actor has two inputs &#8216;a&#8217; and &#8216;b&#8217;. Multiple inputs may be connected to both a and b. In this case use the Expression Mode parameter to define the behavior of the actor with the multiple input data. The output is a data set named either with the object name or derived from the input variable &#8216;file_name&#8217; depending on the value of the &#8216;Name Mode&#8217; attribute.</p>
+<img alt="_images/divide.png" src="_images/divide.png" />
+</div>
+<div class="section" id="median">
+<h3>7.1.5. Median<a class="headerlink" href="#median" title="Permalink to this headline">¶</a></h3>
+<p>An actor to take a median of arrays, for instance images, together. The actor has two inputs &#8216;a&#8217; and &#8216;b&#8217;. Multiple inputs may be connected to both a and b. In this case use the Expression Mode parameter to define the behavior of the actor with the multiple input data. The output is a data set named either with the object name or derived from the input variable &#8216;file_name&#8217; depending on the value of the &#8216;Name Mode&#8217; attribute.</p>
+</div>
+<div class="section" id="maths-actor-attributes">
+<h3>7.1.6. Maths Actor Attributes<a class="headerlink" href="#maths-actor-attributes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Name - Sets the name used in the workflow. Set to something short or it will truncate (the tooltip shows the full name in this case).</li>
+<li>Expression Mode - Choose between different expression modes. For instance evaluation of the add every time a message is received, once all have been received or caching input to b and completing the add every time a changes.</li>
+<li>Memory Mode - This parameter allows the original data to be modified in memory so save a copy being created. This operation however can have unforeseen downstream effects.</li>
+<li>Name Mode - This attribute is used to define how the output data is named. It either uses the actor name, reads the value of the input variable &#8216;file_name&#8217; and tried to assign a data set name from the file or just operates on the data leaving the name unchanged.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="flow-control-actors">
+<h2>7.2. Flow Control Actors<a class="headerlink" href="#flow-control-actors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="if">
+<h3>7.2.1. If<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h3>
+<p>This actor allows different paths to be taken in the workflow depending on logical expressions. As an example see the &#8220;if_example.moml&#8221; workflow in workflows/examples:</p>
+<img alt="_images/if_example.png" src="_images/if_example.png" />
+<p>The output port have different names which can be visualised by hoovering the mouse pointer over the ports:</p>
+<img alt="_images/output_port.png" src="_images/output_port.png" />
+<p>The different output ports of the if actor are attributed different expressions. These expressions are visualised in the actor attributes view:</p>
+<img alt="_images/actor_attributes.png" src="_images/actor_attributes.png" />
+<p>In this example the port &#8216;output&#8217; is used if x!=1 and the port &#8216;x==1&#8217; is used if x==1. The number of output ports and their expressions can be edited using the &#8216;Create expressions&#8217; dialog:</p>
+<img alt="_images/create_expressions.png" src="_images/create_expressions.png" />
+<p>NOTE! There must always be one port called &#8216;output&#8217;.</p>
+</div>
+</div>
+<div class="section" id="hardware-actors">
+<h2>7.3. Hardware Actors<a class="headerlink" href="#hardware-actors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tango-motor">
+<h3>7.3.1. Tango Motor<a class="headerlink" href="#tango-motor" title="Permalink to this headline">¶</a></h3>
+<p>This actor is a transformer type meaning it receives and transmits messages but does not create messages or act as a sink. The actor attaches to a Tango server which provides an attribute for setting value of hardware and reading value. In fact the Tango attribute does not have to move a motor, it can result in any action when the attribute changes.</p>
+<p>To set up the Tango connection go to Window-&gt;Preferences-&gt;Data Analysis-&gt;Tango. The system will attempt to automatically set the correct properties on a beamline by reading the environment variables when it starts for the first time. You will likely need to set the spec session name however.</p>
+<p>The &#8216;Motors&#8217; attribute in the actor optionally sets the motors and always reads their value, passing this downstream in the pipeline. Typically the &#8216;Motor Name&#8217; will be the URL to the TangoDevice after the beamline name. Something like &#8216;motors/phi&#8217; normally. Currently the connection is not generic, only exposed motors in tango can be connected to - not everything. However arbitrary spec commands can be sent with the &#8216;Spec Command&#8217; transformer.</p>
+<p><em>Attributes</em></p>
+<ul class="simple">
+<li>Name - Sets the name used in the workflow. Set to something short or it will truncate (the tooltip shows the full name in this case).</li>
+<li>Expression Mode - Options for specifying the flow control of the actor. For instance the actor will run on every message received or block until all messages are received. Each actor can have different options for the values of Expression Mode.</li>
+<li>Motors - Parameter for editing the connections to hardware made when the actor is run. In this case a popup form is shown for adding one or more connections which are always read and optionally written. Upstream variables can be used in substitution notation ( &#8216;${var_name}&#8217; for instance) in the value and the &#8216;Motor Name&#8217; is the last part of the Tango url after the beamline, for instance: &#8216;motors/phi&#8217;.</li>
+</ul>
+</div>
+<div class="section" id="spec-command">
+<h3>7.3.2. Spec Command<a class="headerlink" href="#spec-command" title="Permalink to this headline">¶</a></h3>
+<p>This actor sends spec commands into spec. These can either be individual commands, the result of each of which is recorded in a variable and passed on or a single macro file, which does not record output other than in the log file. All commands sent to spec are wrapped in an eval(&#8216; &#8216;) statement which means they can be typed in to the user interface the same as if entering commands directly into spec. If using the macro file option, you can right click on the actor and open an substitution editor for the maco. This allows upstream variables to be inserted to the macro by highlighting and double clicking the variable on the left. This actor requires tango servers to work and requires the correct tango client settings under &#8216;Window-&gt;Prefrences-&gt;Data Analysis-&gt;Tango&#8217;.</p>
+<p><em>Attributes</em></p>
+<ul class="simple">
+<li>Name - Sets the name used in the workflow. Set to something short or it will truncate (the tooltip shows the full name in this case).</li>
+<li>Commands - The individual commands to run, the result of each of which may be read back into a separate macro.</li>
+<li>Spec Macro - Reference a spec macro file with this parameter or start a new file. Then right click on the editor and open the editor. Values from up-stream can be substituted in.</li>
+</ul>
+</div>
+<div class="section" id="shared-memory-source">
+<h3>7.3.3. Shared Memory Source<a class="headerlink" href="#shared-memory-source" title="Permalink to this headline">¶</a></h3>
+<p>This source monitors shared memory and whenever it changes (note it doe nothing when no change occurs), it fires the pipeline with the data read. By default the actor monitors until stopped, i.e. the workflow never stops unless a stop actor is used downstream. There is an expert parameter to specify a timeout if the data does not change for a given time. The monitor can deal with 1D and 2D data being stored in the shared memory. For 1D there is a chunk size to specify the number of 1D arrays to read from the stack of shared memory. Integer and floating point data is supported. The actor uses a Tango client so the correct tango server for reading spec shared memory should be installed.</p>
+<p><em>Attributes</em></p>
+<ul class="simple">
+<li>Name - Sets the name used in the workflow. Set to something short or it will truncate (the tooltip shows the full name in this case).</li>
+<li>Chunk Size - The chunk of array data to read from the stack. Each data in the chunk will be forwarded on with a variable named using the &#8216;Output Name&#8217; parameter and an 1-based integer for the chunk index. For instance &#8216;shared1&#8217; for the first item and &#8216;shared10&#8217; for the last when output name = “shared” and chunk size is 10.</li>
+<li>Data type - Either a stack of 1D data or a 2D image.</li>
+<li>Inactive After (expert parameter) - Set to -1 for infinite monitoring or a positive value in ms to define a period beyond which if the data does not change, the workflow will exit.</li>
+<li>Output Name - The variable name which should be used for output data read.</li>
+<li>Source Frequency - The period of checking for new data .If data has changed, it will be read and sent on, if not this actor will wait until another interval of &#8216;Source Frequncy&#8217; has passed. Units in ms.</li>
+<li>Spec Name - The name of the spec session to connect to. NOTE you cannot currently connect to arbitrary spec sessions they have to be made available by your beamline contact(s).</li>
+<li>Spec Tango URI - The portion of the URI to identify the spec tango server used, for instance &#8216;spec/shm&#8217;.</li>
+<li>Spec Variable - The spec variable in the spec session to monitor. Providing the other attributes are filled in, the system will connect to spec and offer a drop down for this parameter.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="pythonperspective.html">6. Python Perspective</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="contents.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="pollingview.html">8. Poll View and MX Live Perspective</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Diamond Light Source.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>

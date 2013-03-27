@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. Python Perspective &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
+    <title>6. Python Perspective &mdash; org.dawnsci.documentation.user v1.1 documentation</title>
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/print.css" type="text/css" />
@@ -25,22 +25,22 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="org.dawnsci.documentation.user v1.1 documentation" href="index.html" />
-    <link rel="next" title="6. Poll View and MX Live Perspective" href="pollingview.html" />
-    <link rel="prev" title="4. Image Plotting Tools (2D)" href="2d_tools.html" /> 
+    <link rel="next" title="7. Workflow Perspective" href="workflowperspective.html" />
+    <link rel="prev" title="5. Other Tools" href="other_tools.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="index.html">
           <span>org.dawnsci.documentation.user v1.1 documentation</span></a></h1>
-        <h2 class="heading"><span>5. Python Perspective</span></h2>
+        <h2 class="heading"><span>6. Python Perspective</span></h2>
       </div>
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="2d_tools.html">4. Image Plotting Tools (2D)</a>
+        «&#160;&#160;<a href="other_tools.html">5. Other Tools</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="contents.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="pollingview.html">6. Poll View and MX Live Perspective</a>&#160;&#160;»
+        <a href="workflowperspective.html">7. Workflow Perspective</a>&#160;&#160;»
         </p>
 
       </div>
@@ -48,11 +48,11 @@
         
         
   <div class="section" id="python-perspective">
-<h1>5. Python Perspective<a class="headerlink" href="#python-perspective" title="Permalink to this headline">¶</a></h1>
+<h1>6. Python Perspective<a class="headerlink" href="#python-perspective" title="Permalink to this headline">¶</a></h1>
 <p>The Python Perspective is set up to make using the Python and Jython consoles and all their features as easy as possible.</p>
 <img alt="_images/pythonPerspective.png" src="_images/pythonPerspective.png" />
 <div class="section" id="perspective-layout">
-<h2>5.1. Perspective Layout<a class="headerlink" href="#perspective-layout" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Perspective Layout<a class="headerlink" href="#perspective-layout" title="Permalink to this headline">¶</a></h2>
 <p>The Python perspective combines four common views to simplify using python/jython scripts to analyse and visualise data.</p>
 <p>The views found in this perspective are:</p>
 <ul class="simple">
@@ -62,13 +62,13 @@
 <li><em>Plot 1</em>. The default plot to which data is sent by the scisoftpy module</li>
 </ul>
 </div>
-<div class="section" id="using-the-interactive-console">
-<h2>5.2. Using the interactive console<a class="headerlink" href="#using-the-interactive-console" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-interactive-console-setting-up-the-interpreter">
+<h2>6.2. Using the interactive console - setting up the interpreter<a class="headerlink" href="#using-the-interactive-console-setting-up-the-interpreter" title="Permalink to this headline">¶</a></h2>
 <p>In the console view ( Should be bottom centre in a clean perspective), click on the <em>Open Console</em> icon (The button at the top right of the Console View) and select <em>PyDev Console</em> from the available options. Finally choose either <em>Python Console</em> or <em>Jython Console</em> and then click OK.</p>
 <p>The familiar three chevrons <em>&gt;&gt;&gt;</em> should appear in the console view as well as some notifications that the environment is being configured. When text stops appearing and the cursor is flashing next to the chevrons the interpreter is ready to use.</p>
 </div>
 <div class="section" id="scisoftpy">
-<h2>5.3. scisoftpy<a class="headerlink" href="#scisoftpy" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. scisoftpy<a class="headerlink" href="#scisoftpy" title="Permalink to this headline">¶</a></h2>
 <p>The Scisoftpy module adds lots of functionality to the Jython terminal, including numpy like array functionality, various loading mechanisms for lots of file types and plotting which is available in this framework.
 The Scisoftpy module should be imported as default (under the short name <em>dnp</em>) but if not to get access to this you need to import the scisoftpy module manually by typing:</p>
 <p><em>import scisoftpy as dnp</em></p>
@@ -76,7 +76,7 @@ The Scisoftpy module should be imported as default (under the short name <em>dnp
 Once the prompt re-appears type <em>help(dnp)</em> to see some of the available commands.</p>
 </div>
 <div class="section" id="line-plot">
-<h2>5.4. Line plot<a class="headerlink" href="#line-plot" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Line plot<a class="headerlink" href="#line-plot" title="Permalink to this headline">¶</a></h2>
 <p>A useful tool scisoftpy gives is the ability to plot data. The following commands will create some data and then plot it to the &#8220;Plot 1&#8221; view which is to the right of the perspective.</p>
 <div class="line-block">
 <div class="line"><em>a = dnp.arange(0,10,0.1)</em></div>
@@ -86,7 +86,7 @@ Once the prompt re-appears type <em>help(dnp)</em> to see some of the available 
 <p>This will show a plot of a sine curve.</p>
 </div>
 <div class="section" id="image-plot">
-<h2>5.5. Image plot<a class="headerlink" href="#image-plot" title="Permalink to this headline">¶</a></h2>
+<h2>6.5. Image plot<a class="headerlink" href="#image-plot" title="Permalink to this headline">¶</a></h2>
 <p>You can also use scisoftpy to plot images or 2D arrays of data using the following commands:</p>
 <div class="line-block">
 <div class="line"><em>im = dnp.random.rand(100,100)</em></div>
@@ -97,7 +97,7 @@ Once the prompt re-appears type <em>help(dnp)</em> to see some of the available 
 <p>Use the mouse to rotate the surface plot as required.</p>
 </div>
 <div class="section" id="creating-a-new-project">
-<h2>5.6. Creating a new project<a class="headerlink" href="#creating-a-new-project" title="Permalink to this headline">¶</a></h2>
+<h2>6.6. Creating a new project<a class="headerlink" href="#creating-a-new-project" title="Permalink to this headline">¶</a></h2>
 <p>Projects are a great way to organise source code and scripts required for data analysis. The instructions below work the same for python and jython.</p>
 <p>To create an example Pydev project use the following steps:</p>
 <p>Go to:</p>
@@ -105,7 +105,7 @@ Once the prompt re-appears type <em>help(dnp)</em> to see some of the available 
 <p>Give the project a name, such as PythonTest select the Python project type and select the <em>Create &#8216;src&#8217; folder and add it to the PYTHONPATH?</em> option, then click <em>Finish</em>.
 You may be prompted to set up the Python interpreter or go to the Pydev perspective, in both cases say <em>No</em>.</p>
 <div class="section" id="creating-a-simple-script">
-<h3>5.6.1. Creating a simple script<a class="headerlink" href="#creating-a-simple-script" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.1. Creating a simple script<a class="headerlink" href="#creating-a-simple-script" title="Permalink to this headline">¶</a></h3>
 <p>Open the PyDev Package Explorer, and expand the new PythonTest project you have just created.</p>
 <p>Inside this project is a <em>src</em> directory, which is where your scripts should live, right click on this directory and choose:</p>
 <div class="line-block">
@@ -122,21 +122,21 @@ This will open a new editor window called plottest, which is where the script wi
 <div class="line"><em>dnp.plot.line(x,y)</em></div>
 <div class="line"><em>y = dnp.sin(x+1.0)</em></div>
 <div class="line"><em>dnp.plot.line(x,y)</em></div>
-<div class="line"><em>print(&#8220;done&#8221;)</em></div>
+<div class="line"><em>print(&#8216;done&#8217;)</em></div>
 </div>
 <p>Then save this work by clicking:
 | <em>File -&gt; Save</em>
 or by pressing <em>Ctrl-S</em>.</p>
 </div>
 <div class="section" id="running-a-script">
-<h3>5.6.2. Running a script<a class="headerlink" href="#running-a-script" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.2. Running a script<a class="headerlink" href="#running-a-script" title="Permalink to this headline">¶</a></h3>
 <p>Now we have the script written we want to run it, and this is done using the standard method described below.</p>
 <p>Right click on the python script &#8216;plottest.py&#8217; in the PyDev Package Explorer and click on:</p>
 <p><em>Run As -&gt; Python Run</em></p>
 <p>Various test will appear in the console as things are set up, but you should see a sine plot appear in the Plot 1 view as well as the &#8216;done&#8217; statement at the bottom of the console which we asked to be printed in the script.</p>
 </div>
 <div class="section" id="running-a-script-in-debug-mode">
-<h3>5.6.3. Running a script in debug mode<a class="headerlink" href="#running-a-script-in-debug-mode" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.3. Running a script in debug mode<a class="headerlink" href="#running-a-script-in-debug-mode" title="Permalink to this headline">¶</a></h3>
 <p>One of the really powerful features of this environment is the ability to Debug code. To do this you will need to say where you want the code to stop with a breakpoint. This can be added by right clicking just to the left of a line of code and choosing <em>Add Breakpoint</em>.
 Add a breakpoint next to the <em>x = ...</em> line of code.
 Now right click on the file again in the pyDev Package Explorer and this time choose <em>Debug As -&gt; Python Run</em> .
@@ -146,13 +146,13 @@ The code will have stopped on the <em>x = ...</em> line just as we requested, an
 Move this view to below the Plot 1 view for the time being.</blockquote>
 </div>
 <div class="section" id="stepping-with-the-debugger">
-<h3>5.6.4. Stepping with the debugger<a class="headerlink" href="#stepping-with-the-debugger" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.4. Stepping with the debugger<a class="headerlink" href="#stepping-with-the-debugger" title="Permalink to this headline">¶</a></h3>
 <p>To execute the next line of code you need to get the debugger to step forward, this is done by pressing the <em>step over</em> button at the top of the Debug view, or by pressing <em>F6</em> while the Editor is selected. Use one of these methods to step down to the second <em>y = ...</em> line.
 You should have seen the plot update when you asked the debugger to execute the <em>dnp.plot...</em> command. Now finish off running the script by stepping through the rest of it.
 Once you have finished the Debug view will show that the process has terminated.</p>
 </div>
 <div class="section" id="using-the-debugging-perspective">
-<h3>5.6.5. Using the debugging perspective<a class="headerlink" href="#using-the-debugging-perspective" title="Permalink to this headline">¶</a></h3>
+<h3>6.6.5. Using the debugging perspective<a class="headerlink" href="#using-the-debugging-perspective" title="Permalink to this headline">¶</a></h3>
 <p>There is a special perspective which helps when Debugging. Debug the script again, but this time choose yes when prompted change to the Debugging perspective.
 One of the main features of this Perspective is the Variables view. This shows all the things which are in the namespace at the point where the debugger has stopped. Step through using the <em>step over</em> button or the <em>F6</em> key until the first plot command.
 Now look in the Variables view and you should see both the <em>x</em> and <em>y</em> variables, if you click on them some basic information about them will be displayed. Now step forward a few more times, and you will see the y variable change, and this is highlighted in the view.
@@ -167,11 +167,11 @@ Run through the rest of the script using the <em>resume</em> button on the Debug
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="2d_tools.html">4. Image Plotting Tools (2D)</a>
+        «&#160;&#160;<a href="other_tools.html">5. Other Tools</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="contents.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="pollingview.html">6. Poll View and MX Live Perspective</a>&#160;&#160;»
+        <a href="workflowperspective.html">7. Workflow Perspective</a>&#160;&#160;»
         </p>
 
       </div>
