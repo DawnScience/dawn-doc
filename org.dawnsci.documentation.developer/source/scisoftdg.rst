@@ -15,3 +15,6 @@ Java.
 
 This guide explains the design of the classes and documents the APIs.
 
+The Jython examples serve to illustrate how Java code could be constructed.
+Direct access to the Java methods and classes via Jython is strongly discouraged
+and is **not** supported.
