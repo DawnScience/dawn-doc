@@ -8,6 +8,7 @@ Contents:
    :maxdepth: 2
    :numbered:
 
+   dawndg
    scisoftdg
    genericdataset
    fileio
