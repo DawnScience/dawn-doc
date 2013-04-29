@@ -12,6 +12,11 @@ Each Polling Job is described by a simple text file which can be opened using
 DAWN.  These files are persistent and will be available every time DAWN
 starts.
 
+Conntecting to the Polling Server
+---------------------------------
+
+To contect to the polling server open Window -> Preferences, go to Polling Preferences and browse to the folder which contains the text files.
+
 Available Polling Jobs
 ----------------------
 To see the available polling jobs, in the Poll View, use the drop down menu and
