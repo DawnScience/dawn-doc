@@ -59,8 +59,8 @@ For each ROI:
 * Whether its name, region and vertex values are displayed
 * Its location can also be edited
 
-|legicon| Show Legend
----------------------
+|legicon| Show Legend (1D trace plots only)
+-------------------------------------------
 
 .. |legicon| image:: images/legendtoggle.png
 

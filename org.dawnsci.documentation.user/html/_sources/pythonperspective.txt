@@ -31,7 +31,9 @@ scisoftpy
 The Scisoftpy module adds lots of functionality to the Jython terminal, including numpy like array functionality, various loading mechanisms for lots of file types and plotting which is available in this framework. 
 The Scisoftpy module should be imported as default (under the short name *dnp*) but if not to get access to this you need to import the scisoftpy module manually by typing: 
 
-*import scisoftpy as dnp*
+::
+
+   import scisoftpy as dnp
 
 then press return. This May take some seconds to complete, and some text could appear in the window. 
 Once the prompt re-appears type *help(dnp)* to see some of the available commands.
@@ -41,9 +43,11 @@ Line plot
 
 A useful tool scisoftpy gives is the ability to plot data. The following commands will create some data and then plot it to the "Plot 1" view which is to the right of the perspective.
 
-| *a = dnp.arange(0,10,0.1)*
-| *b = dnp.sin(a)*
-| *dnp.plot.line(a,b)*
+::
+
+   a = dnp.arange(0,10,0.1)
+   b = dnp.sin(a)
+   dnp.plot.line(a,b)
 
 This will show a plot of a sine curve.
 
@@ -52,12 +56,16 @@ Image plot
 
 You can also use scisoftpy to plot images or 2D arrays of data using the following commands:
 
-| *im = dnp.random.rand(100,100)*
-| *dnp.plot.image(im)*
+::
+
+   im = dnp.random.rand(100,100)
+   dnp.plot.image(im)
 
 This will give an image plot of some noise. You can instead plot the same data as a surface by using the following command:
 
-*dnp.plot.surface(im)*
+::
+
+   dnp.plot.surface(im)
 
 Use the mouse to rotate the surface plot as required.
 
@@ -87,15 +95,17 @@ Inside this project is a *src* directory, which is where your scripts should liv
 Leave the package field blank, but fill in the name with something like plottest and leave the template as Empty and press *OK*. 
 This will open a new editor window called plottest, which is where the script will be written. Add the following code into this file under the initial comment:
 
-| *import scisoftpy as dnp*
-| *x = dnp.arange(0,10,0.1)* 
-| *y = dnp.sin(x)*
-| *dnp.plot.line(x,y)*
-| *y = dnp.sin(x+0.5)*
-| *dnp.plot.line(x,y)*
-| *y = dnp.sin(x+1.0)*
-| *dnp.plot.line(x,y)*
-| *print('done')*
+::
+
+   import scisoftpy as dnp
+   x = dnp.arange(0,10,0.1)
+   y = dnp.sin(x)
+   dnp.plot.line(x,y)
+   y = dnp.sin(x+0.5)
+   dnp.plot.line(x,y)
+   y = dnp.sin(x+1.0)
+   dnp.plot.line(x,y)
+   print('done')
 
 Then save this work by clicking:
 | *File -> Save* 

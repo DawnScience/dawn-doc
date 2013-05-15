@@ -1,7 +1,7 @@
 Trace Plotting Tools (1D)
 =========================
 
-Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the Spanner icon (shown below) in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.
+Dawn supplies a variety of tools for interacting with 1-dimensional data (traces apposed to images). These tools are access by clicking on drop down arrow next to the wrench/spanner icon (shown below) in the plot view toolbar. After selecting a tool the icon changes to reflect the chosen tool.
 
 .. image:: images/plot-tool-any.png
 
@@ -203,13 +203,13 @@ XAFS Analysis Tool Actions
 
 As well as all the usual actions associated with a plot view the XAFS tool also provides the following actions:
 
-* Show derivative of first set plotted (default view): This is used to show energy profile for placing the a and k start values
+* Show derivative of first set plotted (default view): This is used to show energy profile for placing the pre-edge and post-edge start values
 * Polynomial filtered noise calculation: shows the noise on the spectrum (i.e. the difference between the data set and one which has been smoothed with polynomial filter), the tool also displays the RMS error of this noise spectrum.  
 * Show  normalised data: Performs an XAFS specific normalisation. The pre-edge and post-edge values must be set for this calculation to produce acceptable results. The green line shows the pre-edge energy, the red line shows the post edge energy
 * Show  normalised data with spline used for background subtraction. Again, pre-edge and post-edge energies must be set.
 * Show function after background subtraction
 * Show function after Fourier transform
-* Guess a and k start values
+* Guess pre-edge and post-edge start values
 
 XAFS Analysis Tool Options and Parameters
 +++++++++++++++++++++++++++++++++++++++++
