@@ -1,6 +1,6 @@
-===================================
-Diamond SciSoft Analysis User Guide
-===================================
+===============
+DAWN User Guide
+===============
 
 Contents:
 
@@ -17,8 +17,8 @@ Contents:
    workflowperspective
    pollingview
    exploration
-   scisoftug
-   ACKS
+.. scisoftug
+.. ACKS
 
 Indices and tables
 ==================
