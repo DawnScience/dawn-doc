@@ -36,13 +36,6 @@ Before sending any plot data, a ``GuiBean`` needs to be send to specify what
 mode of plotting should be executed on the data received! This order is
 mandatory. See below for a list of modes.
 
-There are (at present) two axis map modes: DIRECT for independent (or separable)
-axes and FULL for dependent (or inseparable) axes. The distinction is that the
-DIRECT mode specifies a single dimension's index mapping so each dimension in a
-dataset is independent and separable. For example, the (x,y,z) values directly
-depend on indexes (i,j,k) so when we plot scalarfield(x,y,z) then we need one
-scalarfield array (indexed by [i,j,k]) and three axis datasets (xaxis[i], yaxis[j], zaxis[k]).
-
 A simple 3D plot example would look like this::
 
     # sfield is a 3D dataset
@@ -55,7 +48,7 @@ A simple 3D plot example would look like this::
     plotData.addAxis(AxisMapBean.YAXIS, yaxis)
     plotData.addAxis(AxisMapBean.ZAXIS, zaxis)
 
-    amb = AxisMapBean(AxisMapBean.DIRECT)         # create new DIRECT axis mapping bean
+    amb = AxisMapBean()                           # create new axis mapping bean
     amb.setAxisID([AxisMapBean.XAXIS, AxisMapBean.YAXIS, AxisMapBean.ZAXIS])
                                                   # list the axis datasets' names
 
@@ -72,10 +65,7 @@ A simple 3D plot example would look like this::
     ps.updateGui("Plot View", guiBean)            # send the GUI bean
     ps.setData("Plot View", plotData)             # fire plot data to it
 
-The FULL mode is used when the indexes are intertwined to create new
-coordinates. For example, (x,y) maps to (r,phi) in an inseparable manner so for
-a 2D example, scalarfield (indexed by [i,j]) needs 2 accompanying axis 2D
-datasets (xaxis[i,j] and yaxis[i,j])::
+An image plot example would look like this::
 
     # sfield is a 2D dataset
     # xaxis, yaxis are 2D datasets
@@ -86,7 +76,7 @@ datasets (xaxis[i,j] and yaxis[i,j])::
     plotData.addAxis(AxisMapBean.XAXIS, xaxis)    # stuff axis 2D datasets
     plotData.addAxis(AxisMapBean.YAXIS, yaxis)
 
-    amb = AxisMapBean(AxisMapBean.FULL)           # create new FULL axis mapping bean
+    amb = AxisMapBean()                           # create new axis mapping bean
     amb.setAxisID([AxisMapBean.XAXIS, AxisMapBean.YAXIS])
                                                   # list the axis datasets' names
 
@@ -101,8 +91,6 @@ datasets (xaxis[i,j] and yaxis[i,j])::
     ps = finder.find("plot_server")               # find plot server
     ps.updateGui("Plot View", guiBean)            # send the GUI bean to the client
     ps.setData("Plot View", plotData)             # fire plot data to it
-
-NB for 1D datasets, the two modes are equivalent.
 
 The GUI can be sent additional information to change the presentation of the
 plot or the state of any analyses. Here is an example of setting such a parameter::
