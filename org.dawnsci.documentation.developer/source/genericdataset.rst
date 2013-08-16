@@ -100,7 +100,7 @@ The following methods are declared::
 
 	public int[] maxPos();             // position of first maxima
 
-	public IDataset clone();           // copy structure without making new copy of data
+	public IDataset clone();           // copy structure, making new copy of data
 
 Implementation
 --------------
