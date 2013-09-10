@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Session 1. DAWN Training - Data Browsing</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="Scroll EclipseHelp Exporter" name="generator"/>
+
+    <link type="text/css" rel="stylesheet" href="css/eclipse-defaults.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print" />
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+
+        <div id="22251887" class="content">
+            <h1>Session 1. DAWN Training - Data Browsing</h1>
+    <p  class="">
+This is the first in a series of training sessions to use the DAWN software suite. The aims of this tutorial are :    </p>
+<ul class=" "><li class=" ">    <p  class="">
+to become familiar with the main DAWN workbench    </p>
+</li><li class=" ">    <p  class="">
+learn what perspectives, editors and views are, and how they can be opened, closed, found and customized    </p>
+</li><li class=" ">    <p  class="">
+use the two data viewing perspectives Data Browsing and DExplore to open files and view data    </p>
+</li><li class=" ">    <p  class="">
+investigate the different methods of viewing multidimensional data    </p>
+</li><li class=" ">    <p  class="">
+perform basic modification of the plotted data, e.g. change the colormap and contrast/brightness of an image or change the axis of a plot to be log....    </p>
+</li></ul>    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-1.RunningDAWN"  >
+        <h2>1. Running DAWN</h2>
+    
+    <div class="section section-3 "  id="22251887_Session1.DAWNTraining-DataBrowsing-DiamondLinuxWorkstations"  >
+        <h3>Diamond Linux Workstations</h3>
+    
+    <p  class="">
+On a Linux workstation within Diamond, type:    </p>
+    <p  class="">
+    </p>
+    <div class="confbox programlisting ">
+                <div class="content">
+        <pre><code>[user@workstation ~]$ module load dawn
+
+Loading 64-bit Oracle instantclient, version 11.2
+Loading 64-bit python, version 2.7.2
+Loading 64-bit numpy, version 1.6.1
+Loading 64-bit scipy, version 0.10.0
+Loading the DLS compute cluster environment. Please report any issues to linux.manager@diamond.ac.uk
+
+*****************************************************************
+**        DAWN (Data Analysis WorkbeNch) module loaded         ** 
+*****************************************************************
+   To start the application, type &quot;dawn &amp;&quot;
+   For further options, type &quot;dawn --help&quot;
+****************************************************************
+
+[user@workstation ~]$ dawn &amp;</code></pre>
+        </div>
+    </div>
+    </div>
+    
+    <div class="section section-3 "  id="22251887_Session1.DAWNTraining-DataBrowsing-Anywhereelse..."  >
+        <h3>Anywhere else...</h3>
+    
+    <p  class="">
+Dawn does not need to be installed, it just needs to be unzipped and run.    </p>
+    <p  class="">
+Go to:<a class="external-link external-link" href="http://www.dawnsci.org/"> http://www.dawnsci.org/</a> and head to the download section. Versions for Linux and Windows, x32 and x64 are available. A version for Mac is also available but not supported.    </p>
+    <p  class="">
+The download is a zip file containing Dawn. Extract the contents of the zip file to a sensible location (for example C:\Dawn). The executable file for Dawn can be found in the extracted folder (DawnDiamond-version number).    </p>
+    <p  class="">
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Start DAWN.    </span>
+</strong>    </p>
+</li></ul>    </div>
+    
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-2.TheWelcomeScreen"  >
+        <h2>2. The Welcome Screen</h2>
+    
+    <p  class="">
+The first time DAWN is started it opens with the welcome screen showing (if this is not the first time DAWN has started, it will start in the same configuration it was closed in, if this is the case, follow the next set of instructions to return to the welcome screen):    </p>
+    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_16_35_25.png" alt="images/download/thumbnails/22251887/image2013-5-8_16_35_25.png" class="confluence-embedded-image confluence-thumbnail image-center" width="300"/>
+            </p>
+    <p  class="">
+When using DAWN you can return to the welcome screen at any time by pressing the home button.         <img src="images/download/attachments/22251887/image2013-5-8_16_55_13.png" alt="images/download/attachments/22251887/image2013-5-8_16_55_13.png" class="confluence-embedded-image" />
+        </p>
+    <p  class="">
+The two important features of the Welcome screen are:    </p>
+<ul class=" "><li class=" ">    <p  class="">
+The System Check - the black panel at the bottom which shows if your computer meets the required specifications to run DAWN (green is good, yellow OK, red means some aspects may suffer)    </p>
+</li><li class=" ">    <p  class="">
+The Tools panel    </p>
+</li></ul>    <p  class="">
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Click on the <i class=" ">tools</i> panel now.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_16_43_40.png" alt="images/download/thumbnails/22251887/image2013-5-8_16_43_40.png" class="confluence-embedded-image confluence-thumbnail image-center" width="100"/>
+            </p>
+    <p  class="">
+This should bring up a list of all the data analysis tools available in DAWN.    </p>
+    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_16_46_24.png" alt="images/download/thumbnails/22251887/image2013-5-8_16_46_24.png" class="confluence-embedded-image confluence-thumbnail image-center" width="300"/>
+            </p>
+    <p  class="">
+The tools this set of tutorials cover are:    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<i class=" "><strong class=" ">Data Browsing</strong></i>    </p>
+</li><li class=" ">    <p  class="">
+<i class=" "><strong class=" ">DExplore</strong></i>    </p>
+</li><li class=" ">    <p  class="">
+<i class=" "><strong class=" ">Workflows</strong></i>    </p>
+</li><li class=" ">    <p  class="">
+<i class=" "><strong class=" ">Python</strong></i>    </p>
+</li></ul>    <p  class="">
+<i class=" "><strong class=" ">    <span style="color: #000080;" class="">
+Exercise 1. Click an icon to open one of the tools, then find the home button in the toolbar and click to return to the welcome screen. Click the tools panel to return to the list of tools.    </span>
+<br/></strong></i>    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-3.BrowsingData"  >
+        <h2>3. Browsing Data</h2>
+    
+    <p  class="">
+The goal of the first in this series of training sheets is to use the two generic data viewing tools (Data Browsing and DExplore) to visualize different types of data (images, surfaces, traces...) from different types of files (Nexus/hdf5, tiff, img....) and become comfortable with using and changing the versatile interface DAWN provides.    </p>
+    <p  class="">
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Click on the icon for the <i class=" ">Data Browsing</i> tool</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_17_8_14.png" alt="images/download/thumbnails/22251887/image2013-5-8_17_8_14.png" class="confluence-embedded-image confluence-thumbnail image-center" width="300"/>
+            </p>
+    <p  class="">
+You will be greeted with a largely blank screen with lots of empty tabs, don't worry about that for now.    </p>
+    <div class="section section-3 "  id="22251887_Session1.DAWNTraining-DataBrowsing-OpeningAFile"  >
+        <h3>Opening A File</h3>
+    
+    <p  class="">
+Find the <i class=" "><strong class=" ">Project</strong></i><strong class=" "> Explore</strong><strong class=" ">r</strong> tab on the left hand side of the screen (it should be the only one that isn't blank).    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Expand the data folder to located the example data, double click on the file</strong><i class=" "><strong class=" "> pow_M99S5_1_0001.cbf (if you do not have this file you may be running with example data from an older version of DAWN. See Appendix I to find out how to get up-to-date example data).<br/></strong></i>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_17_15_47.png" alt="images/download/thumbnails/22251887/image2013-5-8_17_15_47.png" class="confluence-embedded-image confluence-thumbnail image-center" width="300"/>
+            </p>
+    <p  class="">
+This opens the powder diffraction image for display.    </p>
+    <p  class="">
+The <strong class=" "><i class=" ">Project Explorer</i></strong> is like a favorites page for your data, you can link to folders of data on your local computer to this tab without making duplicates of the data.    </p>
+    <p  class="">
+    <span style="color: #000000;" class="">
+<u class=" "><strong class=" ">Make a new data project</strong></u>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Go to <i class=" ">File -&gt; New..</i></strong><strong class=" ">., Project... in the </strong><i class=" "><strong class=" ">Select </strong><strong class=" ">Wizard</strong></i><strong class=" "> dialog, go to the </strong><i class=" "><strong class=" ">Data</strong></i><strong class=" "> folder and select </strong><i class=" "><strong class=" ">Data Projec</strong><strong class=" ">t</strong></i>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Ca</strong><strong class=" ">ll the project <i class=" ">MyData</i> and select a folder containing your data by browsing for the data directory (data can be provided if you don't have your own)</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<i class=" ">MyData</i> should now be displayed in the <i class=" "><strong class=" ">Project Explorer</strong></i>    </p>
+    <p  class="">
+        <img src="images/download/thumbnails/22251887/image2013-5-8_17_26_58.png" alt="images/download/thumbnails/22251887/image2013-5-8_17_26_58.png" class="confluence-embedded-image confluence-thumbnail image-center" width="300"/>
+            </p>
+    <p  class="">
+Data can also be opened directly from the file system using the <strong class=" "><i class=" ">File Navigator</i></strong> tab, or by dragging and dropping directly from a file explorer    </p>
+    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" ">Exercise 2. Use the File Navigator to open some data.</strong></i>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" ">Exercise 3. Open some data by directly dragging it into the DAWN plot</strong></i></strong></i>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">Exercise 4. Add a folder to the Data Project by dragging the folder and dropping it in with the example data (choose to link rather than copy)</strong></i></strong></i></strong></i></strong></i>    </span>
+    </p>
+    </div>
+    
+    <div class="section section-3 "  id="22251887_Session1.DAWNTraining-DataBrowsing-Editorsandviews-Plot/Text/Data/Tree"  >
+        <h3>Editors and views - Plot/Text/Data/Tree</h3>
+    
+    <p  class="">
+Now lets return to the diffraction image we have displayed.    </p>
+    <p  class="">
+On double-clicking the file some new tabs appeared and many of the previously blank views now show information. Before we dive in to opening and viewing different types of data lets take a minute to discuss some nomenclature that should make the rest of the tutorial more understandable.    </p>
+    <p  class="">
+<u class=" "><i class=" ">Perspectives</i></u>    </p>
+    <p  class="">
+The Data Browsing tool you are currently looking at (and all the other tools mentioned, like DExplore, Workflows....) are technically called <i class=" ">Perspectives</i>. In DAWN, a perspective is simply a collection of different tab views designed to help perform a certain task, be it to view and image, or write a python script. Many of these views appear in multiple perspectives and if you see a view in one perspective that looks the same as in another, there is a good chance they will work the same way.    </p>
+    <p  class="">
+<i class=" "><u class=" ">The Editor</u></i>    </p>
+    <p  class="">
+Most perspectives show an editor tab, one for each file open. The editor is the tab view that appears when you open a file (it has the name of the file at the top of the tab).  DAWN has different editors for images, nexus files, dat files, python scripts... many different things.  You don't need to worry about which editor you are looking at, DAWN automatically chooses the best editor for the type of file you want to open. (The name &quot;Editor&quot; is a bit odd considering the data files you open cannot be edited. When python source code or a workflow moml file is opened, on the other hand, these also appear in an editor and can be edited).    </p>
+    <p  class="">
+<i class=" "><u class=" ">Views</u></i>    </p>
+    <p  class="">
+Pretty much everything that is not an editor is a view. You can identify a view by the name it shows at the top of its tab.    </p>
+    <p  class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">    <span style="color: #000080;" class="">
+Exercise 5. Locate the Editor and the Meta data, Value, Progress, and Console views in the Data Browsing perspectives, click on the tab to see what each view contains (most will be empty at this stage)    </span>
+<br/></strong></i></strong></i></strong></i></strong></i>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Return to the example data project, open MoKedge_1_15.dat</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+See how a new editor has appeared containing a blank plot and the Meta data view has changed to the Data view. The Data view contains a list of every data set found in the .dat file.    </p>
+    <p  class="">
+Take another look at the editor.  You should notices some tab pages at the bottom which say <i class=" ">Plot</i>, <i class=" ">Text</i>, <i class=" ">Data</i> and <i class=" ">Info</i>. <strong class=" ">Switch between these tabs to see what they show</strong>.    </p>
+    <p  class="">
+<u class=" "><i class=" ">Dat File Editor</i></u>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+Plot - shows the currently plotted data (empty if no data selected)    </p>
+</li><li class=" ">    <p  class="">
+Text - a .dat file is just a text file, this tab shows the raw text of the file    </p>
+</li><li class=" ">    <p  class="">
+Data - shows the data which has been selected to plot (or just a warning if no data is selected)    </p>
+</li><li class=" ">    <p  class="">
+Info - shows the name, minimum and maximum values and the type of data each data set holds.    </p>
+</li></ul>    <p  class="">
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Switch to the plot tab in the Editor then select the</strong><i class=" "><strong class=" "> Energy </strong></i><strong class=" ">and</strong><i class=" "><strong class=" "> In(i0/it)</strong></i><strong class=" "> data sets from the <i class=" ">Data</i> view</strong>.    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251887/image2013-5-9_9_4_39.png" alt="images/download/attachments/22251887/image2013-5-9_9_4_39.png" class="confluence-embedded-image image-center" width="500"/>
+            </p>
+    <p  class="">
+You should see a single trace plotted, as shown above.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">What does the data tab in the editor show now?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<u class=" "><i class=" ">Nexus File Editor</i></u>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the example data, open <i class=" ">I22-4996.nxs</i>, what tabs does the editor contain now?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+Nexus files (and HDF5 files) can contain many different data sets of different types, shapes and sizes.  The files are often shown as a tree, with different nodes containing different data or metadata information.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the <i class=" ">Tree</i> tab of the editor expand the nodes of the tree looking for data, how do the names of the data sets you find compare to those shown in the <i class=" ">Data</i> view?</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the <i class=" ">Data</i> view, select <i class=" ">Rapid2d/data</i>.  What shape is this data set? What does the plot in the editor show? How has the <i class=" ">Data</i> view changed? What does the <i class=" ">Value</i> view show?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<i class=" "><strong class=" ">        <img src="images/download/attachments/22251887/image2013-5-9_9_15_43.png" alt="images/download/attachments/22251887/image2013-5-9_9_15_43.png" class="confluence-embedded-image image-center" width="500"/>
+    </strong></i>    </p>
+    <p  class="">
+<i class=" "><strong class=" "><br/></strong></i>The Rapid2D/data data set has 4 dimensions [1,1,512,512]. Since two of these dimensions are 1 the data set is shown as a 2D image, which in this case is what we expect to see. Just because a data set is 2D (or greater) does not mean it is an image, what if we wanted to view this data as a trace?    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the data view, select <i class=" ">Slice as line plot</i></strong>        <img src="images/download/attachments/22251887/image2013-5-9_9_20_26.png" alt="images/download/attachments/22251887/image2013-5-9_9_20_26.png" class="confluence-embedded-image" />
+    <strong class=" ">. What happens to the plot?  Move the sliders in the slice table, how does the plot change? What happens when you use the arrow keys, page up/page down, home/end when the slider is selected?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    </p>
+    <p  class="">
+        <img src="images/download/attachments/22251887/image2013-5-9_9_22_7.png" alt="images/download/attachments/22251887/image2013-5-9_9_22_7.png" class="confluence-embedded-image image-center" width="500"/>
+            </p>
+    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">Exercise 6. Change the plotting method using the actions in the Data view         <img src="images/download/attachments/22251887/image2013-5-9_9_23_38.png" alt="images/download/attachments/22251887/image2013-5-9_9_23_38.png" class="confluence-embedded-image" />
+    , then return to showing the 2D image.</strong></i></strong></i></strong></i></strong></i>    </span>
+    </p>
+    <p  class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">    <span style="color: #000080;" class="">
+Exercise 7. In the example data, go to the saxs folder and open more .nxs files and view the data inside. This folder contains nxs and h5 files, what do they each contain? Look at the size of the files, where does the data live? Where does the metadata live?    </span>
+<br/></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i>    </p>
+    </div>
+    
+    <div class="section section-3 "  id="22251887_Session1.DAWNTraining-DataBrowsing-CustomizingPerspectives"  >
+        <h3>Customizing Perspectives</h3>
+    
+    <p  class="">
+After using Dawn for a while, the screen can get quite busy. Its very easy to have lots of views open making it difficult to see the wood for the trees.    </p>
+    <p  class="">
+The user interface in DAWN is highly customizable. Any views you are not using can be closed or hidden. Important views can be maximized. Views you need can be opened, even if they are not part of the perspective. If you want a view to be part of a perspective you can make your own custom perspective with the view added.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Double click on the top of the editor tab to maximize it, double click again to return it to normal. Do the same with other views.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Drag the <i class=" ">Value</i> tab to be over the data tab. Close all the tabs that were under the <i class=" ">Value</i> tab. What happens to the editor?</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Right click on the <i class=" ">Value</i> tab, select <i class=" ">Fast View</i>, what happens? Where does the view go? How do you undo it?</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Right click again on the <i class=" ">Value</i> tab, select <i class=" ">Detach</i>, what happens?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+Hopefully by now you should have made a horrible mess of the perspective. If not, try harder.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Reset the perspective, by right clicking on the perspective toolbar and choosing <i class=" ">Reset</i>.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<strong class=" "><br/></strong>    </p>
+    <p  class="">
+<strong class=" "><br/></strong>    </p>
+    <p  class="">
+        <img src="images/download/attachments/22251887/image2013-5-9_9_37_44.png" alt="images/download/attachments/22251887/image2013-5-9_9_37_44.png" class="confluence-embedded-image image-center" />
+            </p>
+    <p  class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">    <span style="color: #000080;" class="">
+Exercise 8. Close the Console view. Bring it back using the Window menu instead of reseting the perspective    </span>
+.</strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i>    </p>
+    <p  class="">
+<i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><br/></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i>If you find you are using a particular set of views in a perspective you can save that arrangement as your own bespoke perspective so it always resets to have your most used views where you expect them.    </p>
+    </div>
+    
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-4.ThePlot-Basics"  >
+        <h2>4. The Plot -  Basics</h2>
+    
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Close all the open editors (can you do this without having to click the cross on each one?) and reopen</strong><i class=" "><strong class=" "><i class=" ">po</i>w_M99S5_1_0001.cbf</strong></i>    </span>
+    </p>
+</li></ul>    <p  class="">
+When DAWN opens and image it automatically displays a default plot and automatically adjusts the contrast/brightness of the image. The plot can be customized by using the settings action.         <img src="images/download/attachments/22251887/image2013-5-9_9_47_39.png" alt="images/download/attachments/22251887/image2013-5-9_9_47_39.png" class="confluence-embedded-image" />
+        </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Open the settings window, change the title of the plot</strong><strong class=" ">, adjust the histogram type, how does the image change?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<i class=" "><u class=" ">Navigating the plot</u></i>    </p>
+    <p  class="">
+        <img src="images/download/attachments/22251887/image2013-5-9_9_57_23.png" alt="images/download/attachments/22251887/image2013-5-9_9_57_23.png" class="confluence-embedded-image" />
+            </p>
+    <p  class="">
+The above toolbar actions can be used to zoom and pan around the image.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Use these actions to zoom in and pan around the image, what does rolling the mouse wheel when the cursor is over the plot do?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<i class=" "><u class=" ">Image tool bar actions</u></i>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Can you find the action to turn on/off keeping the image aspect ratio? What about to make the image full screen (press esc to return from full screen view)</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<i class=" "><i class=" "><u class=" ">The view menu - Colormaps</u></i></i>    </p>
+    <p  class="">
+There are more options for adjusting the image in the view menu         <img src="images/download/attachments/22251887/image2013-5-9_10_3_31.png" alt="images/download/attachments/22251887/image2013-5-9_10_3_31.png" class="confluence-embedded-image" />
+        </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Find the color section of the view menu and select a different colormap. Play with the histogram type with different color maps to see how they change the way image looks.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<u class=" "><i class=" ">Trace tool bar actions</i></u>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the example data, open <i class=" ">MoKedge_1_15.dat</i> and plot <i class=" ">ln(It/Iref) vs <strong class=" "><i class=" ">Energy</i></strong></i>, what do these two plot tool bar actions do<i class=" ">        <img src="images/download/attachments/22251887/image2013-5-9_10_8_7.png" alt="images/download/attachments/22251887/image2013-5-9_10_8_7.png" class="confluence-embedded-image" />
+    .</i></strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">How can you perform a similar action by right clicking in the data view?</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Change the trace color from blue to red and the plot title to &quot;My Data&quot;.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Remove, then re-add the legend to the plot.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Change the y-axis to be log(y).    </span>
+</strong>    </p>
+</li></ul>    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-5.DExplore"  >
+        <h2>5.  DExplore</h2>
+    
+    <p  class="">
+On a basic level DExplore does most of the things the Data Browsing perspective does. Differences include:    </p>
+<ul class=" "><li class=" ">    <p  class="">
+The plot is shown in a view (Dataset Plot) rather than in the editor    </p>
+</li><li class=" ">    <p  class="">
+Data sets are selected from the editor rather than the Data view (the Data view is not used in DExplore)    </p>
+</li><li class=" ">    <p  class="">
+DExplore has a different way of selecting the data sets and how they are displayed (using the data set inspector)    </p>
+</li></ul>    <p  class="">
+    </p>
+    <p  class="">
+        <img src="images/download/attachments/22251887/image2013-5-9_10_24_1.png" alt="images/download/attachments/22251887/image2013-5-9_10_24_1.png" class="confluence-embedded-image image-center" width="500"/>
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Switch to the <i class=" ">DExplore</i> perspective by either returning to the <i class=" ">Welcome screen</i> or using the <i class=" ">Open Perspective</i> action on the Perspectives toolbar or by using the <i class=" ">Window</i> menu.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" "><i class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">Exercise 8. Open some of the data files used previously in this tutorial in DExplore. Plot different data sets, in different ways, and do some slicing.</strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></i></strong>    </span>
+    </p>
+    <p  class="">
+<strong class=" "><i class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><br/></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></i></strong>There are some fundamental differences between the way the Data Browsing perspective and DExplore work. As time goes by and you learn to do more advanced things in DAWN the differences become more obvious. For basic data viewing either perspective should work fine.    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-6.HelpandCheatsheets"  >
+        <h2>6. Help and Cheatsheets</h2>
+    
+    <p  class="">
+<strong class=" "><i class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" "><i class=" "><strong class=" ">    <span style="color: #000080;" class="">
+Exercise 9. Close DAWN and start it again, do you see the Welcome screen?    </span>
+<br/></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></strong></i></i></strong>    </p>
+    <p  class="">
+Congratulations you have made it to the end of the first tutorial, if you would like to learn more (without jumping ahead to the next tutorial), feel free to browse the help menu contents or look at the cheat sheet sections(Help-&gt; Cheatsheets...) for more training on how to use DAWN.    </p>
+    <p  class="">
+Also don't miss the DAWN science YouTube Channel for video guides on using DAWN: <a class="external-link external-link" href="http://www.youtube.com/user/DAWNScience">http://www.youtube.com/user/DAWNScience</a>    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-7.Feedback(optional)"  >
+        <h2>7. Feedback (optional)</h2>
+    
+    <p  class="">
+The help menu in DAWN has a feedback form so you can alert us if DAWN crashes or behaves in an unexpected way.    </p>
+    <p  class="">
+If you like, send us a feedback (Title the summary DAWN TRAINING), telling us how you found the training worksheets (were they clear? Too much/Too little information?).  Feel free to tell us what kind of data you are interested in (images/traces/both) and what visualization and analysis tool you like/dislike and what you feel is missing.    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-TestYourself"  >
+        <h2>Test Yourself</h2>
+    
+<ol class=" "><li class=" ">    <p  class="">
+Where do you get dawn on (a) A Diamond Linux workstation, (b) A windows PC    </p>
+</li><li class=" ">    <p  class="">
+What is the icon for the &quot;Show Welcome Screen&quot; toolbar action?    </p>
+</li><li class=" ">    <p  class="">
+Describe one way of adding a folder to the project explorer.    </p>
+</li><li class=" ">    <p  class="">
+What is a perspective?    </p>
+</li><li class=" ">    <p  class="">
+What is the difference between an editor and a view?    </p>
+</li><li class=" ">    <p  class="">
+What tabs would you find in a nexus editor that you wouldn't find in a dat file editor?    </p>
+</li><li class=" ">    <p  class="">
+What happens when you make a view a Fast View?    </p>
+</li><li class=" ">    <p  class="">
+How do you reset a perspective and what does it do?    </p>
+</li><li class=" ">    <p  class="">
+Name one colormap.    </p>
+</li><li class=" ">    <p  class="">
+What is the Icon for panning in a plot?    </p>
+</li><li class=" ">    <p  class="">
+Where can you change the color of a trace?    </p>
+</li></ol>    </div>
+    
+    <div class="section section-2 "  id="22251887_Session1.DAWNTraining-DataBrowsing-AppendixI-RefreshingExampleData"  >
+        <h2>Appendix I - Refreshing Example Data</h2>
+    
+    <p  class="">
+If you have no extra data or links to folders in your current example data, delete the folder (and remove project content from disk).    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Go to <i class=" ">File -&gt; New..</i></strong><strong class=" ">., Project... in the </strong><i class=" "><strong class=" ">Select </strong><strong class=" ">Wizard</strong></i><strong class=" "> dialog, go to the </strong><i class=" "><strong class=" ">Data</strong></i><strong class=" "> Browsing folder and select </strong><i class=" "><strong class=" ">Data Projec</strong><strong class=" ">t</strong></i>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Call the give the project a name and check &quot;Create example data&quot;</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Your project view should now have an example data folder</strong><br/>    </span>
+    </p>
+</li></ul>    <p  class="">
+    </p>
+    <p  class="">
+    </p>
+    </div>
+    
+        </div>
+    
+        <div class="footer">
+            Created with <a href="http://k15t.com/display/web/Scroll-Wiki-EclipseHelp-Exporter-for-Confluence">Scroll EclipseHelp Exporter for Confluence</a>.
+        </div>
+    </div>
+</body>
+</html>

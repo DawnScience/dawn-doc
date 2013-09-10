@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Session 3. DAWN Training - Python</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="Scroll EclipseHelp Exporter" name="generator"/>
+
+    <link type="text/css" rel="stylesheet" href="css/eclipse-defaults.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print" />
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+
+        <div id="22254804" class="content">
+            <h1>Session 3. DAWN Training - Python</h1>
+    <p  class="">
+Welcome to the third in the series of training sessions on how to use the DAWN software suite. In the last two sessions we learned how to open data files, select and slice datasets for plotting and investigate the plotted data using the tools system. There will always be data processing and analysis procedures that are useful but not available in DAWN. To allow custom data processing procedures to be used with DAWN's loading and visualisation elements the python scripting interface can be used.    </p>
+    <p  class="">
+This tutorial assumes no knowledge of python scripting or the NumPy/SciPy mathematical packages, but if you wish to fully understand the power of python for data processing try the tutorials here:    </p>
+    <p  class="">
+<a class="external-link external-link" href="http://software-carpentry.org/4_0/python/index.html">http://software-carpentry.org/4_0/python/index.html</a>    </p>
+    <p  class="">
+<a class="external-link external-link" href="http://docs.python.org/2/tutorial/">http://docs.python.org/2/tutorial/</a>    </p>
+    <p  class="">
+<a class="external-link external-link" href="http://wiki.scipy.org/Tentative_NumPy_Tutorial">http://wiki.scipy.org/Tentative_NumPy_Tutorial</a>    </p>
+    <p  class="">
+<a class="external-link external-link" href="http://scipy-lectures.github.io/intro/index.html">http://scipy-lectures.github.io/intro/index.html</a>    </p>
+    <p  class="">
+The aims of this tutorial are :    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000000;" class="">
+<strong class=" ">Investigate scripting in the DExplore perspective</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000000;" class="">
+<strong class=" ">Connecting the Dataset Plot to the python console</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000000;" class="">
+<strong class=" ">Introduction to the scisoftpy module (dnp)</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000000;" class="">
+<strong class=" ">Developing code in the Python perspective</strong>    </span>
+    </p>
+</li></ul>    <div class="section section-2 "  id="22254804_Session3.DAWNTraining-Python-PythonScriptinginDExplore"  >
+        <h2>Python Scripting in DExplore</h2>
+    
+    <p  class="">
+Most of the tutorial work so far has used the Data Browsing perspective and suggested that DExplore could be used in a similar fashion.  This section of the training highlights one of the major differences between these two perspectives: Only DExplore can connect the plotted data to a python console.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Start DAWN, close all open files and switch to the DExplore perspective (if you don't remember how to do this, consult the previous tutorial pages)    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Go to the Window menu, Preferences, type python in the filter box and select Interpreter - Python from the PyDev node    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+If no interpreter is shown go to <a  class="document-link " href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-SettingUpPythonInDAWN">Appendix I: Setting up Python in DAWN</a>    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_15_19_36.png" alt="images/download/attachments/22254804/image2013-6-17_15_19_36.png" class="confluence-embedded-image" width="500"/>
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+When the python interpreter is configured, Open the pow_M99S5_1_0001.cbf used previously    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Draw a box region of interest (ROI) on the plot    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_15_21_54.png" alt="images/download/attachments/22254804/image2013-6-17_15_21_54.png" class="confluence-embedded-image" width="500"/>
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Expand the view menu by clicking the white down arrow at the top right of the plot view     </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Select &quot;Open New Plot Scripting&quot; from the view menu</strong><br/>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the dialogue box that appears select &quot;Python console&quot;, if python is not available see <strong class=" ">    <span style="color: #000080;" class="">
+<a  class="document-link " href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-SettingUpPythonInDAWN">Appendix I: Setting up Python in DAWN</a>    </span>
+</strong>    </span>
+</strong><br/><strong class=" ">    <span style="color: #000080;" class="">
+    </span>
+</strong><strong class=" ">    <span style="color: #000080;" class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_15_24_24.png" alt="images/download/attachments/22254804/image2013-6-17_15_24_24.png" class="confluence-embedded-image" width="500"/>
+        </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+A python console should appear and run some configuration scripts    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+The console is now connected to the Dataset Plot view    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+Remember the console view is just like any other view in DAWN, if the default position it appears in is not ideal just drag it somewhere else!    </p>
+    <p  class="">
+    </p>
+    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_15_23_5.png" alt="images/download/attachments/22254804/image2013-6-17_15_23_5.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <div class="section section-3 "  id="22254804_Session3.DAWNTraining-Python-scisoftpy"  >
+        <h3>scisoftpy</h3>
+    
+    <p  class="">
+All the useful methods for plotting data and getting plotted data from the console are contained in the scisoftpy python module. In the newly opened console you should see the line:    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">import scisoftpy as dnp</tt>    </span>
+    </p>
+    <p  class="">
+This line imports scisoftpy and binds it to the name dnp (to save you having to type scisoftpy all the time).    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the console type    </span>
+<tt class=" ">dnp.</tt></strong>    </p>
+</li></ul>    <p  class="">
+Notice how once . is pressed the context assist shows all the methods in the dnp module    </p>
+    <p  class="">
+The first half of the training session deals with using the console with the plotting system. The methods for this can be found in <tt class=" ">dnp.plot</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Type    </span>
+<tt class=" ">dnp.plot.</tt>    <span style="color: #000080;" class="">
+what methods are shown?    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+Many of the methods in dnp.plot use the plot name to identify the plotting system we are using (DAWN can have many active plot views but they will all have different names). Because the console was opened using the action on &quot;Dataset Plot&quot; the console automatically sets this as the default name (with the line dnp.plot.setdefname('Dataset Plot'), which should be shown in the console). This means methods that require a name argument will use &quot;Dataset Plot&quot; if no name is supplied (more on this later).    </p>
+    <p  class="">
+Since most of the methods we are using in this tutorial are in dnp.plot you may want to <tt class=" ">import scisoftpy.plot as dpl</tt> to reduce the amount of typing required. If you do this, everywhere <tt class=" ">dnp.plot</tt> is written, replace it with <tt class=" ">dpl</tt>.    </p>
+    </div>
+    
+    <div class="section section-3 "  id="22254804_Session3.DAWNTraining-Python-Beans"  >
+        <h3>Beans</h3>
+    
+    <p  class="">
+The python console communicates with the plotting system using little packages called beans.  These packages carry all the information contained in the plotting system. There are two types of bean; data beans and gui (pronounced gooey, meaning graphical user interface) beans. Data beans are used to access the data displayed in a plot, gui beans allow non-data objects, such as regions of interest (ROIs) to be obtained.    </p>
+    <p  class="">
+The first bean we shall look at is the data bean.    </p>
+    <div class="section section-4 "  id="22254804_Session3.DAWNTraining-Python-TheDataBean:Images"  >
+        <h4>The Data Bean: Images</h4>
+    
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">In the console type:</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">db = dnp.plot.getd</tt>    </p>
+    <p  class="">
+Notice how the autocomplete shows the method getdatabean(name)    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Select this method and delete the word name and press enter</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">db = dnp.plot.getdatabean()</tt>    </span>
+    </p>
+    <p  class="">
+db is now the data bean object (it doesn't have to be called db, it could be called anything you like, just put your chosen name on the left side of the equals sign). The variable <i class=" ">name</i> could be deleted since we want to use the default name (Dataset Plot) which was set when the console was opened.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Type the following code to extract the data from the bean into the variable &quot;data&quot;</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">data = db.data[0].data</tt>    </p>
+    <p  class="">
+What does this line mean? The databean contains a list of datasets (db.data) we are taking the first of these, since there is only one, ([0] - python uses zero-based indexing) and then we are taking the data from the dataset (hence data[0].data).    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Type the following commands to investigate the data extracted from the plot</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">data.shape</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">data.min()</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">data.max()</tt>    </span>
+    </p>
+    <p  class="">
+Now the data has been collected from the plot, let's change it and push it back up. Take the log of the data (adding an offset so we don't log the negative values). We will use the log method in dnp, but if you are familiar with NumPy feel free to import it and use its log method. Both should work equally well.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Type the following command to log the data an push it back to the plot:</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">dnp.plot.image(dnp.log10(data+3))</tt>    </p>
+    <p  class="">
+You should notice the contrast of the image change since the data is now different. Any data can be pushed to the plotting system, not just a modified version of the data that was there.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Type the following command to push a random noise dataset the same size as the powder image to the plot</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.image(dnp.random.rand(2527, 2463))</tt>    </span>
+    </p>
+    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_15_26_13.png" alt="images/download/attachments/22254804/image2013-6-17_15_26_13.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <p  class="">
+Data does not have to be sent back to the original plot, it can be sent to a new plot view by specifying the name in the call to plot.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Type the following command to push the original data to a new plot view</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.image(data, name = &quot;Plot 1&quot;)</tt>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Go to the Window menu, Show Plot View, Plot 1</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+Plot 1 should now appear showing the original data    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<i class=" ">    <span style="color: #000080;" class="">
+<strong class=" ">Exercise 1: use what you have learnt so far to display the difference between the images in ref-testscale_1_001.img and ref-testscale_1_002.img in a plot view called &quot;Difference&quot;</strong>    </span>
+</i>    </p>
+</li></ul>    </div>
+    
+    <div class="section section-4 "  id="22254804_Session3.DAWNTraining-Python-TheGUIBean:RegionsofInterest(ROIs)"  >
+        <h4>The GUI Bean: Regions of Interest (ROIs)</h4>
+    
+    <p  class="">
+Another useful feature of the plotting/python interface is the ability to draw region selections on the plot and then read these regions back into the python console.    </p>
+    <div class="section section-5 "  id="22254804_Session3.DAWNTraining-Python-GettingROIs"  >
+        <h5>Getting ROIs</h5>
+    
+    <p  class="">
+Regions are stored in the GUI bean. The GUI holds a reference to the active (last clicked) ROI and a list of all ROIs.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the gui bean from the default plot by typing</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">gb = dnp.plot.getbean()</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the active ROI from the bean</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">box = dnp.plot.getroi(gb)</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Once the bean has been obtained see what happens when you type the following commands</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">box</tt>    </p>
+    <p  class="">
+<tt class=" ">box.spt</tt>    </p>
+    <p  class="">
+<tt class=" ">box.len</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">What does spt and len give you?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+In Dawn you are not limited on how many ROIs can be drawn on the screen, how do you get multiple ROI's back from the plotting system?    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Draw more box regions and refresh the bean</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">gb = dnp.plot.getbean()</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the collection of ROI's from the gui</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">rois = dnp.plot.getrois(gb)</tt>    </span>
+    </p>
+    <p  class="">
+The object returned by getrois is a dictionary (a collection of key/item pairs) where each ROI is stored with its name as a key.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Iterate over the collection of regions printing the name of each ROI</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">for roi in rois:</tt>    </p>
+    <p  class="">
+<tt class=" ">    print roi</tt>    </p>
+    <p  class="">
+The values printed are the keys for every ROI in the dictionary, to get something more useful than just the ROI name we need to use these keys to extract the actual ROIs.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Again iterate over the collection of regions, but this time extract each ROI and print its start point and length.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">for roi in rois:</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">    region = rois[roi]</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">    print region.spt</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">    print region.len</tt>    </span>
+    </p>
+    <p  class="">
+A single ROI can be extracted from the dictionary by calling <tt class=" ">region = rois[name]</tt>, where in this case name equals 'Box 1'    </p>
+    <p  class="">
+The following ROIs are supported by the scripting interface; point, line, rectangle, sector, circle, ellipse.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" ">Exercise 2 - draw some of the supported ROI types and investigate the values on each ROI (spt, len...), what other parameters do different ROIs have?</strong></i>    </span>
+    </p>
+</li></ul>    </div>
+    
+    <div class="section section-5 "  id="22254804_Session3.DAWNTraining-Python-ModifyingROIs"  >
+        <h5>Modifying ROIs</h5>
+    
+    <p  class="">
+    <span style="color: #000080;" class="">
+    <span style="color: #000000;" class="">
+To modify ROIs you should work with the ROI list not the active ROI.    </span>
+    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Clear all the ROIs from the plot and draw a single rectangular ROI.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the GUI bean and as before get the ROI list from it.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Use the command below to set the length of Box 1 to 1000 pixels in each direction</strong>    </span>
+    <span style="color: #000000;" class="">
+    </span>
+    <span style="color: #000080;" class="">
+    <span style="color: #000000;" class="">
+    </span>
+    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">rois['Box 1'].len = [1000.,1000.]</tt>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000000;" class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Push the GUI bean back up to the plotting system to see the changes    </span>
+</strong>    </span>
+    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.setbean(gb)</tt>    </span>
+    </p>
+    </div>
+    
+    <div class="section section-5 "  id="22254804_Session3.DAWNTraining-Python-AddingROIs"  >
+        <h5>Adding ROIs</h5>
+    
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000000;" class="">
+To add a new ROI to the plot you need to create a new ROI, add it to the ROI list, update the ROI list in the GUI bean then push the bean back to the plot. The methods for creating new ROIs are in the dnp.plot.roi module. Again to save typing this can be imported as a short name (e.g.     <span style="color: #0000ff;" class="">
+<tt class=" ">import scisoftpy.roi as droi</tt>    </span>
+) to save typing.<br/>    </span>
+    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000000;" class="">
+    </span>
+    <span style="color: #000000;" class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the GUI bean and ROI list.</strong>    </span>
+    </span>
+    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Create a new rectangle ROI with length 500 pixels in each direction, set the start point as 50., 100. and call it &quot;My Roi&quot;</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000000;" class="">
+    </span>
+<tt class=" ">nroi = dnp.plot.roi.rectangle([500.,500.])</tt>    </span>
+    </p>
+    <p  class="">
+<tt class=" ">nroi.spt = [100.,50.]</tt>    </p>
+    <p  class="">
+<tt class=" ">nroi.name = &quot;My Roi&quot;</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Add the new ROI to the ROI list, update the list in the GUI bean and push the bean to the plot:    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">rois.append(nroi)</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.setrois(gb, rois)</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.setbean(gb)</tt>    </span>
+    </p>
+    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000000;" class="">
+The    </span>
+    <span style="color: #000000;" class="">
+ new ROI should now be shown on the plot.    </span>
+<br/>    </span>
+    </p>
+    </div>
+    
+    </div>
+    
+    <div class="section section-4 "  id="22254804_Session3.DAWNTraining-Python-TheDataBean:LineTraces"  >
+        <h4>The Data Bean: Line Traces</h4>
+    
+    <p  class="">
+In this section we return to looking at the data bean, although this time with 1d line trace data rather than images.    </p>
+    <p  class="">
+Generally two datasets are important for processing line traces, the x and y axis data (images can also have axis data, and can be accessed in a similar fashion to that demonstrated below).  In this example we will plot two line traces, extract the x and y data, confirm the x data are the same, then push some processed data back up to the plot.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Open the file MoKedge_1_15.nxs and plot I0 vs Energy.    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Get the data bean from the plot and type:    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">db.axisData.keys()</tt>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+To find the names of the available axis (in this case 'x-axis')    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Store the x axis data in a variable x0:    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">x0 = db.axisData['x-axis']</tt>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the y data from the data bean using the same method as for the image data and assign it to y0.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Plot It vs Energy, get the data bean again and store the axis and data in xt and yt</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Confirm xt and x0 are the same using the command    </span>
+    <span style="color: #0000ff;" class="">
+<tt class=" ">all(xt == x0)</tt>    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #0000ff;" class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Use the console to plot y0 and yt against x0.</strong>    </span>
+<br/>    </span>
+    </p>
+</li></ul>    <p  class="">
+<tt class=" ">dnp.plot.line(x0,(y0,yt))</tt>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Get the databean and see how many datasets it contains by calling len(db.data)</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #800000;" class="">
+<strong class=" ">BUG IN DAWN 1.2</strong>    </span>
+ - only one dataset is returned even though two are plotted, this is fixed in later versions (and the current nightly build June 2013)    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Plot the log of (y0/yt) in a plot view called &quot;My Plot&quot;</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #0000ff;" class="">
+<tt class=" ">dnp.plot.line(x0, dnp.log(y0/yt), name = &quot;My Plot&quot;)</tt>    </span>
+    </p>
+    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_11_32_19.png" alt="images/download/attachments/22254804/image2013-6-17_11_32_19.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <p  class="">
+If this has been your first introduction to the Python programming language it is recommend you stop here and review the techniques demonstrated so far.  Maybe try importing the numerical python package (    <span style="color: #0000ff;" class="">
+<tt class=" ">import numpy as np</tt>    </span>
+), and experimenting with basic mathematical manipulation with data from the plot.    </p>
+    <p  class="">
+Further information on the scisoft python module can be found here: <a class="external-link external-link" href="http://www.opengda.org/documentation/manuals/Diamond_SciSoft_Python_Guide/trunk/contents.html">http://www.opengda.org/documentation/manuals/Diamond_SciSoft_Python_Guide/trunk/contents.html</a>    </p>
+    <p  class="">
+All the interaction with the plotting system should work with Jython as well as Python, but the datasets returned will be Java objects not numpy arrays.    </p>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <div class="section section-2 "  id="22254804_Session3.DAWNTraining-Python-ThePythonPerspective"  >
+        <h2>The Python Perspective</h2>
+    
+    <p  class="">
+The python console and code editors in DAWN come from the Eclipse PyDev plugin (<a class="external-link external-link" href="http://pydev.org/">http://pydev.org/</a>), making DAWN a powerful python developement IDE. PyDev has been combined with the scisoftpy module in the Python perspective. This perspective gives DAWN Matlab or Spyder-esque mathematical scripting functionality while allowing plotted data to be analysed with DAWN tool system.    </p>
+    <p  class="">
+        <img src="images/download/attachments/22254804/image2013-6-17_11_43_17.png" alt="images/download/attachments/22254804/image2013-6-17_11_43_17.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <p  class="">
+Guidance on using the PyDev projects for writing and managing python code can be found on the PyDev website.    </p>
+    <p  class="">
+<a class="external-link external-link" href="http://pydev.org/manual_101_root.html">http://pydev.org/manual_101_root.html</a>    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22254804_Session3.DAWNTraining-Python-TestYourself"  >
+        <h2>Test Yourself</h2>
+    
+<ol class=" "><li class=" ">    <p  class="">
+How do you set the default plot name using scisoftpy?    </p>
+</li><li class=" ">    <p  class="">
+What line of code would you type to get the third dataset from the data list in the data bean?    </p>
+</li><li class=" ">    <p  class="">
+What command can you use to create a dataset of random data?    </p>
+</li><li class=" ">    <p  class="">
+In the data bean, datasets are stored in a list. What are ROIs stored in, in the GUI bean?    </p>
+</li><li class=" ">    <p  class="">
+What other methods are there in the view menu to help with scripting?    </p>
+</li></ol>    </div>
+    
+    <div class="section section-2 "  id="22254804_Session3.DAWNTraining-Python-SettingUpPythonInDAWNAppendixI:SettinguppythoninDAWN"  >
+        <h2>Appendix I: Setting up python in DAWN</h2>
+    
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">If you are not already there go to the PyDev Python interpreter preferences:</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Go to the Window menu, Preferences, type python in the filter box and select Interpreter - Python from the PyDev node</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+IF YOU ARE ON A DIAMOND LINUX WORKSTATION:    </span>
+</strong>    </p>
+    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Click Auto Config    </span>
+</strong>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the dialogue box that appears select python (not usr/bin/python or Enthought)    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the next dialogue click Select All, then OK    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Click OK in the preferences window (python will link all the packages)    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Python is now configured.    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+IF YOU ARE NOT ON A DIAMOND LINUX WORKSTATION:    </span>
+</strong>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Click Auto Config    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the dialogue box that appears either choose your python installation or if you don't have one select to install the Enthough python distribution    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+In the next dialogue click Select All, then OK    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Click OK in the preferences window (python will link all the packages)    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Python is now configured.    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">IF YOU ARE ON AN X64 WINDOWS SYSTEM</strong>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">No Enthough distribution is available, download and install a different distribution (pythonxy...)</strong>    </span>
+    </p>
+</li></ul>    </div>
+    
+        </div>
+    
+        <div class="footer">
+            Created with <a href="http://k15t.com/display/web/Scroll-Wiki-EclipseHelp-Exporter-for-Confluence">Scroll EclipseHelp Exporter for Confluence</a>.
+        </div>
+    </div>
+</body>
+</html>

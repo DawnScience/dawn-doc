@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+    
+<toc label="DAWN Tutorials - Diamond Light Source" topic="DAWN_Tutorials_-_Diamond_Light_Source.html">
+                        <topic label="" href="DAWN_Tutorials_-_Diamond_Light_Source.html#25133469_DAWNTutorials-DiamondLightSource-" />
+                            <topic label="An Introduction to DAWN - Tutorials" href="DAWN_Tutorials_-_Diamond_Light_Source.html#25133469_DAWNTutorials-DiamondLightSource-AnIntroductiontoDAWN-Tutorials" />
+                            <topic label="Session 1. DAWN Training - Data Browsing" href="Session_1._DAWN_Training_-_Data_Browsing.html">
+                                <topic label="1. Running DAWN" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-1.RunningDAWN">
+                                <topic label="Diamond Linux Workstations" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-DiamondLinuxWorkstations" />
+                                    <topic label="Anywhere else..." href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-Anywhereelse..." />
+                    </topic>
+                                    <topic label="2. The Welcome Screen" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-2.TheWelcomeScreen" />
+                                    <topic label="3. Browsing Data" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-3.BrowsingData">
+                                <topic label="Opening A File" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-OpeningAFile" />
+                                    <topic label="Editors and views - Plot/Text/Data/Tree" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-Editorsandviews-Plot%2FText%2FData%2FTree" />
+                                    <topic label="Customizing Perspectives" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-CustomizingPerspectives" />
+                    </topic>
+                                    <topic label="4. The Plot -  Basics" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-4.ThePlot-Basics" />
+                                    <topic label="5.  DExplore" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-5.DExplore" />
+                                    <topic label="6. Help and Cheatsheets" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-6.HelpandCheatsheets" />
+                                    <topic label="7. Feedback (optional)" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-7.Feedback%28optional%29" />
+                                    <topic label="Test Yourself" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-TestYourself" />
+                                    <topic label="Appendix I - Refreshing Example Data" href="Session_1._DAWN_Training_-_Data_Browsing.html#22251887_Session1.DAWNTraining-DataBrowsing-AppendixI-RefreshingExampleData" />
+                    </topic>
+                            <topic label="Session 2. DAWN Training - Advanced Data Browsing" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html">
+                                <topic label="1. The Plot - Customizing" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-1.ThePlot-Customizing" />
+                                    <topic label="2. Plotting Tools" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-2.PlottingTools">
+                                <topic label="Image Tools (or 2D tools)" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-ImageTools%28or2Dtools%29" />
+                                    <topic label="Trace Tools (or 1D tools)" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-TraceTools%28or1Dtools%29" />
+                                    <topic label="3. Expressions" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-3.Expressions" />
+                                    <topic label="4. History Tools" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-4.HistoryTools" />
+                                    <topic label="5. Revisiting the Project Explorer" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-5.RevisitingtheProjectExplorer" />
+                    </topic>
+                                    <topic label="Test Yourself" href="Session_2._DAWN_Training_-_Advanced_Data_Browsing.html#22251889_Session2.DAWNTraining-AdvancedDataBrowsing-TestYourself" />
+                    </topic>
+                            <topic label="Session 3. DAWN Training - Python" href="Session_3._DAWN_Training_-_Python.html">
+                                <topic label="Python Scripting in DExplore" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-PythonScriptinginDExplore">
+                                <topic label="scisoftpy" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-scisoftpy" />
+                                    <topic label="Beans" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-Beans">
+                                <topic label="The Data Bean: Images" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-TheDataBean%3AImages" />
+                                    <topic label="The GUI Bean: Regions of Interest (ROIs)" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-TheGUIBean%3ARegionsofInterest%28ROIs%29">
+                                <topic label="Getting ROIs" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-GettingROIs" />
+                                    <topic label="Modifying ROIs" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-ModifyingROIs" />
+                                    <topic label="Adding ROIs" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-AddingROIs" />
+                    </topic>
+                                    <topic label="The Data Bean: Line Traces" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-TheDataBean%3ALineTraces" />
+                    </topic>
+                    </topic>
+                                    <topic label="The Python Perspective" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-ThePythonPerspective" />
+                                    <topic label="Test Yourself" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-TestYourself" />
+                                    <topic label="Appendix I: Setting up python in DAWN" href="Session_3._DAWN_Training_-_Python.html#22254804_Session3.DAWNTraining-Python-SettingUpPythonInDAWNAppendixI%3ASettinguppythoninDAWN" />
+                    </topic>
+                            <topic label="Session 4. DAWN Training - Extras" href="Session_4._DAWN_Training_-_Extras.html">
+                                <topic label="Workflows" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-Workflows" />
+                                    <topic label="Running Scripts in the Python Perspective" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-RunningScriptsinthePythonPerspective">
+                                <topic label="Running Scripts" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-RunningScripts" />
+                                    <topic label="Debug Mode" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-DebugMode" />
+                    </topic>
+                                    <topic label="DExplore Hyper3D" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-DExploreHyper3D" />
+                                    <topic label="HDF5 Stack To Movie" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-HDF5StackToMovie" />
+                                    <topic label="The End?" href="Session_4._DAWN_Training_-_Extras.html#22251894_Session4.DAWNTraining-Extras-TheEnd%3F" />
+                    </topic>
+        </toc>
+
+
+

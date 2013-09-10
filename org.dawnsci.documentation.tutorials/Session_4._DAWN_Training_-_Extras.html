@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Session 4. DAWN Training - Extras</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="Scroll EclipseHelp Exporter" name="generator"/>
+
+    <link type="text/css" rel="stylesheet" href="css/eclipse-defaults.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print" />
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+
+        <div id="22251894" class="content">
+            <h1>Session 4. DAWN Training - Extras</h1>
+    <p  class="">
+This is the final session in the DAWN Training course. By now you should be comfortable with using DAWN to view various different types of data, customising the look of plots by changing things like the title, image colour maps, trace line style, using the plotting tool system and some basic python scripting.  The aim of the final session is for the trainees to bring the own data and explore it using DAWN. This tutorial sheet covers the most common &quot;extras&quot; in DAWN, not included in the previous sessions.    </p>
+    <p  class="">
+These extras include:    </p>
+<ul class=" "><li class=" ">    <p  class="">
+Data processing with Workflows    </p>
+</li><li class=" ">    <p  class="">
+Running scripts in the Python perspective    </p>
+</li><li class=" ">    <p  class="">
+Visualising multidimensional data in DExplore Hyperview    </p>
+</li><li class=" ">    <p  class="">
+Creating movies from HDF5 stacks    </p>
+</li></ul>    <p  class="">
+    </p>
+    <p  class="">
+<strong class=" ">    <span style="color: #800000;" class="">
+This tutorial is not designed to be worked through in order! Pick the section you find most useful and go for it!    </span>
+</strong>    </p>
+    <div class="section section-2 "  id="22251894_Session4.DAWNTraining-Extras-Workflows"  >
+        <h2>Workflows</h2>
+    
+    <p  class="">
+Workflows are a powerful labview-esque visual programming language. There are good guides on how to use Workflows in the DAWN cheatsheets, this section of the tutorial will guide you through one of the cheatsheets, allowing the others to be explored during the class or at your leisure.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Open DAWN, go to the <i class=" ">Help - &gt; Cheatsheets</i> and from the Cheat Sheet Selection go to <i class=" ">Workflows and pipelines</i> and open the <i class=" ">Workflow and pipelines</i><i class=" ">tutorials</i>.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-6-28_13_29_27.png" alt="images/download/attachments/22251894/image2013-6-28_13_29_27.png" class="confluence-embedded-image" />
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Follow the tutorial <i class=" ">Take a Tour of Workflows</i> which will guide you through building a simple Workflow which displays a message box, as shown below:</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-6-28_13_37_18.png" alt="images/download/attachments/22251894/image2013-6-28_13_37_18.png" class="confluence-embedded-image" width="500"/>
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+The first real introduction to the power of the Workflows system is the <i class=" ">Some Simple Maths</i> tutorial. This tutorial uses multiple workflow actors to load, process, export and open data.    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-6-28_13_40_17.png" alt="images/download/attachments/22251894/image2013-6-28_13_40_17.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <p  class="">
+If, after this brief introduction, the Workflows are of interest to you, carry on with the Workflow Cheatsheets.  The instructors in the class will be happy to help with any problems you might have.    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251894_Session4.DAWNTraining-Extras-RunningScriptsinthePythonPerspective"  >
+        <h2>Running Scripts in the Python Perspective</h2>
+    
+    <p  class="">
+This section is a quick guide to running scripts in the python perspective and using debug mode.    </p>
+    <div class="section section-3 "  id="22251894_Session4.DAWNTraining-Extras-RunningScripts"  >
+        <h3>Running Scripts</h3>
+    
+    <p  class="">
+The first step in running Python scripts is to open the Python Perspective, set up a new console, create a new PyDev project and you are ready to go.<br/><strong class=" ">    <span style="color: #000080;" class="">
+    </span>
+</strong>    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Open DAWN, go to the <i class=" ">Python Perspective</i> and start a <i class=" ">Python</i> console (follow the steps in the last tutorial if you don't know how to do this).    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Create a new <i class=" ">PyDev project</i> called <i class=" ">MyProject</i> and make sure <i class=" ">Create 'src' folder and add it to the PYTHONPATH</i> is selected.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #000080;" class="">
+        <img src="images/download/attachments/22251894/image2013-7-2_9_25_10.png" alt="images/download/attachments/22251894/image2013-7-2_9_25_10.png" class="confluence-embedded-image" />
+    <br/>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Right click on the src folder and select New PyDev Module. Leave the Package name blank and call the module MyScript.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">At the top of <i class=" ">MyScript.py</i> add the line <tt class=" ">import scisoftpy as dnp</tt>.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Open the file <i class=" ">MoKedge_1_15.nxs</i> by right-clicking the file and select <i class=" ">Open With -&gt; NeXus Data Editor</i>.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Find the dataset <i class=" ">entry1/counterTimer01/Energy</i> and drag and drop it into the python console.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #000080;" class="">
+        <img src="images/download/attachments/22251894/image2013-7-2_9_28_39.png" alt="images/download/attachments/22251894/image2013-7-2_9_28_39.png" class="confluence-embedded-image" />
+    <br/>    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" "><tt class=" ">dnp.io.load('C:\\PATHTODAWNWORKSPACE\\data\\examples\\MoKedge_1_15.nxs')['/entry1/counterTimer01/Energy']</tt> should now be visible in the console.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Change this to say <tt class=" ">energy = dnp.io.load('C:\\PATHTODAWNWORKSPACE\\data\\examples\\MoKedge_1_15.nxs')['/entry1/counterTimer01/Energy'][...]</tt> and press enter.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+    <span style="color: #000000;" class="">
+The scisoftpy module doesn't load nexus data until it is needed and only loads what it needs. The [...] tells it to load the complete dataset into a numpy array.    </span>
+    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Do the same for the datasets I0 and It.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Copy these lines into the MyScript.py editor, and add the extra lines as shown below to take the log of the ratio of i0/it and plot it against energy.</strong>    </span>
+    </p>
+</li></ul>    <div class="confbox programlisting ">
+                <div class="content">
+        <pre><code>import scisoftpy as dnp
+
+import numpy as np
+
+energy = dnp.io.load('C:\\DAWNWORKSPACELOCATION\\data\\examples\\MoKedge_1_15.nxs')['/entry1/counterTimer01/Energy'][...]
+
+i0 =dnp.io.load('C:\\DAWNWORKSPACELOCATION\\data\\examples\\MoKedge_1_15.nxs')['/entry1/counterTimer01/I0'][...]
+
+it= dnp.io.load('C:\\DAWNWORKSPACELOCATION\\data\\examples\\MoKedge_1_15.nxs')['/entry1/counterTimer01/It'][...]
+
+ratio = i0/it
+
+ln_ratio = np.log(ratio)
+
+dnp.plot.plot(energy,ln_ratio)</code></pre>
+        </div>
+    </div>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Run the script in the current console by pressing Ctrl-Alt-Enter or the         <img src="images/download/attachments/22251894/image2013-6-28_17_15_0.png" alt="images/download/attachments/22251894/image2013-6-28_17_15_0.png" class="confluence-embedded-image" />
+     toolbar button. A trace should appear in Plot 1.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+If you just want to run a small section of the code, highlighting it and pressing Ctrl-Alt-Enter will send the highlighted lines to the console.    </p>
+    </div>
+    
+    <div class="section section-3 "  id="22251894_Session4.DAWNTraining-Extras-DebugMode"  >
+        <h3>Debug Mode</h3>
+    
+    <p  class="">
+Debugging allows you to stop the running of a script at specific points to check everything is proceeding as expected.  This is very useful for finding the cause of incorrect output.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Put a breakpoint next to the line ratio = i0/it (either double-click on the grey bar on the side of the code editor next to the line or right-click and select Add Breakpoint)</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">From the Debug tool bar drop-down, select Debug As -&gt; Python Run.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Say Yes to opening the Debug perspective.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+The layout of DAWN will change to the debugging perspective.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<i class=" "><strong class=" ">Look at the Variables view, what does it show?</strong></i>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Type it.shape into the console and press enter, what does it show?    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Type ratio.shape into the console and press enter, what does it show?    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-7-2_9_38_35.png" alt="images/download/attachments/22251894/image2013-7-2_9_38_35.png" class="confluence-embedded-image" />
+            </p>
+    <p  class="">
+The variable ratio has not been created yet, the debugger stopped the script just before this line was executed.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Press F6 (or the step over toolbar action) to execute the line with the breakpoint.</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Again type ratio.shape into the console and press enter, what does it show now?</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+The interactive console and variables view are really useful for developing scripts and fixing broken code.    </p>
+    <p  class="">
+Experiment with writing scripts to analyse data (either the example data or your own), the instructors in the class will be happy to help with any questions/problems you might have.    </p>
+    </div>
+    
+    </div>
+    
+    <div class="section section-2 "  id="22251894_Session4.DAWNTraining-Extras-DExploreHyper3D"  >
+        <h2>DExplore Hyper3D</h2>
+    
+    <p  class="">
+Hyper3D is a view added to DExplore for visualising 3 dimensional datasets. DAWN 1.2 contains the first version with this view, included for user feedback and collecting further requirements.    </p>
+    <p  class="">
+The Hyper3D view was specifically designed to work with hyperspectral image datasets (stacks of images where each images corresponds to a different wavelength and a single pixel traced down the stack is a spectrum), but it also works well for other stacks of images.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Go the the <i class=" ">DExplore</i> perspective and open the example file <i class=" ">315029.dat</i>.    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Select the <i class=" ">Pilatus</i> dataset, and in the dataset inspector select <i class=" ">Hyper3D</i> from the inspector tab    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+What shape is this dataset?    </span>
+</strong>    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Select <i class=" ">eta</i> as the <i class=" ">trace-coord</i>, drag the <i class=" ">Hyper3D</i> view to a convenient place and double click the tab to maximise the view    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-7-1_11_48_0.png" alt="images/download/attachments/22251894/image2013-7-1_11_48_0.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    <p  class="">
+The two plots in this view show different sections of the 3D pilatus dataset. The image shows the dimensions perpendicular to the dimension selected as the trace-coord. The actual image shown is an integration of the image stack over the window shown in the trace plot on the right.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Move the region on the right hand plot, what happens to the image on the left hand plot?    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+The trace in the right hand plot shows the average of all the traces corresponding to the pixels selected by the box region on the image.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Move the region on the left hand plot, what happens to the trace on the right hand plot?</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+<strong class=" ">    <span style="color: #000080;" class="">
+Add more regions to the image, using the <i class=" ">Create New Profile</i> toolbar action. Traces can be exported to a .dat file using the <i class=" ">Export...</i> toolbar action.    </span>
+</strong>    </p>
+</li></ul>    <p  class="">
+Experiment with your own 3D datasets (or ask for more exciting datasets), the instructors in the class will be happy to help with any questions/problems you might have.    </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251894_Session4.DAWNTraining-Extras-HDF5StackToMovie"  >
+        <h2>HDF5 Stack To Movie</h2>
+    
+    <p  class="">
+This section demonstrates the use of the dataset conversion wizard in DAWN to convert from a HDF5 image stack into a movie avi file.    </p>
+    <p  class="">
+None of the example files shipped with DAWN are suitable for this section so please use your own data or ask the instructors for an appropriate file.    </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">M</strong><strong class=" ">ake sure the HDF5 file is in one of the data project folder, navigate to the file, right click and select Convert - Convert Wizard...</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Select the conversion type video from image stack and click Next</strong>    </span>
+    </p>
+</li><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Make sure the correct dataset is selected, the output file name is OK, then adjust the parameters in the advanced area to optimise the histogramming, downsampling (larger downsampling, smaller file) and frame rate.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-7-2_8_51_45.png" alt="images/download/attachments/22251894/image2013-7-2_8_51_45.png" class="confluence-embedded-image" width="500"/>
+            </p>
+<ul class=" "><li class=" ">    <p  class="">
+    <span style="color: #000080;" class="">
+<strong class=" ">Finally select the orientation of the dataset to animate through using the slicing options and click Finish.</strong>    </span>
+    </p>
+</li></ul>    <p  class="">
+After clicking finish a progress bar will appear on the wizard, when the wizard is finished the avi movie file should appear in the chosen output folder.    </p>
+    <p  class="">
+        <img src="images/download/attachments/22251894/image2013-7-2_8_52_39.png" alt="images/download/attachments/22251894/image2013-7-2_8_52_39.png" class="confluence-embedded-image" width="500"/>
+            </p>
+    </div>
+    
+    <div class="section section-2 "  id="22251894_Session4.DAWNTraining-Extras-TheEnd?"  >
+        <h2>The End?</h2>
+    
+    <p  class="">
+Congratulations, you have reached the end of the DAWN training sessions! You should now be familiar with most of the general data visualisation and analysis features in the current version of DAWN.    </p>
+    <p  class="">
+Please keep in mind these sheets for future reference, it may also be worth checking periodically for updates and new features as new versions of DAWN are released.    </p>
+    <p  class="">
+Thank you for participating in this training series, if you have any feedback please use the feedback form in the DAWN help menu, giving the feedback the title &quot;Dawn Training&quot;.    </p>
+    <p  class="">
+        <img src="images/download/attachments/22252476/image2013-5-13_10_5_32.png" alt="images/download/attachments/22252476/image2013-5-13_10_5_32.png" class="confluence-embedded-image confluence-external-resource" width="500"/>
+            </p>
+    <p  class="">
+    </p>
+    <p  class="">
+    </p>
+    <p  class="">
+    </p>
+    </div>
+    
+        </div>
+    
+        <div class="footer">
+            Created with <a href="http://k15t.com/display/web/Scroll-Wiki-EclipseHelp-Exporter-for-Confluence">Scroll EclipseHelp Exporter for Confluence</a>.
+        </div>
+    </div>
+</body>
+</html>

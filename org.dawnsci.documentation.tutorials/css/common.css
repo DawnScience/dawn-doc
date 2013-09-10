@@ -1,0 +1,229 @@
+/* Misc ******************************************************************************************/
+
+.container .error {
+    background-color: #FFCCCC;
+}
+
+.container .content img {
+    max-width: 100%;
+    border: 0 none;
+}
+
+img.confluence-content-image-border {
+    border: 1px solid black;
+}
+
+.container .caption {
+    font-weight: bold;
+    padding-top: 0.5em;
+}
+
+
+/* Paragraphs ************************************************************************************/
+
+.container li p {
+    margin: 0;
+}
+
+.container ol,
+.container ul {
+    padding-left: 3em;
+}
+
+.container p.last,
+.container p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Tables */
+.container table {
+    border-collapse: collapse;
+    border: 1px solid red;
+    margin-bottom: 1em;
+    width: auto;
+}
+
+.container table tr {
+    page-break-inside: avoid;
+}
+
+.container table thead tr td {
+    background-color: #F0F0F0;
+    border: 1px solid #DDDDDD;
+    min-width: 0.6em;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: bold;
+    color: #003366;
+}
+
+.container table tbody tr td {
+    border: 1px solid #DDDDDD;
+    min-width: 0.6em;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.container table tbody tr td.highlight {
+  color: #003366;
+  background-color: #F0F0F0;
+  font-weight: bold;
+}
+
+.container tbody tr:nth-child(2n) td,
+.container tbody tr.even td {
+    background-color: transparent;
+}
+
+.container tbody tr:nth-child(2n-1) td,
+.container tbody tr.even td {
+    background-color: #FCFCFC;
+}
+
+.container table td p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+th.confluenceTh,
+th.confluenceTh > p,
+td.highlight,
+td.highlight > p
+td.highlight-grey,
+td.highlight-grey > p {
+    background-color: #F0F0F0;
+}
+
+th.note,
+th.note > p,
+td.highlight.note,
+td.highlight.note > p,
+td.highlight-yellow,
+td.highlight-yellow > p {
+    background-color: #FFFFDD;
+}
+
+th.info,
+th.info > p,
+td.highlight.info,
+td.highlight.info > p,
+td.highlight-blue,
+td.highlight-blue > p {
+    background-color: #E0F0FF;
+}
+
+th.success,
+th.success > p,
+td.highlight.success,
+td.highlight.success > p,
+td.highlight-green,
+td.highlight-green > p {
+    background-color: #DDFADE;
+}
+
+th.warning,
+th.warning > p,
+td.highlight.warning,
+td.highlight.warning > p,
+td.highlight-red,
+td.highlight-red > p {
+    background-color: #FFE7E7;
+}
+
+
+/* Panels, Code-Samples, Admonitions *************************************************************/
+
+.container .confbox {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    border: 1px solid #BBBBBB;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    page-break-inside: avoid;
+}
+
+.container .confbox .title {
+    font-weight: bold;
+    padding-bottom: 1em;
+    margin-top: 0;
+}
+
+.container .panel {
+    padding: 1em;
+}
+
+.container .programlisting {
+    padding: 0;
+    border-style: dashed;
+}
+
+.container .programlisting div.title {
+    padding: 0.5em 1em;
+}
+
+.container .programlisting div {
+    padding: 1em;
+    background-color: #FFFFFF;
+}
+
+.container .programlisting div pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.container .admonition {
+    padding: 1em 1em 1em 3em;
+    background-repeat: no-repeat;
+    background-position: 0.75em 1em;
+}
+
+.container .admonition-warning {
+    background-image: url(../images/icons/delete.png);
+    background-color: #FFE7E7;
+    border-color: #DF9898;
+}
+
+.container .admonition-note {
+    background-image: url(../images/icons/error.png);
+    background-color: #FFFFDD;
+    border-color: #F7DF92;
+}
+
+.container .admonition-info {
+    background-image: url(../images/icons/information.png);
+    background-color: #E0EFFF;
+    border-color: #9EB6D4;
+}
+
+.container .admonition-tip {
+    background-image: url(../images/icons/accept.png);
+    background-color: #DDFADE;
+    border-color: #9EC49F;
+}
+
+/* Blockquote ************************************************************************************/
+
+.container blockquote {
+    border-left: 1px solid #3C78B5;
+    color: #222222;
+    font-style: italic;
+    margin: 1.5em 1em;
+    padding-left: 1em;
+}
+
+
+/* Footer Area ***********************************************************************************/
+
+.container .footer {
+    color: silver;
+    font-size: 11px;
+    margin-top: 28px;
+    text-align: right;
+}
+
+.container .footer a {
+    color: silver;
+    text-decoration: underline;
+}
