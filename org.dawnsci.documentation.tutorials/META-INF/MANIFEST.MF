@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bundle-Vendor: Diamond Light Source Ltd
-Bundle-Version: 1.0.0
+Bundle-Vendor: Diamond Light Source
+Bundle-Version: 1.0.0.qualifier
 Bundle-Name: Tutorials
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.dawnsci.documentation.tutorials; singleton:=t
