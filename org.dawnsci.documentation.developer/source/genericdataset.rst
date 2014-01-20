@@ -23,6 +23,8 @@ The following methods are declared::
 
 	public Class<?> elementClass();    // Java boxed primitive class
 
+	public int getElementsPerYtem();   // number of elements in each item
+
 	public String getName();           // name of dataset
 
 	public void setName(final String name); // set name
@@ -52,9 +54,20 @@ The following methods are declared::
 	public IDataset getSlice(final IMonitor, final Slice... slice);
 	                                   // slice of dataset as specified by an array of slices
 
+	public ILazyDataset getSliceView(final int[] start, final int[] stop, final int[] step);
+	                                   // sliced view of dataset
+
+	public ILazyDataset getSliceView(final Slice... slice);
+	                                   // sliced view of dataset as specified by an array of slices
+
 	public void setMetadata(final IMetaData metadata); // set metadata
 
 	public ILazyDataset clone();       // copy structure 
+
+	public void setLazyErrors(ILazyDataset errors);
+	                                   // set errors as lazy dataset
+	
+	public ILazyDataset getLazyErrors(); // get errors
 
 Next, the IDataset interface implements ILazyDataset and which allows
 interoperability with dataset classes external to the Scisoft plugin. This
@@ -67,8 +80,6 @@ base class to allow datasets of compound elements.
 IDataset
 --------
 The following methods are declared::
-
-	public int getElementsperitem();   // number of elements in each item
 
 	public int getItemsize();          // number of bytes in an item
 
@@ -92,6 +103,13 @@ The following methods are declared::
 
 	public void set(final Object obj, final int... pos); // set item in position
 
+	public void resize(int... newShape); // resize to new shape
+
+	public IDataset squeeze();          // remove dimensions of 1 in shape
+
+	public IDataset squeeze(boolean onlyFromEnd);
+	                                   // remove dimensions of 1 in shape (from end only if true)
+
 	public Number min();               // minimum item in dataset
 
 	public Number max();               // maximum item in dataset
@@ -101,6 +119,8 @@ The following methods are declared::
 	public int[] maxPos();             // position of first maxima
 
 	public IDataset clone();           // copy structure, making new copy of data
+
+	public IMetaData getMetadata();    // return metadata
 
 Implementation
 --------------
@@ -112,9 +132,6 @@ An interface is specified for various dataset iterators. These iterators
 provide a means to iterate over the index of the backing data array and/or the
 positions in row-major order.
 
-A dataset can be expanded by setting a value at a position outside its shape.
-Once expanded, the dataset can become discontiguous as extra space is reserved
-to allow for faster future expansion. A dataset can become contiguous again
-once it has expanded to fill its reserved space. Note that elements within the
-new shape but outside the old shape are set to minimum values or not-a-numbers. 
-
+Previously, a dataset could be expanded. This is now no longer supported and
+any attempt to set a value at a position outside its shape will throw an
+exception. The resize method can be used to expand datasets.
