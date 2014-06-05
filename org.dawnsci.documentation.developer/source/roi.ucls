@@ -5,7 +5,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="294" y="187"/>    
+    <position height="-1" width="-1" x="135" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -16,7 +16,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IOrientableROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="816" y="-21"/>    
+    <position height="-1" width="-1" x="770" y="-21"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -27,7 +27,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IPolylineROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="294" y="638"/>    
+    <position height="-1" width="-1" x="134" y="638"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -38,7 +38,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IParametricROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1279" y="-22"/>    
+    <position height="-1" width="-1" x="1234" y="-21"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -49,7 +49,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/ROIBase.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="571" y="187"/>    
+    <position height="-1" width="-1" x="537" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="false" private="true" static="true"/>      
@@ -60,7 +60,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/OrientableROIBase.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="816" y="185"/>    
+    <position height="-1" width="-1" x="767" y="186"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="false" private="false" static="true"/>      
@@ -71,7 +71,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IRectangularROI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1008" y="156"/>    
+    <position height="-1" width="-1" x="970" y="156"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -82,7 +82,7 @@
     project="uk.ac.diamond.scisoft.analysis.api" 
     file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/roi/IFitROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1561" y="-22"/>    
+    <position height="-1" width="-1" x="1511" y="-22"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -93,7 +93,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/PolylineROI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="397" y="478"/>    
+    <position height="-1" width="-1" x="345" y="478"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -104,7 +104,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/PointROI.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="571" y="476"/>    
+    <position height="-1" width="-1" x="537" y="476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -115,7 +115,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/RectangularROI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1008" y="509"/>    
+    <position height="-1" width="-1" x="970" y="496"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="false" private="false" static="true"/>      
@@ -126,7 +126,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/EllipticalROI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1279" y="356"/>    
+    <position height="-1" width="-1" x="1227" y="358"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
@@ -137,7 +137,7 @@
     project="uk.ac.diamond.scisoft.analysis.dataset" 
     file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/roi/EllipticalFitROI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1561" y="637"/>    
+    <position height="-1" width="-1" x="1511" y="637"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="true"/>      
