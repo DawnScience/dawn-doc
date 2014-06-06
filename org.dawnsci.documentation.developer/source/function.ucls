@@ -27,7 +27,7 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/IPeak.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="972" y="489"/>    
+    <position height="-1" width="-1" x="972" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -71,7 +71,7 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/Add.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="128" y="574"/>    
+    <position height="-1" width="-1" x="127" y="500"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
@@ -82,7 +82,7 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/ANaryOperator.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="128" y="481"/>    
+    <position height="-1" width="-1" x="128" y="381"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -104,7 +104,7 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/Offset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="975" y="960"/>    
+    <position height="-1" width="-1" x="126" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
@@ -115,10 +115,10 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/Gaussian.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1186" y="627"/>    
+    <position height="-1" width="-1" x="1223" y="514"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <attributes public="true" package="false" protected="true" private="false" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
@@ -126,11 +126,11 @@
     project="uk.ac.diamond.scisoft.analysis" 
     file="/uk.ac.diamond.scisoft.analysis/src/uk/ac/diamond/scisoft/analysis/fitting/functions/APeak.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="972" y="789"/>    
+    <position height="-1" width="-1" x="970" y="586"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="false" private="false" static="true"/>      
-      <operations public="true" package="true" protected="false" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <association id="13">    
