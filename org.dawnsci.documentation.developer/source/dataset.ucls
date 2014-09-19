@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.5" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <interface id="1" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.ILazyDataset" 
+  <interface id="1" language="java" name="org.eclipse.dawnsci.api.dataset.ILazyDataset" 
     project="uk.ac.diamond.scisoft.analysis.api" 
-    file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/dataset/ILazyDataset.java" 
+    file="/org.eclipse.dawnsci.analysis.api/src/org/eclipse/dawnsci/analysis/api/dataset/ILazyDataset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="116" y="-344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -12,9 +12,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="2" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.IMetadataProvider" 
+  <interface id="2" language="java" name="org.eclipse.dawnsci.api.dataset.IMetadataProvider" 
     project="uk.ac.diamond.scisoft.analysis.api" 
-    file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/dataset/IMetadataProvider.java" 
+    file="/org.eclipse.dawnsci.analysis.api/src/org/eclipse/dawnsci/analysis/api/dataset/IMetadataProvider.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="114" y="38"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -23,9 +23,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="3" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.IDataset" 
+  <interface id="3" language="java" name="org.eclipse.dawnsci.api.dataset.IDataset" 
     project="uk.ac.diamond.scisoft.analysis.api" 
-    file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/dataset/IDataset.java" binary="false" 
+    file="/org.eclipse.dawnsci.analysis.api/src/org/eclipse/dawnsci/analysis/api/dataset/IDataset.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="341" y="-333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -34,9 +34,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="4" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.IErrorDataset" 
+  <interface id="4" language="java" name="org.eclipse.dawnsci.api.dataset.IErrorDataset" 
     project="uk.ac.diamond.scisoft.analysis.api" 
-    file="/uk.ac.diamond.scisoft.analysis.api/src/uk/ac/diamond/scisoft/analysis/dataset/IErrorDataset.java" 
+    file="/org.eclipse.dawnsci.analysis.api/src/org/eclipse/dawnsci/analysis/api/dataset/IErrorDataset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="341" y="43"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -45,9 +45,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="5" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.Dataset" 
+  <interface id="5" language="java" name="org.eclipse.dawnsci.dataset.impl.Dataset" 
     project="uk.ac.diamond.scisoft.analysis.dataset" 
-    file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/dataset/Dataset.java" 
+    file="/org.eclipse.dawnsci.analysis.dataset/src/org.eclipse/dawnsci/analysis/dataset/Dataset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="596" y="1053"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -56,9 +56,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="6" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.AbstractDataset" 
+  <class id="6" language="java" name="org.eclipse.dawnsci.dataset.impl.AbstractDataset" 
     project="uk.ac.diamond.scisoft.analysis.dataset" 
-    file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/dataset/AbstractDataset.java" 
+    file="/org.eclipse.dawnsci.analysis.dataset/src/org.eclipse/dawnsci/analysis/dataset/AbstractDataset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="903" y="784"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -67,9 +67,9 @@
       <operations public="true" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="uk.ac.diamond.scisoft.analysis.dataset.DoubleDataset" 
+  <class id="7" language="java" name="org.eclipse.dawnsci.dataset.impl.DoubleDataset" 
     project="uk.ac.diamond.scisoft.analysis.dataset" 
-    file="/uk.ac.diamond.scisoft.analysis.dataset/src/uk/ac/diamond/scisoft/analysis/dataset/DoubleDataset.java" 
+    file="/org.eclipse.dawnsci.analysis.dataset/src/org.eclipse/dawnsci/analysis/dataset/DoubleDataset.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1194" y="173"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
